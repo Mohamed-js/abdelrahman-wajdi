@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 
 import AOS from "aos";
 import "aos/dist/aos.css";
-export default function UnderCover() {
+export default function UnderCoverMobile() {
   useEffect(() => {
     AOS.init({ duration: 1500, easing: "ease-in-out" });
 
@@ -43,13 +43,13 @@ export default function UnderCover() {
   ];
 
   return (
-    <div className="min-h-screen py-10 px-4 md:px-10  bg-[#081014]" id="undercover">
+    <div className="min-h-screen py-10 px-4 md:px-10" id="undercover " >
       <div className="flex items-center justify-center mt-10 md:mt-20 mb-12">
         <h1
           className="text-4xl md:text-5xl text-[#78b6db] font-bold"
           data-aos="fade"
         >
-          UnderCover
+          M
         </h1>
       </div>
 

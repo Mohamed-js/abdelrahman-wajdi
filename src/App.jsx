@@ -5,7 +5,7 @@ import Navbar from "./components/Navbar";
 import Sidebar from "./components/Sidebar";
 import Services from "./screens/Services";
 import { useState } from "react";
-import Footer from "./components/Footer";
+import AboutUs from "./screens/AboutUs";
 
 function App() {
   const [handleSidebar, setHandleSidebar] = useState(false);
@@ -16,8 +16,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/services" element={<Services />} />
+        <Route path="/about-us" element={<AboutUs />} />
       </Routes>
-      <Footer />
 
     </>
   );

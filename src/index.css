@@ -81,6 +81,21 @@ body{
   /* background-color: var(--main-background-color);
   color: var(--main-text-color); */
 
+  .swiper-slide {
+    /* Define transition properties for smooth animations */
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Adjust duration and easing as needed */
+    opacity: 0.1;
+  }
+  
+  .swiper-slide-active {
+    /* Apply special styles to the active slide */
+    opacity: 0.9; /* For example, reduce opacity */
+    transform: scale(1.1); /* For example, increase size */
+    
+    
+  }
+  
+  
 
   
 

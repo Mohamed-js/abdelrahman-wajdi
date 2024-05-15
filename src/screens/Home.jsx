@@ -7,7 +7,8 @@ import Cover from "../components/Cover";
 import UnderCover from "../components/UnderCover";
 import Contact from "../components/Contact";
 import OurWokrs from "../components/OurWokrs";
-
+import Footer from "../components/Footer";
+import UnderCoverMobile from "../components/UnderCoverMobile";
 
 export default function Home() {
   useEffect(() => {
@@ -31,9 +32,17 @@ export default function Home() {
           <Header />
         </div>
       </div>
+      <div className="block md:hidden">
+
+      <UnderCoverMobile />
+      </div>
+      <div className="hidden md:block">
+
       <UnderCover />
+      </div>
       <OurWokrs />
       <Contact />
+      <Footer />
     </>
   );
 }

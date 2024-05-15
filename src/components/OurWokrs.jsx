@@ -20,7 +20,7 @@ export default function OurWokrs() {
   ];
   return (
     <div className="relative z-[1] py-[100px] bg-[#051118] " id="team-members">
-      <h2 className="relative w-fit mx-auto  text-3xl font-semibold leading-10	drop-shadow-md mb-12 capitalize text-[#b7e4ea] text-center    ">
+      <h2 className="relative w-fit mx-auto  text-3xl font-semibold leading-10	drop-shadow-md mb-12 capitalize text-[#b7e4ea] text-center">
         <svg
           className="absolute w-[200px] h-[200px] top-[-82px] left-[-35px]  opacity-50 z-[-1]	"
           xmlns="http://www.w3.org/2000/svg"
@@ -64,33 +64,33 @@ export default function OurWokrs() {
                     href="#"
                     className="w-[60px] h-[30px] flex justify-center items-center no-underline"
                   >
-                    <FaFacebookF className="text-[#b7e4ea] transition-[0.3s] group-hover:text-[#144f61] group-hover:z-10 icon "/>
+                    <FaFacebookF className="text-[#b7e4ea] transition-[0.3s]  group-hover:z-10 icon " />
                   </a>
                   <a
                     href="#"
                     className="w-[60px] h-[30px] flex justify-center items-center no-underline"
                   >
-                    <FaXTwitter className="text-[#b7e4ea] transition-[0.3s] group-hover:text-[#144f61] group-hover:z-10 icon "/>
+                    <FaXTwitter className="text-[#b7e4ea] transition-[0.3s]  group-hover:z-10 icon " />
                   </a>
                   <a
                     href="#"
                     className="w-[60px] h-[30px] flex justify-center items-center no-underline"
                   >
-                    <FaWhatsapp className="text-[#b7e4ea] transition-[0.3s] group-hover:text-[#144f61] group-hover:z-10 icon "/>
+                    <FaWhatsapp className="text-[#b7e4ea] transition-[0.3s]  group-hover:z-10 icon " />
                   </a>
                   <a
                     href="#"
                     className="w-[60px] h-[30px] flex justify-center items-center no-underline"
                   >
-                    <AiOutlineTikTok className="text-[#b7e4ea] transition-[0.3s] group-hover:text-[#144f61] group-hover:z-10 icon "/>
+                    <AiOutlineTikTok className="text-[#b7e4ea] transition-[0.3s]  group-hover:z-10 icon " />
                   </a>
                 </div>
               </div>
               <div className="pl-20">
-                <h3 className="mt-3.5 font-black		 text-[#b7e4ea] text-[22px] transition-[0.3s] group-hover:text-[#93d5e2] mb-0">
+                <h3 className="mt-3.5 font-black		 text-[#b7e4ea] text-[22px] transition-[0.3s]  mb-0">
                   {card.name}
                 </h3>
-                <p className=" mb-3.5 text-[#b7e4ea] transition-[0.3s] group-hover:text-[#144f61]">
+                <p className=" mb-3.5 text-[#b7e4ea] transition-[0.3s] ">
                   {card.description}
                 </p>
               </div>
@@ -101,3 +101,6 @@ export default function OurWokrs() {
     </div>
   );
 }
+
+
+// group-hover:text-[#144f61]
