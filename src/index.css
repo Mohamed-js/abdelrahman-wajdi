@@ -1,0 +1,92 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+  box-sizing: border-box;
+}
+:root {
+    --main-background-color: #050e16;
+    --main-text-color: #a4bcc1;
+    --heading-color: #bce6eb;
+  }
+.main-bg-color{
+  color: #050e16
+}
+.main-color{
+  color: #bde1e8;
+}
+.heading-color {
+  color: "#bce6eb"
+}
+body{
+    background-color: var(--main-background-color); 
+    font-family: 'Mona Sans', -apple-system, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+}
+  
+.transform {
+  transform: rotate(40deg);
+}
+.transform-negative{
+  transform: rotate(-40deg);
+
+}
+
+/* .move-right {
+  animation: moveRight 1s linear infinite alternate;
+}
+
+.move-left {
+  animation: moveLeft 1s linear infinite alternate;
+} */
+
+
+@keyframes moveRight {
+  from { transform: translateX(0); }
+  to { transform: translateX(100px); }
+}
+
+@keyframes moveLeft {
+  from { transform: translateX(0); }
+  to { transform: translateX(-100px); }
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--main-background-color); /* Background color of the scrollbar track */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #78b6db; /* Color of the scrollbar thumb */
+  border-radius: 4px; /* Rounded corners */
+  border: 2px solid var(--main-background-color); /* Creates a padding effect */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--heading-color); /* Color of the scrollbar thumb on hover */
+}
+/* --tw-gradient-to: #103743 var(--tw-gradient-to-position);
+}
+
+
+<style>
+.from-\[\#051118\] {
+    --tw-gradient-from: #051118 va */
+
+
+  /* background-color: var(--main-background-color);
+  color: var(--main-text-color); */
+
+
+  
+
+
+
+  
+
+
+  
