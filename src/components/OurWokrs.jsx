@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import team1 from "../assets/imgs/team-01.jpg";
 import team2 from "../assets/imgs/team-02.jpg";
 import team3 from "../assets/imgs/team-03.jpg";
@@ -9,7 +9,18 @@ import { FaWhatsapp } from "react-icons/fa";
 import { FaFacebookF } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { AiOutlineTikTok } from "react-icons/ai";
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 export default function OurWokrs() {
+  useEffect(() => {
+    AOS.init({ duration: 1500, easing: "ease-in-out" });
+
+    // Cleanup function
+    return () => {
+      AOS.refresh();
+    };
+  }, []);
   const teamCard = [
     { name: "Name", description: "Description", img: team1 },
     { name: "Name", description: "Description", img: team2 },
@@ -19,8 +30,14 @@ export default function OurWokrs() {
     { name: "Name", description: "Description", img: team6 },
   ];
   return (
-    <div className="relative z-[1] py-[100px] bg-[#051118] " id="team-members">
-      <h2 className="relative w-fit mx-auto  text-3xl font-semibold leading-10	drop-shadow-md mb-12 capitalize text-[#b7e4ea] text-center">
+    <div className="relative z-[1] py-[100px] bg-gradient-to-r bg-[#051118] " id="team-members">
+      <div
+          className="absolute inset-0 bg-cover bg-center opacity-5"
+          style={{ 
+            backgroundImage: "url('https://cdn.pixabay.com/photo/2018/07/25/16/00/art-3561710_640.jpg')",
+          }}
+        ></div>
+      <h2 className="relative w-fit mx-auto  text-3xl font-semibold leading-10	drop-shadow-md mb-12 capitalize text-[#b7e4ea] text-center" data-aos="fade-left">
         <svg
           className="absolute w-[200px] h-[200px] top-[-82px] left-[-35px]  opacity-50 z-[-1]	"
           xmlns="http://www.w3.org/2000/svg"
@@ -45,6 +62,7 @@ export default function OurWokrs() {
         {teamCard.map((card, i) => {
           return (
             <div
+            data-aos="fade-up"
               key={i}
               className=" group  relative before:bg-gradient-to-tr	before:from-[#051118] before:to-[#103743] before:content-[''] before:absolute  before:h-full 
       before:transition-[0.3s] before:rounded-lg before:w-[calc(100%_-_60px)] 
@@ -101,6 +119,5 @@ export default function OurWokrs() {
     </div>
   );
 }
-
 
 // group-hover:text-[#144f61]

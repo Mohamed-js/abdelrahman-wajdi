@@ -91,8 +91,9 @@
 import React, { useRef } from "react";
 import { Parallax, ParallaxLayer } from "@react-spring/parallax";
 import styles from "../styles.module.css";
-
-const Page = ({ offset, gradient, title, description, onClick }) => {
+import landingImg from "../assets/imgs/landing-image.png"
+const Page = ({ offset, gradient, title, description, onClick, img }) => {
+  
   const handleClick = () => {
     onClick();
   };
@@ -117,6 +118,7 @@ const Page = ({ offset, gradient, title, description, onClick }) => {
         <div className="mt-10 ml-10 p-4 ">
 
         <span className={`${styles.number}`}>0{offset + 1}</span>
+        <img src={img} className="w-[300px] m-auto" />
         <h1 className="text-[#545864] text-base md:text-3xl text-center p-4">{title}</h1>
         <p className="text-[#545864] text-base md:text-2xl text-center p-4">{description}</p>
         </div>
@@ -151,16 +153,19 @@ export default function Service() {
       title: "Web Design",
       description: "Create stunning and user-friendly websites tailored to your brand's needs.",
       gradient: "pink",
+      img:"https://cdn.pixabay.com/photo/2016/04/04/14/12/monitor-1307227_1280.jpg"
     },
     {
       title: "Mobile App Development",
       description: "Build innovative and feature-rich mobile applications for iOS and Android platforms.",
       gradient: "teal",
+      img:"https://cdn.pixabay.com/photo/2016/04/04/14/12/monitor-1307227_1280.jpg"
     },
     {
       title: "Digital Marketing",
       description: "Increase your online presence and drive traffic to your website with strategic digital marketing campaigns.",
       gradient: "tomato",
+      img:"https://cdn.pixabay.com/photo/2016/04/04/14/12/monitor-1307227_1280.jpg"
     },
   ];
   
@@ -180,6 +185,7 @@ export default function Service() {
             offset={index}
             title={service.title}
             description={service.description}
+            img={landingImg}
             gradient={service.gradient}
             onClick={() => scroll("next")}
           />

@@ -3,7 +3,7 @@ import { useEffect, useRef } from "react";
 const images = [
   "https://cdn.pixabay.com/photo/2024/04/12/14/59/ai-generated-8692122_1280.png",
   "https://cdn.pixabay.com/photo/2024/04/07/20/04/business-8682137_640.png",
-  "https://cdn.pixabay.com/photo/2024/05/05/05/55/goose-8740266_1280.jpg",
+  "https://cdn.pixabay.com/photo/2024/05/03/12/46/ai-generated-8737037_640.jpg",
   "https://cdn.pixabay.com/photo/2024/04/25/11/04/laptop-8719563_1280.jpg",
   "https://cdn.pixabay.com/photo/2024/05/04/02/57/business-8738186_640.png",
   "https://cdn.pixabay.com/photo/2014/11/11/06/36/partnership-526413_640.jpg",

@@ -82,7 +82,12 @@ export default function Sidebar({ handleSidebar, setHandleSidebar }) {
           >
             About Us
           </li>
-          <li
+          
+        </LinkRouter>
+        <LinkRouter           to="/services"
+          onClick={() => setHandleSidebar((prev) => !prev)}
+          >
+        <li
             className="p-4 hover:text-[#78b6db] transition-colors duration-300 cursor-pointer"
             data-aos="fade-up"
             data-aos-delay="300"

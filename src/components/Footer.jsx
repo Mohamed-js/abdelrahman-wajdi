@@ -1,9 +1,15 @@
 import React from 'react'
 
 export default function Footer() {
-
+  // bg-gradient-to-tr	from-[#051118] to-[#103743] 
   return (
-    <div className="bg-[#051118]  bg-gradient-to-tr	from-[#051118] to-[#103743]  ">
+    <div className="bg-[#051118]  relative  ">
+       <div
+          className="absolute inset-0 bg-cover bg-center opacity-5"
+          style={{ 
+            backgroundImage: "url('https://cdn.pixabay.com/photo/2018/07/25/16/00/art-3561710_640.jpg')",
+          }}
+        ></div>
     
     <div className="  py-9 px-14 text-[#b7e4ea] md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-x-5">
 

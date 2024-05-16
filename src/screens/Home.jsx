@@ -22,10 +22,9 @@ export default function Home() {
   return (
     <>
       <div className="container " id="cover">
-        {/* 99.5 vw */}
         <div className="h-screen p-4 w-screen overflow-hidden relative">
           <div className="absolute inset-0 w-full h-full z-40">
-            <div className="absolute inset-0 bg-gradient-to-r from-[#000000] to-[#103743] opacity-80"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-[#000000] to-[#103743] opacity-90"></div>
             <div className="absolute inset-0 bg-black opacity-50"></div>
           </div>
           <Cover />

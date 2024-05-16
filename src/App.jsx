@@ -10,7 +10,7 @@ import AboutUs from "./screens/AboutUs";
 function App() {
   const [handleSidebar, setHandleSidebar] = useState(false);
   return (
-    <>
+    <div className="overflow-hidden">
       {handleSidebar && <Sidebar handleSidebar={handleSidebar} setHandleSidebar={setHandleSidebar}/>}
       <Navbar setHandleSidebar={setHandleSidebar}/>
       <Routes>
@@ -19,7 +19,7 @@ function App() {
         <Route path="/about-us" element={<AboutUs />} />
       </Routes>
 
-    </>
+    </div>
   );
 }
 

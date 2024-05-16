@@ -41,9 +41,17 @@ export default function UnderCover() {
       img: "https://cdn.pixabay.com/photo/2024/04/12/14/59/ai-generated-8692122_1280.png",
     },
   ];
-
-  return (
-    <div className="min-h-screen py-10 px-4 md:px-10  bg-[#081014]" id="undercover">
+   return (
+    <div
+      className="min-h-screen py-10 px-4 md:px-10 bg-[#051118]   relative"
+      id="undercover"
+      >
+          <div
+          className="absolute inset-0 bg-cover bg-center opacity-5"
+          style={{ 
+            backgroundImage: "url('https://cdn.pixabay.com/photo/2018/07/25/16/00/art-3561710_640.jpg')",
+          }}
+        ></div>
       <div className="flex items-center justify-center mt-10 md:mt-20 mb-12">
         <h1
           className="text-4xl md:text-5xl text-[#78b6db] font-bold"
@@ -88,6 +96,149 @@ export default function UnderCover() {
           </div>
         ))}
       </div>
+      {/* <div className="h-10 w-full flex justify-center items-center">
+        <div className="h-1 w-full bg-gray-400"></div>
+      </div> */}
     </div>
   );
 }
+
+// import React, { useEffect, useRef } from "react";
+// import AOS from "aos";
+// import "aos/dist/aos.css";
+// import { Parallax, ParallaxLayer } from "@react-spring/parallax";
+
+// export default function UnderCover() {
+//   const sectionRef = useRef(null);
+
+//   useEffect(() => {
+//     AOS.init({ duration: 1500, easing: "ease-in-out" });
+
+//     // Cleanup function
+//     sectionRef.current.scrollIntoView({ behavior: "smooth" });
+
+//     return () => {
+//       AOS.refresh();
+//     };
+//   }, []);
+
+//   const underCoverData = [
+//     {
+//       title: "Nature's Beauty",
+//       description:
+//         "Explore the mesmerizing landscapes of Iceland. From towering waterfalls to majestic mountains, Iceland offers a breathtaking experience for nature lovers.",
+//       learnMore: "Learn More",
+//       img: "https://cdn.pixabay.com/photo/2019/01/02/10/20/iceland-3908498_640.jpg",
+//     },
+//     {
+//       title: "Ancient Wonders",
+//       description:
+//         "Step back in time and marvel at the ancient wonders of Egypt. Discover the mysteries of the pyramids, sail down the Nile, and uncover the secrets of a civilization lost to history.",
+//       learnMore: "Discover More",
+//       img: "https://cdn.pixabay.com/photo/2024/04/08/20/41/city-8684454_640.jpg",
+//     },
+//     {
+//       title: "Urban Escapes",
+//       description:
+//         "Escape the hustle and bustle of city life. From hidden parks to rooftop gardens, urban escapes offer a sanctuary amidst the chaos.",
+//       learnMore: "Find Peace",
+//       img: "https://cdn.pixabay.com/photo/2024/01/15/10/31/winter-8509844_640.jpg",
+//     },
+//     {
+//       title: "Urban Escapes",
+//       description:
+//         "Escape the hustle and bustle of city life. From hidden parks to rooftop gardens, urban escapes offer a sanctuary amidst the chaos.",
+//       learnMore: "Find Peace",
+//       img: "https://cdn.pixabay.com/photo/2024/04/12/14/59/ai-generated-8692122_1280.png",
+//     },
+//   ];
+
+//   return (
+//     <div
+//       className="min-h-screen py-10 px-4 md:px-10 bg-[#081014] flex gap-8"
+//       id="undercover"
+//     >
+//             <div ref={sectionRef} />
+
+//       <Parallax pages={6}>
+//         <ParallaxLayer offset={0} speed={0.5} style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
+//           <h1 className="text-5xl md:text-6xl text-white font-bold tracking-wide text-center">Start Your Journey</h1>
+//         </ParallaxLayer>
+//         <ParallaxLayer
+//           speed={0.5}
+//           style={{
+//             display: "flex",
+//             alignItems: "center",
+//             justifyContent: "left",
+//           }}
+//           sticky={{ start: 0, end: 4 }}
+//         >
+//           <div className="flex items-center justify-left mt-10 md:mt-20 mb-12">
+//             <div
+//               className="sticky top-0 h-96 flex items-center justify-center mx-auto w-full max-w-5xl rounded-lg shadow-lg overflow-hidden"
+//               style={{
+//                 backgroundImage: `url(${"https://cdn.pixabay.com/photo/2024/04/12/14/59/ai-generated-8692122_1280.png"})`,
+//                 backgroundAttachment: "fixed",
+//                 backgroundSize: "cover",
+//                 backgroundPosition: "center",
+//               }}
+//             >
+//               <div className="absolute inset-0 "></div>
+//               <div className="relative p-6 md:p-12 text-left z-10 text-white">
+//                 <h2
+//                   className="text-2xl md:text-4xl font-bold mb-4"
+//                   data-aos="fade-right"
+//                 >
+//                   Welcome
+//                 </h2>
+//                 <p className="mb-4 text-base md:text-lg" data-aos="fade-left">
+//                   Start your journey with us
+//                 </p>
+//                 <button
+//                   className="relative mt-4 px-8 py-3 bg-[#01c4be] text-white font-semibold text-sm md:text-base rounded-full transition duration-300 ease-in-out shadow-lg hover:bg-[#019c9d] hover:shadow-2xl hover:-translate-y-1 before:absolute before:inset-0 before:bg-white before:opacity-20 before:blur-lg before:rounded-full before:transform before:scale-105 before:transition before:duration-300 before:ease-in-out hover:before:opacity-10 hover:before:scale-125"
+//                   data-aos="fade-bottom"
+//                 >
+//                   Learn more
+//                 </button>
+//               </div>
+//             </div>
+//           </div>
+//         </ParallaxLayer>
+
+//         {underCoverData.map((data, index) => (
+//           <ParallaxLayer key={index} offset={index + 1} speed={1 - index * 0.1}>
+//             {" "}
+//             <div
+//               className="relative h-96 flex items-center justify-center mx-auto w-full max-w-[500px] rounded-lg shadow-lg overflow-hidden"
+//               style={{
+//                 backgroundImage: `url(${data.img})`,
+//                 backgroundAttachment: "fixed",
+//                 backgroundSize: "cover",
+//                 backgroundPosition: "center",
+//               }}
+//             >
+//               <div className="absolute inset-0 "></div>
+//               <div className="relative p-6 md:p-12 text-left z-10 text-white">
+//                 <h2
+//                   className="text-2xl md:text-4xl font-bold mb-4"
+//                   data-aos="fade-right"
+//                 >
+//                   {data.title}
+//                 </h2>
+//                 <p className="mb-4 text-base md:text-lg" data-aos="fade-left">
+//                   {data.description}
+//                 </p>
+//                 <button
+//                   className="relative mt-4 px-8 py-3 bg-[#01c4be] text-white font-semibold text-sm md:text-base rounded-full transition duration-300 ease-in-out shadow-lg hover:bg-[#019c9d] hover:shadow-2xl hover:-translate-y-1 before:absolute before:inset-0 before:bg-white before:opacity-20 before:blur-lg before:rounded-full before:transform before:scale-105 before:transition before:duration-300 before:ease-in-out hover:before:opacity-10 hover:before:scale-125"
+//                   data-aos="fade-bottom"
+//                 >
+//                   {data.learnMore}
+//                 </button>
+//               </div>
+//             </div>
+//           </ParallaxLayer>
+//         ))}
+//       </Parallax>
+//     </div>
+//   );
+// }

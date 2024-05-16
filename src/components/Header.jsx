@@ -13,14 +13,14 @@ export default function Header() {
   }, []);
 
   return (
-    <div className="flex flex-col items-start justify-center h-full text-white relative container mx-auto z-[100]">
-      <h1 className="text-2xl md:text-3xl font-bold" data-aos="fade-left">
+    <div className="flex flex-col items-center justify-center h-full text-white relative container mx-auto z-[100]">
+      <h1 className="text-3xl md:text-5xl font-bold mb-4 text-center" data-aos="fade-up">
         Let's design your digital success
       </h1>
-      <h2 className="text-2xl md:text-6xl mt-2 text-[#78b6db]" data-aos="fade-right">
+      <h2 className="text-2xl md:text-4xl text-[#78b6db] text-center" data-aos="fade-up">
         With indelible lines!
       </h2>
-      <div className="absolute bottom-16 flex justify-center items-center w-full">
+      <div className="absolute bottom-8 left-0 right-0 flex justify-center">
         <motion.div
           initial={{ y: 0 }}
           animate={{ y: [0, 10, 0] }}
@@ -28,7 +28,7 @@ export default function Header() {
           style={{ overflow: "hidden" }}
         >
           <Link to="undercover" smooth={true} duration={500}>
-            <RxDoubleArrowDown className="cursor-pointer" size={25} />
+            <RxDoubleArrowDown className="cursor-pointer" size={32} />
           </Link>
         </motion.div>
       </div>
