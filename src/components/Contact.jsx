@@ -6,6 +6,7 @@ import { AiOutlineTikTok } from "react-icons/ai";
 import { FaLocationDot } from "react-icons/fa6";
 import { IoMdTime } from "react-icons/io";
 import { LiaPhoneVolumeSolid } from "react-icons/lia";
+import bgImg from "../assets/imgs/bg-img.jpg"
 import AOS from "aos";
 import "aos/dist/aos.css";
 
@@ -19,11 +20,11 @@ export default function Contact() {
     };
   }, []);
   return (
-    <div className="  bg-gradient-to-r bg-[#051118]  text-white p-12 text-center relative">
+    <div className="  bg-gradient-to-r bg-[#051118]  text-white p-4 md:p-12 text-center relative">
       <div
           className="absolute inset-0 bg-cover bg-center opacity-5"
           style={{ 
-            backgroundImage: "url('https://cdn.pixabay.com/photo/2018/07/25/16/00/art-3561710_640.jpg')",
+            backgroundImage: `url(${bgImg})`,
           }}
         ></div>
       <h2 className="relative w-fit mx-auto  text-3xl font-semibold leading-10	drop-shadow-md mb-12 capitalize text-[#b7e4ea] text-center" data-aos="fade-left">
@@ -50,7 +51,7 @@ export default function Contact() {
 
       <div className="flex flex-col gap-5	md:flex-row md:gap-0 justify-around items-center" >
         <div className="w-full  md:w-1/2 md:mr-10 rounded-xl pt-11 pb-8 px-8	bg-[#103743]" data-aos="fade-up" data-aos-duration="1600">
-          <h3 className="text-start text-xl	mb-11 ">Send Message</h3>
+          <h3 className="text-start text-xl	mb-11 main-color">Send Message</h3>
           <form action="">
             <input
               className="input block outline-none	 bg-inherit	mb-2 border-b w-full p-4"

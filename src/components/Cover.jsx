@@ -1,12 +1,16 @@
 import { useEffect, useRef } from "react";
-
+import cover1 from "../assets/imgs/cover1.jpg"
+import cover2 from "../assets/imgs/cover2.jpg"
+import cover3 from "../assets/imgs/cover3.jpg"
+import cover4 from "../assets/imgs/cover4.jpg"
+import cover5 from "../assets/imgs/cover5.jpg"
+import cover6 from "../assets/imgs/cover6.png"
 const images = [
-  "https://cdn.pixabay.com/photo/2024/04/12/14/59/ai-generated-8692122_1280.png",
-  "https://cdn.pixabay.com/photo/2024/04/07/20/04/business-8682137_640.png",
-  "https://cdn.pixabay.com/photo/2024/05/03/12/46/ai-generated-8737037_640.jpg",
-  "https://cdn.pixabay.com/photo/2024/04/25/11/04/laptop-8719563_1280.jpg",
-  "https://cdn.pixabay.com/photo/2024/05/04/02/57/business-8738186_640.png",
-  "https://cdn.pixabay.com/photo/2014/11/11/06/36/partnership-526413_640.jpg",
+  cover5,
+  cover6,
+  cover2,
+  cover4,
+  cover1,
   "https://cdn.pixabay.com/photo/2015/03/29/08/47/entrepreneur-696966_640.jpg",
   "https://cdn.pixabay.com/photo/2016/11/21/15/13/work-harder-1845901_640.jpg",
   "https://cdn.pixabay.com/photo/2016/06/12/20/27/macro-1452987_640.jpg",
@@ -42,7 +46,7 @@ export default function Cover() {
     <div className="h-[300%] w-[300%] absolute top-[-350px] md:top-[350px] left-[-300px] md:left-[-150px] ">
       <div className=" h-full w-full">
         <div
-          className="flex flex-col transform justify-end items-center gap-4"
+          className="flex flex-col transform-positive justify-end items-center gap-6"
           ref={galleryWrapperRef}
           style={{ position: "relative", height: "100%" }}
         >

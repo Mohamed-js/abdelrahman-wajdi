@@ -9,6 +9,7 @@ import Contact from "../components/Contact";
 import OurWokrs from "../components/OurWokrs";
 import Footer from "../components/Footer";
 import UnderCoverMobile from "../components/UnderCoverMobile";
+import ClientSlider from "../components/ClientSlider";
 
 export default function Home() {
   useEffect(() => {
@@ -24,22 +25,23 @@ export default function Home() {
       <div className="container " id="cover">
         <div className="h-screen p-4 w-screen overflow-hidden relative">
           <div className="absolute inset-0 w-full h-full z-40">
-            <div className="absolute inset-0 bg-gradient-to-r from-[#000000] to-[#103743] opacity-90"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-[#000000] via-[#103743] to-[#000000] opacity-90"></div>
             <div className="absolute inset-0 bg-black opacity-50"></div>
           </div>
           <Cover />
           <Header />
         </div>
       </div>
-      <div className="block md:hidden">
+      {/* <div className="block md:hidden">
 
       <UnderCoverMobile />
-      </div>
-      <div className="hidden md:block">
+      </div> */}
+      <div className="">
 
       <UnderCover />
       </div>
       <OurWokrs />
+      <ClientSlider/>
       <Contact />
       <Footer />
     </>

@@ -78,7 +78,7 @@ export default function UnderCoverMobile() {
                 {data.description}
               </p>
               <button
-                className="relative mt-4 px-8 py-3 bg-[#01c4be] text-white font-semibold text-sm md:text-base rounded-full transition transform duration-300 ease-in-out shadow-lg hover:bg-[#019c9d] hover:shadow-2xl hover:-translate-y-1 before:absolute before:inset-0 before:bg-white before:opacity-20 before:blur-lg before:rounded-full before:transform before:scale-105 before:transition before:duration-300 before:ease-in-out hover:before:opacity-10 hover:before:scale-125"
+                className="relative mt-4 px-8 py-3 bg-[#01c4be] text-white font-semibold text-sm md:text-base rounded-full transition transform-positive duration-300 ease-in-out shadow-lg hover:bg-[#019c9d] hover:shadow-2xl hover:-translate-y-1 before:absolute before:inset-0 before:bg-white before:opacity-20 before:blur-lg before:rounded-full before:transform before:scale-105 before:transition before:duration-300 before:ease-in-out hover:before:opacity-10 hover:before:scale-125"
                 data-aos="fade-bottom"
               >
                 {data.learnMore}

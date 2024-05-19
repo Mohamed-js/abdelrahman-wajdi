@@ -1,97 +1,11 @@
-// import React, { useRef } from "react";
-// import { Parallax, ParallaxLayer } from "@react-spring/parallax";
-
-// const Page = ({ offset, gradient, onClick }) => {
-//   const handleClick = () => {
-//     onClick();
-//   };
-
-//   // Define unique content for each page
-//   const contentMap = [
-//     {
-//       title: "Service 1",
-//       description: "Description of Service 1",
-//       gradientFrom: "gray-900",
-//       gradientTo: "red-800"
-//     },
-//     {
-//       title: "Service 2",
-//       description: "Description of Service 2",
-//       gradientFrom: "gray-900",
-//       gradientTo: "blue-600"
-//     },
-//     {
-//       title: "Service 3",
-//       description: "Description of Service 3",
-//       gradientFrom: "gray-900",
-//       gradientTo: "tomato-600"
-//     }
-//   ];
-
-//   const { title, description, gradientFrom, gradientTo } = contentMap[offset];
-//   console.log(`absolute inset-0 bg-gradient-to-br from-${gradientFrom} to-${gradientTo}`)
-//   return (
-//     <>
-//       <ParallaxLayer offset={offset} speed={0.2} onClick={handleClick}>
-//         <div className={`absolute inset-0 bg-gradient-to-br from-red-600 to-gray-800`} />
-//         <div
-//           className="absolute inset-0 flex flex-col justify-center items-center text-white font-bold text-4xl cursor-pointer"
-//           onClick={handleClick}
-//         >
-//           <span>{title}</span>
-//           <p>{description}</p>
-//         </div>
-//       </ParallaxLayer>
-//     </>
-//   );
-// };
-
-// export default function Service() {
-//   const parallax = useRef(null);
-//   const totalPages = 3; // Update this to the total number of pages
-
-//   const scroll = (to) => {
-//     if (parallax.current) {
-//       // Get current offset
-//       const currentOffset = parallax.current.offset;
-//       let newOffset;
-
-//       // Determine new offset based on the direction of scrolling
-//       if (to === "next") {
-//         newOffset = currentOffset < totalPages - 1 ? currentOffset + 1 : 0; // Loop back to 0 if at the end
-//       } else if (to === "prev") {
-//         newOffset = currentOffset > 0 ? currentOffset - 1 : totalPages - 1; // Loop to totalPages - 1 if at the beginning
-//       } else {
-//         newOffset = to;
-//       }
-
-//       // Scroll to the new offset
-//       parallax.current.scrollTo(newOffset);
-//     }
-//   };
-
-//   return (
-//     <div style={{ background: "#dfdfdf" }}>
-//       <Parallax
-//         className="h-screen w-screen"
-//         style={{ overflow: "hidden" }}
-//         ref={parallax}
-//         pages={3}
-//         horizontal
-//       >
-//         {/* Make ParallaxLayer clickable by passing onClick function */}
-//         <Page offset={0} onClick={() => scroll("prev")} />
-//         <Page offset={1} onClick={() => scroll("prev")} />
-//         <Page offset={2} onClick={() => scroll("prev")} />
-//       </Parallax>
-//     </div>
-//   );
-// }
 
 import React, { useRef } from "react";
 import { Parallax, ParallaxLayer } from "@react-spring/parallax";
 import styles from "../styles.module.css";
 import landingImg from "../assets/imgs/landing-image.png"
+import { MdKeyboardArrowRight } from "react-icons/md";
+import { MdKeyboardArrowLeft } from "react-icons/md";
+
 const Page = ({ offset, gradient, title, description, onClick, img }) => {
   
   const handleClick = () => {
@@ -109,10 +23,9 @@ const Page = ({ offset, gradient, title, description, onClick, img }) => {
       </ParallaxLayer>
 
       <ParallaxLayer
-        className={`${styles.text} cursor-pointer`}
+        className={`${styles.text}`}
         offset={offset}
         speed={0.3}
-        onClick={handleClick}
         
       >
         <div className="mt-10 ml-10 p-4 ">
@@ -172,6 +85,12 @@ export default function Service() {
 
   return (
     <div style={{ background: "#dfdfdf" }}>
+    <div className="fixed left-2  md:left-4 top-1/2 transform -translate-y-1/2 text-4xl md:text-6xl text-[#fddc15] z-30 cursor-pointer">
+        <MdKeyboardArrowLeft onClick={() => scroll("prev")} />
+      </div>
+      <div className="fixed right-2  md:right-4 top-1/2 transform -translate-y-1/2 text-4xl md:text-6xl text-[#fddc15] z-30 cursor-pointer">
+        <MdKeyboardArrowRight onClick={() => scroll("next")} />
+      </div>
       <Parallax
         className={styles.container}
         style={{ overflow: "hidden" }}

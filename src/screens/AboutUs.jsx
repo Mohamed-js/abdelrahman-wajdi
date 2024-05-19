@@ -16,14 +16,21 @@ import "swiper/css/effect-coverflow";
 import about1 from "../assets/imgs/about-1.png";
 import about2 from "../assets/imgs/about-2.png";
 import about3 from "../assets/imgs/about-3.png";
+import bgImg from "../assets/imgs/bg-img.jpg"
 import Footer from "../components/Footer";
 
 export default function AboutUs() {
   return (
     <div
-      className="relative z-[1] py-5 bg-[#051118] h-screen"
+      className="relative z-[1] py-5 bg-[#051118] "
       id="team-members"
     >
+       <div
+          className="absolute inset-0 bg-cover bg-center opacity-5"
+          style={{ 
+            backgroundImage: `url(${bgImg})`,
+          }}
+        ></div>
       <div className="mb-14 text-center mx-auto">
         <h4 className="w-fit mx-auto text-xs tracking-[4px] leading-10 uppercase text-[#b7e4ea] text-center mt-12">
           About
@@ -46,7 +53,7 @@ export default function AboutUs() {
           </svg>
           The dream team of digital marketing.
         </p>
-        <p className="w-fit mx-auto text-[10px] md:text-xs leading-10 capitalize text-[#b7e4ea] text-center">
+        <p className="w-fit mx-auto text-[10px] md:text-xs leading-10 capitalize main-color text-center">
           We grow businesses online. Period.
         </p>
       </div>
@@ -57,6 +64,7 @@ export default function AboutUs() {
         pagination={{ clickable: true }}
         scrollbar={{ draggable: true }}
         spaceBetween={60}
+        
         slidesPerView={3}
         centeredSlides={true}
         className="px-10"

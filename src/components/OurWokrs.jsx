@@ -5,6 +5,7 @@ import team3 from "../assets/imgs/team-03.jpg";
 import team4 from "../assets/imgs/team-04.jpg";
 import team5 from "../assets/imgs/team-05.png";
 import team6 from "../assets/imgs/team-06.png";
+import bgImg from "../assets/imgs/bg-img.jpg"
 import { FaWhatsapp } from "react-icons/fa";
 import { FaFacebookF } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
@@ -30,14 +31,21 @@ export default function OurWokrs() {
     { name: "Name", description: "Description", img: team6 },
   ];
   return (
-    <div className="relative z-[1] py-[100px] bg-gradient-to-r bg-[#051118] " id="team-members">
+    <div
+      className="relative z-[1] py-[100px] bg-gradient-to-r bg-[#051118] p-2"
+      id="work"
+    >
       <div
-          className="absolute inset-0 bg-cover bg-center opacity-5"
-          style={{ 
-            backgroundImage: "url('https://cdn.pixabay.com/photo/2018/07/25/16/00/art-3561710_640.jpg')",
-          }}
-        ></div>
-      <h2 className="relative w-fit mx-auto  text-3xl font-semibold leading-10	drop-shadow-md mb-12 capitalize text-[#b7e4ea] text-center" data-aos="fade-left">
+        className="absolute inset-0 bg-cover bg-center opacity-5"
+        style={{
+          backgroundImage:
+            `url(${bgImg})`,
+        }}
+      ></div>
+      <h2
+        className="relative w-fit mx-auto  text-3xl font-semibold leading-10	drop-shadow-md mb-12 capitalize text-[#b7e4ea] text-center"
+        data-aos="fade-left"
+      >
         <svg
           className="absolute w-[200px] h-[200px] top-[-82px] left-[-35px]  opacity-50 z-[-1]	"
           xmlns="http://www.w3.org/2000/svg"
@@ -62,7 +70,7 @@ export default function OurWokrs() {
         {teamCard.map((card, i) => {
           return (
             <div
-            data-aos="fade-up"
+              data-aos="fade-up"
               key={i}
               className=" group  relative before:bg-gradient-to-tr	before:from-[#051118] before:to-[#103743] before:content-[''] before:absolute  before:h-full 
       before:transition-[0.3s] before:rounded-lg before:w-[calc(100%_-_60px)] 
@@ -108,7 +116,7 @@ export default function OurWokrs() {
                 <h3 className="mt-3.5 font-black		 text-[#b7e4ea] text-[22px] transition-[0.3s]  mb-0">
                   {card.name}
                 </h3>
-                <p className=" mb-3.5 text-[#b7e4ea] transition-[0.3s] ">
+                <p className=" mb-3.5 text-[#fddc15] transition-[0.3s] ">
                   {card.description}
                 </p>
               </div>

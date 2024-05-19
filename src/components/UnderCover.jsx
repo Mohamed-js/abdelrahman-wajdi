@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-
+import bgImg from "../assets/imgs/bg-img.jpg"
 import AOS from "aos";
 import "aos/dist/aos.css";
 export default function UnderCover() {
@@ -41,23 +41,42 @@ export default function UnderCover() {
       img: "https://cdn.pixabay.com/photo/2024/04/12/14/59/ai-generated-8692122_1280.png",
     },
   ];
-   return (
+  return (
     <div
       className="min-h-screen py-10 px-4 md:px-10 bg-[#051118]   relative"
       id="undercover"
-      >
-          <div
-          className="absolute inset-0 bg-cover bg-center opacity-5"
-          style={{ 
-            backgroundImage: "url('https://cdn.pixabay.com/photo/2018/07/25/16/00/art-3561710_640.jpg')",
-          }}
-        ></div>
-      <div className="flex items-center justify-center mt-10 md:mt-20 mb-12">
+    >
+      <div
+        className="absolute inset-0 bg-cover bg-center opacity-5"
+        style={{
+          backgroundImage:
+            `url(${bgImg})`,
+        }}
+      ></div>
+      <div className="flex items-center justify-center mt-10 md:mt-20 mb-12 relative">
         <h1
-          className="text-4xl md:text-5xl text-[#78b6db] font-bold"
+          className="relative w-fit mx-auto  text-4xl font-semibold leading-10	drop-shadow-md mb-12 capitalize text-[#b7e4ea] text-center"
           data-aos="fade"
         >
-          UnderCover
+          <svg
+            className="absolute w-[200px] h-[200px] top-[-82px] left-[-35px]  opacity-50 z-[-1]	"
+            xmlns="http://www.w3.org/2000/svg"
+            version="1.1"
+            // xmlns:xlink="http://www.w3.org/1999/xlink"
+            // xmlns:svgjs="http://svgjs.dev/svgjs"
+            viewBox="0 0 2000 2000"
+          >
+            <g>
+              <g fill="hsl(194, 45%, 50%)" id="star">
+                <path
+                  d="M 500 500 C 1000 1000 1000 1000 1300 750 C 1000 1000 1000 1000 2000 2000 C 1000 1000 1000 1000 750 1300 C 1000 1000 1000 1000 500 500"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                ></path>
+              </g>
+            </g>
+          </svg>
+          Insights
         </h1>
       </div>
 
@@ -86,7 +105,7 @@ export default function UnderCover() {
                 {data.description}
               </p>
               <button
-                className="relative mt-4 px-8 py-3 bg-[#01c4be] text-white font-semibold text-sm md:text-base rounded-full transition transform duration-300 ease-in-out shadow-lg hover:bg-[#019c9d] hover:shadow-2xl hover:-translate-y-1 before:absolute before:inset-0 before:bg-white before:opacity-20 before:blur-lg before:rounded-full before:transform before:scale-105 before:transition before:duration-300 before:ease-in-out hover:before:opacity-10 hover:before:scale-125"
+                className="relative mt-4 px-8 py-3 bg-[#fddc15] text-black font-semibold text-sm md:text-base rounded-full transition transform-positive duration-300 ease-in-out shadow-lg hover:bg-[#ffe44c] hover:shadow-2xl hover:-translate-y-1 before:absolute before:inset-0 before:bg-white before:opacity-20 before:blur-lg before:rounded-full before:transform before:scale-105 before:transition before:duration-300 before:ease-in-out hover:before:opacity-10 hover:before:scale-125"
                 data-aos="fade-bottom"
               >
                 {data.learnMore}

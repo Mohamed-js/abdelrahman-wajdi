@@ -14,8 +14,13 @@
   color: #050e16;
 }
 .main-color {
-  color: #bde1e8;
+  color: #fddc15;
 }
+/* #fddc15 */
+/* #bde1e8 */
+
+/* text-[#78b6db] */
+/* bg-[#01c4be] */
 .heading-color {
   color: "#bce6eb";
 }
@@ -25,7 +30,7 @@ body {
     sans-serif;
 }
 
-.transform {
+.transform-positive {
   transform: rotate(40deg);
 }
 .transform-negative {
@@ -50,21 +55,21 @@ body {
 ::-webkit-scrollbar {
   width: 8px;
 }
+
 ::-webkit-scrollbar-track {
-  background: var(
-    --main-background-color
-  ); /* Background color of the scrollbar track */
+  background:  #050e16/* Background color of the scrollbar track */
 }
+
 ::-webkit-scrollbar-thumb {
-  background-color: #78b6db; /* Color of the scrollbar thumb */
+  background-color: #fddc15; /* Color of the scrollbar thumb */
   border-radius: 4px; /* Rounded corners */
-  border: 2px solid var(--main-background-color); /* Creates a padding effect */
+  border: 2px solid #050e16; /* Creates a padding effect */
 }
+
 ::-webkit-scrollbar-thumb:hover {
-  background-color: var(
-    --heading-color
-  ); /* Color of the scrollbar thumb on hover */
+  background-color: #fcb900; /* Color of the scrollbar thumb on hover */
 }
+
 /* --tw-gradient-to: #103743 var(--tw-gradient-to-position);
 }
 .from-\[\#051118\] {
@@ -81,3 +86,7 @@ body {
   opacity: 0.9; /* For example, reduce opacity */
   transform: scale(1.1); /* For example, increase size */
 }
+
+
+
+
