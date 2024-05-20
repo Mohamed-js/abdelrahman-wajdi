@@ -16,6 +16,8 @@ const images = [
   "https://cdn.pixabay.com/photo/2016/06/12/20/27/macro-1452987_640.jpg",
 ];
 
+import React from "react";
+
 export default function Cover() {
   const galleryWrapperRef = useRef(null);
 

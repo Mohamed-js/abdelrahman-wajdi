@@ -31,10 +31,10 @@ export default function Navbar({ setHandleSidebar }) {
         <div className="flex justify-between items-center">
           <div className="flex items-center gap-4 w-[35%] md:w-[40%] ">
             <div className="main-color cursor-pointer">AR</div>
-            <FaShoppingBag size={20} className="main-color cursor-pointer" />
-            <Link to="services">
+            {/* <FaShoppingBag size={20} className="main-color cursor-pointer" /> */}
+            <Link to="our-works">
               <div className="main-color text-sm md:text-base cursor-pointer hidden md:block">
-                Services
+                Our Works
               </div>
             </Link>
           </div>

@@ -1,5 +1,5 @@
 
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { Parallax, ParallaxLayer } from "@react-spring/parallax";
 import styles from "../styles.module.css";
 import landingImg from "../assets/imgs/landing-image.png"
@@ -40,7 +40,7 @@ const Page = ({ offset, gradient, title, description, onClick, img }) => {
   );
 };
 
-export default function Service() {
+export default function OurWorks() {
   const parallax = useRef(null);
   const totalPages = 3; // Update this to the total number of pages
 
@@ -61,7 +61,7 @@ export default function Service() {
     }
   };
 
-  const services = [
+  const ourWorks = [
     {
       title: "Web Design",
       description: "Create stunning and user-friendly websites tailored to your brand's needs.",
@@ -81,6 +81,9 @@ export default function Service() {
       img:"https://cdn.pixabay.com/photo/2016/04/04/14/12/monitor-1307227_1280.jpg"
     },
   ];
+  useEffect(() => {
+    window.scrollTo(0, 0); // Ensure scroll position is at the top on initial load
+  }, []);
   
 
   return (
@@ -98,7 +101,7 @@ export default function Service() {
         pages={3}
         horizontal
       >
-        {services.map((service, index) => (
+        {ourWorks.map((service, index) => (
           <Page
             key={index}
             offset={index}

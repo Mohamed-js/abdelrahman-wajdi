@@ -1,6 +1,12 @@
 import React, { useEffect } from "react";
 import bgImg from "../assets/imgs/bg-img.jpg"
 import AOS from "aos";
+import insights1 from "../assets/imgs/insights1.jpg"
+import insights2 from "../assets/imgs/insights2.jpg"
+import insights3 from "../assets/imgs/insights3.jpg"
+import insights4 from "../assets/imgs/insights4.png"
+import insights5 from "../assets/imgs/insights5.jpg"
+import insights6 from "../assets/imgs/insights6.jpg"
 import "aos/dist/aos.css";
 export default function UnderCover() {
   useEffect(() => {
@@ -11,40 +17,42 @@ export default function UnderCover() {
       AOS.refresh();
     };
   }, []);
-  const underCoverData = [
+  const marketingConceptsData = [
     {
-      title: "Nature's Beauty",
+      title: "Social Media Engagement",
       description:
-        "Explore the mesmerizing landscapes of Iceland. From towering waterfalls to majestic mountains, Iceland offers a breathtaking experience for nature lovers.",
+        "Harness the power of social media to engage with your audience. From interactive posts to captivating stories, create a buzz around your brand and connect with your customers like never before.",
       learnMore: "Learn More",
-      img: "https://cdn.pixabay.com/photo/2019/01/02/10/20/iceland-3908498_640.jpg",
+      img: insights1,
     },
     {
-      title: "Ancient Wonders",
+      title: "Search Engine Optimization (SEO)",
       description:
-        "Step back in time and marvel at the ancient wonders of Egypt. Discover the mysteries of the pyramids, sail down the Nile, and uncover the secrets of a civilization lost to history.",
+        "Optimize your online presence with effective SEO strategies. From keyword research to on-page optimization, develop an SEO strategy that boosts your website's visibility, improves search engine rankings, and drives organic traffic to your business.",
       learnMore: "Discover More",
-      img: "https://cdn.pixabay.com/photo/2024/04/08/20/41/city-8684454_640.jpg",
+      img: insights2,
     },
     {
-      title: "Urban Escapes",
+      title: "Email Campaign Optimization",
       description:
-        "Escape the hustle and bustle of city life. From hidden parks to rooftop gardens, urban escapes offer a sanctuary amidst the chaos.",
+        "Optimize your email campaigns to deliver the right message at the right time. From personalized subject lines to A/B testing, unlock the full potential of email marketing and drive higher open rates, click-throughs, and conversions.",
       learnMore: "Find Peace",
-      img: "https://cdn.pixabay.com/photo/2024/01/15/10/31/winter-8509844_640.jpg",
+      img: insights6,
     },
     {
-      title: "Urban Escapes",
+      title: "Data-Driven Marketing",
       description:
-        "Escape the hustle and bustle of city life. From hidden parks to rooftop gardens, urban escapes offer a sanctuary amidst the chaos.",
-      learnMore: "Find Peace",
-      img: "https://cdn.pixabay.com/photo/2024/04/12/14/59/ai-generated-8692122_1280.png",
+        "Utilize data analytics to make informed marketing decisions. From customer segmentation to predictive modeling, harness the power of data to understand your audience, optimize campaigns, and maximize ROI.",
+      learnMore: "Explore More",
+      img: insights4,
     },
   ];
+
+
   return (
     <div
       className="min-h-screen py-10 px-4 md:px-10 bg-[#051118]   relative"
-      id="undercover"
+      id="insights"
     >
       <div
         className="absolute inset-0 bg-cover bg-center opacity-5"
@@ -81,7 +89,7 @@ export default function UnderCover() {
       </div>
 
       <div className="space-y-16 md:space-y-32">
-        {underCoverData.map((data, index) => (
+        {marketingConceptsData.map((data, index) => (
           <div
             key={index}
             className="relative h-96 flex items-center justify-center mx-auto w-full max-w-5xl rounded-lg shadow-lg overflow-hidden"
@@ -92,6 +100,8 @@ export default function UnderCover() {
               backgroundPosition: "center",
             }}
           >
+                  <div className="absolute inset-0 bg-black opacity-30"></div> {/* Overlay with low opacity */}
+
             {/* bg-gradient-to-r from-[#01c4be] to-[#01c699] opacity-20 */}
             <div className="absolute inset-0 "></div>
             <div className="relative p-6 md:p-12 text-left z-10 text-white">

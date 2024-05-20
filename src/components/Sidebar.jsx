@@ -2,9 +2,11 @@ import React, { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { Link } from "react-scroll";
-import { Link as LinkRouter } from "react-router-dom";
+import { Link as LinkRouter, useLocation } from "react-router-dom";
 import logo from "../assets/imgs/logo.jpeg";
 export default function Sidebar({ handleSidebar, setHandleSidebar }) {
+  const location = useLocation();
+
   useEffect(() => {
     AOS.init({ duration: 1000, easing: "ease-in-out" });
     // Cleanup function
@@ -28,6 +30,15 @@ export default function Sidebar({ handleSidebar, setHandleSidebar }) {
       document.body.classList.remove("overflow-hidden");
     };
   }, [handleSidebar]);
+
+  const isSamePage = (link) => {
+    return location.pathname === link;
+  };
+
+  const handleLinkClick = () => {
+    setHandleSidebar((prev) => !prev);
+  };
+
 
   return (
     <div className="fixed top-0 left-0 bottom-0 z-[300] bg-gradient-to-r from-[#05121e] to-[#091921] w-full h-full text-white overflow-y-auto">
@@ -61,34 +72,46 @@ export default function Sidebar({ handleSidebar, setHandleSidebar }) {
         </h1>
       </div>
       <ul className="space-y-4 text-center">
-        <Link
-          to="cover"
-          smooth={true}
-          duration={1500}
-          onClick={() => setHandleSidebar((prev) => !prev)}
+      <li
+          className="p-4 hover:text-[#fddc15] transition-colors duration-300 cursor-pointer"
+          data-aos="fade-up"
+          data-aos-delay="200"
         >
-          <li
-            className="p-4 hover:text-[#fddc15] transition-colors duration-300 cursor-pointer"
-            data-aos="fade-up"
-            data-aos-delay="100"
-          >
-            Home
-          </li>
-        </Link>
-        <Link
-          to="undercover"
-          smooth={true}
-          duration={1500}
-          onClick={() => setHandleSidebar((prev) => !prev)}
+          {isSamePage("/") ? (
+            <Link
+              to="cover"
+              smooth={true}
+              duration={1500}
+              onClick={handleLinkClick}
+            >
+              Home
+            </Link>
+          ) : (
+            <LinkRouter to="/#cover" onClick={handleLinkClick}>
+              Home
+            </LinkRouter>
+          )}
+        </li>
+      <li
+          className="p-4 hover:text-[#fddc15] transition-colors duration-300 cursor-pointer mt-none"
+          data-aos="fade-up"
+          data-aos-delay="300"
         >
-          <li
-            className="p-4 hover:text-[#fddc15] transition-colors duration-300 cursor-pointer"
-            data-aos="fade-up"
-            data-aos-delay="200"
-          >
-            UnderCover
-          </li>
-        </Link>
+          {isSamePage("/") ? (
+            <Link
+              to="insights"
+              smooth={true}
+              duration={1500}
+              onClick={handleLinkClick}
+            >
+              Insights
+            </Link>
+          ) : (
+            <LinkRouter to="/#insights" onClick={handleLinkClick} >
+              Insights
+            </LinkRouter>
+          )}
+        </li>
         <LinkRouter
           to="/about-us"
           onClick={() => setHandleSidebar((prev) => !prev)}
@@ -96,41 +119,68 @@ export default function Sidebar({ handleSidebar, setHandleSidebar }) {
           <li
             className="p-4 hover:text-[#fddc15] transition-colors duration-300 cursor-pointer"
             data-aos="fade-up"
-            data-aos-delay="300"
+            data-aos-delay="400"
           >
             About Us
           </li>
         </LinkRouter>
         <LinkRouter
-          to="/services"
+          to="/our-works"
           onClick={() => setHandleSidebar((prev) => !prev)}
         >
           <li
             className="p-4 hover:text-[#fddc15] transition-colors duration-300 cursor-pointer"
             data-aos="fade-up"
-            data-aos-delay="300"
+            data-aos-delay="500"
           >
-            Services
+            Our Works
           </li>
         </LinkRouter>
-        <Link
-          to="work"
-          smooth={true}
-          duration={1500}
-          onClick={() => setHandleSidebar((prev) => !prev)}
+        <li
+          className="p-4 hover:text-[#fddc15] transition-colors duration-300 cursor-pointer mt-none"
+          data-aos="fade-up"
+          data-aos-delay="600"
         >
-          <li
-            className="p-4 hover:text-[#fddc15] transition-colors duration-300 cursor-pointer"
-            data-aos="fade-up"
-            data-aos-delay="400"
-          >
-            Our Work
-          </li>
-        </Link>
+          {isSamePage("/") ? (
+            <Link
+              to="services"
+              smooth={true}
+              duration={1500}
+              onClick={handleLinkClick}
+            >
+              Services
+            </Link>
+          ) : (
+            <LinkRouter to="/#services" onClick={handleLinkClick} >
+              Services
+            </LinkRouter>
+          )}
+        </li>
+         <li
+          className="p-4 hover:text-[#fddc15] transition-colors duration-300 cursor-pointer mt-none"
+          data-aos="fade-up"
+          data-aos-delay="700"
+        >
+          {isSamePage("/") ? (
+            <Link
+              to="contact-us"
+              smooth={true}
+              duration={1500}
+              onClick={handleLinkClick}
+            >
+              Contact Us
+            </Link>
+          ) : (
+            <LinkRouter to="/#contact-us" onClick={handleLinkClick} >
+                            Contact Us
+
+            </LinkRouter>
+          )}
+        </li>
         <li
           className="p-4 hover:text-[#fddc15] transition-colors duration-300 cursor-pointer"
           data-aos="fade-up"
-          data-aos-delay="400"
+          data-aos-delay="800"
         >
           العربية
         </li>

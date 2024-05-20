@@ -2,6 +2,8 @@ import { useEffect } from "react";
 import { Link } from "react-scroll";
 import { motion } from "framer-motion";
 import { RxDoubleArrowDown } from "react-icons/rx";
+import React from "react";
+
 
 export default function Header() {
   useEffect(() => {

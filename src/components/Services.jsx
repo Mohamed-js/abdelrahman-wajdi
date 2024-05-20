@@ -1,11 +1,15 @@
 import React, { useEffect } from "react";
-import team1 from "../assets/imgs/team-01.jpg";
-import team2 from "../assets/imgs/team-02.jpg";
-import team3 from "../assets/imgs/team-03.jpg";
-import team4 from "../assets/imgs/team-04.jpg";
-import team5 from "../assets/imgs/team-05.png";
-import team6 from "../assets/imgs/team-06.png";
-import bgImg from "../assets/imgs/bg-img.jpg"
+import service1 from "../assets/imgs/service1.jpg";
+import service2 from "../assets/imgs/service2.jpg";
+import service3 from "../assets/imgs/service3.jpg";
+import service4 from "../assets/imgs/service4.jpg";
+import service5 from "../assets/imgs/service5.jpg";
+import service6 from "../assets/imgs/service6.png";
+import service7 from "../assets/imgs/service7.jpg";
+import service8 from "../assets/imgs/service8.png";
+import service9 from "../assets/imgs/service9.jpg";
+
+import bgImg from "../assets/imgs/bg-img.jpg";
 import { FaWhatsapp } from "react-icons/fa";
 import { FaFacebookF } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
@@ -13,7 +17,7 @@ import { AiOutlineTikTok } from "react-icons/ai";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-export default function OurWokrs() {
+export default function Services() {
   useEffect(() => {
     AOS.init({ duration: 1500, easing: "ease-in-out" });
 
@@ -22,24 +26,51 @@ export default function OurWokrs() {
       AOS.refresh();
     };
   }, []);
+  // https://cdn.pixabay.com/photo/2016/11/27/21/42/stock-1863880_1280.jpg
   const teamCard = [
-    { name: "Name", description: "Description", img: team1 },
-    { name: "Name", description: "Description", img: team2 },
-    { name: "Name", description: "Description", img: team3 },
-    { name: "Name", description: "Description", img: team4 },
-    { name: "Name", description: "Description", img: team5 },
-    { name: "Name", description: "Description", img: team6 },
+    {
+      name: "Creating the marketing plan",
+      description: "Description",
+      img: service1,
+    },
+    {
+      name: "Digital marketing and marketing campaigns",
+      description: "Description",
+      img: service2,
+    },
+    {
+      name: "Managing social media accounts",
+      description: "Description",
+      img: service3,
+    },
+    { name: "Creative design", description: "Description", img: service4 },
+    {
+      name: "Search engine optimization",
+      description: "Description",
+      img: service5,
+    },
+    {
+      name: "Content writing of all types",
+      description: "Description",
+      img: service6,
+    },
+    {
+      name: "Creating and developing websites",
+      description: "Description",
+      img: service7,
+    },
+    { name: "Email marketing", description: "Description", img: service8 },
+    { name: "Marketing consulting", description: "Description", img: service9 },
   ];
   return (
     <div
       className="relative z-[1] py-[100px] bg-gradient-to-r bg-[#051118] p-2"
-      id="work"
+      id="services"
     >
       <div
         className="absolute inset-0 bg-cover bg-center opacity-5"
         style={{
-          backgroundImage:
-            `url(${bgImg})`,
+          backgroundImage: `url(${bgImg})`,
         }}
       ></div>
       <h2
@@ -64,7 +95,7 @@ export default function OurWokrs() {
             </g>
           </g>
         </svg>
-        Our Works
+        Services
       </h2>
       <div className="grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-10 mx-auto px-[15px]">
         {teamCard.map((card, i) => {
@@ -113,12 +144,12 @@ export default function OurWokrs() {
                 </div>
               </div>
               <div className="pl-20">
-                <h3 className="mt-3.5 font-black		 text-[#b7e4ea] text-[22px] transition-[0.3s]  mb-0">
+                <h3 className="mt-3.5 font-black py-3 mx-2		 text-[#b7e4ea]  text-[18px] transition-[0.3s]  mb-0">
                   {card.name}
                 </h3>
-                <p className=" mb-3.5 text-[#fddc15] transition-[0.3s] ">
+                {/* <p className=" mb-3.5 text-[#fddc15] transition-[0.3s] ">
                   {card.description}
-                </p>
+                </p> */}
               </div>
             </div>
           );

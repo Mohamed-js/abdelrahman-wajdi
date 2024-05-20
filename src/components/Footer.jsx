@@ -47,9 +47,7 @@ export default function Footer() {
           <p className="leading-3	text-[#62a0a8]">
             Web Design & Digital Marketing
           </p>
-          <p className="text-[#62a0a8]">
-            Trademarked under donya advertising est.
-          </p>
+          <p className="text-[#62a0a8]">Increase Your Online Presence</p>
         </div>
         <div className="mb-5 md:mb-0 pb-5 border-b border-[#b7e4ea2e]">
           <h3 className="mb-4 text-xl">Contact</h3>
@@ -61,10 +59,22 @@ export default function Footer() {
             <FaEnvelope className="mr-2.5 w-4 h-4" />
             <span className="text-[#62a0a8]">info@adsmaster.me</span>
           </div>
-          <div className="mb-3 flex items-center">
-            <FaMapMarkerAlt className="mr-2.5 w-4 h-4" />
-            <span className="text-[#62a0a8]">Egypt, elbhera, kafr eldawar</span>
-          </div>
+          <div className="mb-3 flex items-start">
+  <div className="mb-3 flex items-start">
+  <div className="w-8">
+    <FaMapMarkerAlt className="mr-2.5 w-4 h-4" />
+  </div>
+  <div className="max-w-xs">
+    <span className="text-[#62a0a8]">
+      Office Number 4, 2253 Mohammed bin Abdullah bin Abdul Latif, 7913,
+      First Floor, Riyadh 12463, Kingdom of Saudi Arabia
+    </span>
+  </div>
+</div>
+
+  {/*             {/* مكتب رقم 4، 2253 محمد بن عبدالله بن عبداللطيف، 7913، الدور الاول، الرياض 12463، المملكة العربية السعودية */}
+</div>
+
           {/* <ul className="flex ml-8">
         <li className="mr-5">
           <a href="#" className="hover:text-[#1c3f49] duration-300">
@@ -103,11 +113,11 @@ export default function Footer() {
               <span className="text-sm">About</span>
             </Link>
             <Link
-              to="/services"
+              to="/our-works"
               className="link-item flex items-center mr-3.5 cursor-pointer hover:text-[#fddc15] duration-300"
             >
               <span className="w-2 h-2 bg-[#b7e4ea] rounded-full mr-2"></span>
-              <span className="text-sm">Services</span>
+              <span className="text-sm">Our Works</span>
             </Link>
           </div>
         </div>

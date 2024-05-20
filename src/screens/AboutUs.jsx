@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import {
   Navigation,
@@ -16,21 +16,21 @@ import "swiper/css/effect-coverflow";
 import about1 from "../assets/imgs/about-1.png";
 import about2 from "../assets/imgs/about-2.png";
 import about3 from "../assets/imgs/about-3.png";
-import bgImg from "../assets/imgs/bg-img.jpg"
+import bgImg from "../assets/imgs/bg-img.jpg";
 import Footer from "../components/Footer";
 
 export default function AboutUs() {
+  useEffect(() => {
+    window.scrollTo(0, 0); // Ensure scroll position is at the top on initial load
+  }, []);
   return (
-    <div
-      className="relative z-[1] py-5 bg-[#051118] "
-      id="team-members"
-    >
-       <div
-          className="absolute inset-0 bg-cover bg-center opacity-5"
-          style={{ 
-            backgroundImage: `url(${bgImg})`,
-          }}
-        ></div>
+    <div className="relative z-[1] py-5 bg-[#051118] " id="team-members">
+      <div
+        className="absolute inset-0 bg-cover bg-center opacity-5"
+        style={{
+          backgroundImage: `url(${bgImg})`,
+        }}
+      ></div>
       <div className="mb-14 text-center mx-auto">
         <h4 className="w-fit mx-auto text-xs tracking-[4px] leading-10 uppercase text-[#b7e4ea] text-center mt-12">
           About
@@ -54,7 +54,7 @@ export default function AboutUs() {
           The dream team of digital marketing.
         </p>
         <p className="w-fit mx-auto text-[10px] md:text-xs leading-10 capitalize main-color text-center">
-          We grow businesses online. Period.
+          We grow businesses online.
         </p>
       </div>
 
@@ -64,7 +64,6 @@ export default function AboutUs() {
         pagination={{ clickable: true }}
         scrollbar={{ draggable: true }}
         spaceBetween={60}
-        
         slidesPerView={3}
         centeredSlides={true}
         className="px-10"
@@ -100,17 +99,19 @@ export default function AboutUs() {
             <div className="relative w-full bg-[#103743] text-[#b7e4ea] text-xs pl-5 py-1 z-10">
               <div className="absolute px-2.5 flex w-[100px] items-center justify-between border border-[#103743] bg-[#051118] rounded-[60px] right-[15px] top-[-22px]">
                 <span className="w-[7px] h-[7px] rounded-[50%] bg-[#b7e4ea]"></span>
-                <div className="text-[10px] text-[#b7e4ea]">tefa tefa</div>
+                <div className="text-[10px] text-[#b7e4ea]">Master Adds</div>
               </div>
               <span>01</span>
             </div>
             <div className="px-5">
               <h3 className="mt-3.5 mb-2.5 font-black text-[#b7e4ea] text-l mb-0">
-                Custom SEO Services
+                Master Adds - Your Marketing Partner
               </h3>
               <p className="mb-3.5 text-[10px] text-[#b7e4ea] pb-4 mb-6">
-                Custom, organic SEO services that include technical audits,
-                on-page search engine optimization
+                We specialize in software development, website design, digital
+                marketing, and web services. Our mission is to help our clients
+                enhance their visibility and achieve success through innovative
+                solutions.
               </p>
             </div>
           </div>
@@ -123,17 +124,18 @@ export default function AboutUs() {
             <div className="relative w-full bg-[#103743] text-[#b7e4ea] text-xs pl-5 py-0.5 z-10">
               <div className="absolute px-2.5 flex w-[100px] items-center justify-between border border-[#103743] bg-[#051118] rounded-[60px] right-[15px] top-[-22px]">
                 <span className="w-[7px] h-[7px] rounded-[50%] bg-[#b7e4ea]"></span>
-                <div className="text-[10px] text-[#b7e4ea]">tefa zeka</div>
+                <div className="text-[10px] text-[#b7e4ea]">Master Adds</div>
               </div>
               <span>02</span>
             </div>
             <div className="px-5">
               <h3 className="mt-3.5 mb-2.5 font-black text-[#b7e4ea] text-l mb-0">
-                SEO Website Design
+                Why Master Adds?{" "}
               </h3>
               <p className="mb-3.5 text-[10px] text-[#b7e4ea] pb-4 mb-6">
-                1st on the List provides highly effective PPC advertising for
-                every budget including Google PPC Ads, Bing PPC.
+                Choose Master Adds for your marketing needs. With over 300
+                successful projects launched, we're dedicated to your success in
+                the Middle East and beyond.
               </p>
             </div>
           </div>
@@ -146,17 +148,18 @@ export default function AboutUs() {
             <div className="relative w-full bg-[#103743] text-[#b7e4ea] text-xs pl-5 py-0.5 z-10">
               <div className="absolute px-2.5 flex w-[100px] items-center justify-between border border-[#103743] bg-[#051118] rounded-[60px] right-[15px] top-[-22px]">
                 <span className="w-[7px] h-[7px] rounded-[50%] bg-[#b7e4ea]"></span>
-                <div className="text-[10px] text-[#b7e4ea]">zeka zeka</div>
+                <div className="text-[10px] text-[#b7e4ea]">Master Adds</div>
               </div>
               <span>03</span>
             </div>
             <div className="px-5">
               <h3 className="mt-3.5 mb-2.5 font-black text-[#b7e4ea] text-l mb-0">
-                SEO Consulting
+                Master Adds - Your First Choice
               </h3>
               <p className="text-[10px] text-[#b7e4ea] pb-4 mb-6">
-                B2B SEO is the process of generating valuable inbound leads from
-                other businesses
+                At Master Adds, we aim to be your top choice for digital
+                marketing solutions in the Arab world. Let us help you achieve
+                your goals today and beyond.
               </p>
             </div>
           </div>

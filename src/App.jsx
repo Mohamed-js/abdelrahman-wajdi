@@ -1,11 +1,12 @@
 import "./App.css";
+import React from "react";
 import Home from "./screens/Home";
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Sidebar from "./components/Sidebar";
-import Services from "./screens/Services";
 import { useState } from "react";
 import AboutUs from "./screens/AboutUs";
+import OurWorks from "./screens/OurWokrs";
 
 function App() {
   const [handleSidebar, setHandleSidebar] = useState(false);
@@ -15,7 +16,7 @@ function App() {
       <Navbar setHandleSidebar={setHandleSidebar}/>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/services" element={<Services />} />
+        <Route path="/our-works" element={<OurWorks />} />
         <Route path="/about-us" element={<AboutUs />} />
       </Routes>
 
