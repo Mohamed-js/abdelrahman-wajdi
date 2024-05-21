@@ -3,9 +3,12 @@ import { Link } from "react-scroll";
 import { motion } from "framer-motion";
 import { RxDoubleArrowDown } from "react-icons/rx";
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 
 export default function Header() {
+  const { t } = useTranslation();
+
   useEffect(() => {
     const interval = setInterval(() => {
       // Do something
@@ -20,14 +23,14 @@ export default function Header() {
         className="text-3xl md:text-5xl font-bold mb-4 text-center"
         data-aos="fade-up"
       >
-        Transform Your Vision Into Reality
+        {t("header.heading1")}
       </h1>
 
       <h2
         className="text-2xl md:text-4xl  text-center main-color"
         data-aos="fade-up"
-      >
-        Your Vision, Our Innovation
+        >
+        {t("header.heading2")}
       </h2>
       <div className="absolute bottom-8 left-0 right-0 flex justify-center">
         <motion.div

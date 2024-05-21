@@ -18,8 +18,11 @@ import about2 from "../assets/imgs/about-2.png";
 import about3 from "../assets/imgs/about-3.png";
 import bgImg from "../assets/imgs/bg-img.jpg";
 import Footer from "../components/Footer";
+import { useTranslation } from "react-i18next";
 
 export default function AboutUs() {
+  const { t } = useTranslation();
+
   useEffect(() => {
     window.scrollTo(0, 0); // Ensure scroll position is at the top on initial load
   }, []);
@@ -33,7 +36,7 @@ export default function AboutUs() {
       ></div>
       <div className="mb-14 text-center mx-auto">
         <h4 className="w-fit mx-auto text-xs tracking-[4px] leading-10 uppercase text-[#b7e4ea] text-center mt-12">
-          About
+          {t("aboutUs.about")}
         </h4>
         <p className="relative leading-[1.1] text-3xl max-w-[300px] md:max-w-[500px] md:text-[50px] w-fit mx-auto text-3xl font-semibold leading-10 text-[#b7e4ea] text-center">
           <svg
@@ -51,10 +54,10 @@ export default function AboutUs() {
               </g>
             </g>
           </svg>
-          The dream team of digital marketing.
+          {t("aboutUs.title1")}
         </p>
         <p className="w-fit mx-auto text-[10px] md:text-xs leading-10 capitalize main-color text-center">
-          We grow businesses online.
+          {t("aboutUs.title2")}
         </p>
       </div>
 
@@ -74,7 +77,7 @@ export default function AboutUs() {
         slidePrevClass="swiper-slide-prev" // Class for the slide to the left of the active slide
         slideNextClass="swiper-slide-next" // Class for the slide to the right of the active slide
         initialSlide={1}
-        Keyboard
+        keyboard
         speed={800}
         breakpoints={{
           // When window width is >= 640px
@@ -99,19 +102,18 @@ export default function AboutUs() {
             <div className="relative w-full bg-[#103743] text-[#b7e4ea] text-xs pl-5 py-1 z-10">
               <div className="absolute px-2.5 flex w-[100px] items-center justify-between border border-[#103743] bg-[#051118] rounded-[60px] right-[15px] top-[-22px]">
                 <span className="w-[7px] h-[7px] rounded-[50%] bg-[#b7e4ea]"></span>
-                <div className="text-[10px] text-[#b7e4ea]">Master Adds</div>
+                <div className="text-[10px] text-[#b7e4ea]">
+                  {t("aboutUs.masterAdds")}
+                </div>
               </div>
               <span>01</span>
             </div>
             <div className="px-5">
               <h3 className="mt-3.5 mb-2.5 font-black text-[#b7e4ea] text-l mb-0">
-                Master Adds - Your Marketing Partner
+                {t("aboutUs.cardOneTitle")}
               </h3>
               <p className="mb-3.5 text-[10px] text-[#b7e4ea] pb-4 mb-6">
-                We specialize in software development, website design, digital
-                marketing, and web services. Our mission is to help our clients
-                enhance their visibility and achieve success through innovative
-                solutions.
+                {t("aboutUs.cardOneDescription")}
               </p>
             </div>
           </div>
@@ -124,18 +126,19 @@ export default function AboutUs() {
             <div className="relative w-full bg-[#103743] text-[#b7e4ea] text-xs pl-5 py-0.5 z-10">
               <div className="absolute px-2.5 flex w-[100px] items-center justify-between border border-[#103743] bg-[#051118] rounded-[60px] right-[15px] top-[-22px]">
                 <span className="w-[7px] h-[7px] rounded-[50%] bg-[#b7e4ea]"></span>
-                <div className="text-[10px] text-[#b7e4ea]">Master Adds</div>
+                <div className="text-[10px] text-[#b7e4ea]">
+                  {" "}
+                  {t("aboutUs.masterAdds")}
+                </div>
               </div>
               <span>02</span>
             </div>
             <div className="px-5">
               <h3 className="mt-3.5 mb-2.5 font-black text-[#b7e4ea] text-l mb-0">
-                Why Master Adds?{" "}
+                {t("aboutUs.cardTwoTitle")}
               </h3>
               <p className="mb-3.5 text-[10px] text-[#b7e4ea] pb-4 mb-6">
-                Choose Master Adds for your marketing needs. With over 300
-                successful projects launched, we're dedicated to your success in
-                the Middle East and beyond.
+                {t("aboutUs.cardTwoDescription")}
               </p>
             </div>
           </div>
@@ -148,18 +151,19 @@ export default function AboutUs() {
             <div className="relative w-full bg-[#103743] text-[#b7e4ea] text-xs pl-5 py-0.5 z-10">
               <div className="absolute px-2.5 flex w-[100px] items-center justify-between border border-[#103743] bg-[#051118] rounded-[60px] right-[15px] top-[-22px]">
                 <span className="w-[7px] h-[7px] rounded-[50%] bg-[#b7e4ea]"></span>
-                <div className="text-[10px] text-[#b7e4ea]">Master Adds</div>
+                <div className="text-[10px] text-[#b7e4ea]">
+                  {" "}
+                  {t("aboutUs.masterAdds")}
+                </div>
               </div>
               <span>03</span>
             </div>
             <div className="px-5">
               <h3 className="mt-3.5 mb-2.5 font-black text-[#b7e4ea] text-l mb-0">
-                Master Adds - Your First Choice
+                {t("aboutUs.cardThreeTitle")}
               </h3>
               <p className="text-[10px] text-[#b7e4ea] pb-4 mb-6">
-                At Master Adds, we aim to be your top choice for digital
-                marketing solutions in the Arab world. Let us help you achieve
-                your goals today and beyond.
+                {t("aboutUs.cardThreeDescription")}
               </p>
             </div>
           </div>

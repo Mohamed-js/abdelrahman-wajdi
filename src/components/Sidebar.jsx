@@ -4,8 +4,11 @@ import "aos/dist/aos.css";
 import { Link } from "react-scroll";
 import { Link as LinkRouter, useLocation } from "react-router-dom";
 import logo from "../assets/imgs/logo.jpeg";
+import { useTranslation } from "react-i18next";
+import LanguageSwitcher from "./LanguageSwitcher";
 export default function Sidebar({ handleSidebar, setHandleSidebar }) {
   const location = useLocation();
+  const { t } = useTranslation();
 
   useEffect(() => {
     AOS.init({ duration: 1000, easing: "ease-in-out" });
@@ -39,7 +42,6 @@ export default function Sidebar({ handleSidebar, setHandleSidebar }) {
     setHandleSidebar((prev) => !prev);
   };
 
-
   return (
     <div className="fixed top-0 left-0 bottom-0 z-[300] bg-gradient-to-r from-[#05121e] to-[#091921] w-full h-full text-white overflow-y-auto">
       <div className="flex justify-end p-4">
@@ -72,7 +74,7 @@ export default function Sidebar({ handleSidebar, setHandleSidebar }) {
         </h1>
       </div>
       <ul className="space-y-4 text-center">
-      <li
+        <li
           className="p-4 hover:text-[#fddc15] transition-colors duration-300 cursor-pointer"
           data-aos="fade-up"
           data-aos-delay="200"
@@ -84,15 +86,15 @@ export default function Sidebar({ handleSidebar, setHandleSidebar }) {
               duration={1500}
               onClick={handleLinkClick}
             >
-              Home
+              {t("sidebar.home")}
             </Link>
           ) : (
             <LinkRouter to="/#cover" onClick={handleLinkClick}>
-              Home
+              {t("sidebar.home")}
             </LinkRouter>
           )}
         </li>
-      <li
+        <li
           className="p-4 hover:text-[#fddc15] transition-colors duration-300 cursor-pointer mt-none"
           data-aos="fade-up"
           data-aos-delay="300"
@@ -104,11 +106,11 @@ export default function Sidebar({ handleSidebar, setHandleSidebar }) {
               duration={1500}
               onClick={handleLinkClick}
             >
-              Insights
+              {t("sidebar.insights")}
             </Link>
           ) : (
-            <LinkRouter to="/#insights" onClick={handleLinkClick} >
-              Insights
+            <LinkRouter to="/#insights" onClick={handleLinkClick}>
+              {t("sidebar.insights")}
             </LinkRouter>
           )}
         </li>
@@ -121,7 +123,7 @@ export default function Sidebar({ handleSidebar, setHandleSidebar }) {
             data-aos="fade-up"
             data-aos-delay="400"
           >
-            About Us
+            {t("sidebar.aboutUs")}
           </li>
         </LinkRouter>
         <LinkRouter
@@ -133,7 +135,7 @@ export default function Sidebar({ handleSidebar, setHandleSidebar }) {
             data-aos="fade-up"
             data-aos-delay="500"
           >
-            Our Works
+            {t("sidebar.ourWorks")}
           </li>
         </LinkRouter>
         <li
@@ -148,15 +150,15 @@ export default function Sidebar({ handleSidebar, setHandleSidebar }) {
               duration={1500}
               onClick={handleLinkClick}
             >
-              Services
+              {t("sidebar.services")}
             </Link>
           ) : (
-            <LinkRouter to="/#services" onClick={handleLinkClick} >
-              Services
+            <LinkRouter to="/#services" onClick={handleLinkClick}>
+              {t("sidebar.services")}
             </LinkRouter>
           )}
         </li>
-         <li
+        <li
           className="p-4 hover:text-[#fddc15] transition-colors duration-300 cursor-pointer mt-none"
           data-aos="fade-up"
           data-aos-delay="700"
@@ -168,26 +170,26 @@ export default function Sidebar({ handleSidebar, setHandleSidebar }) {
               duration={1500}
               onClick={handleLinkClick}
             >
-              Contact Us
+              {t("sidebar.contactUs")}
             </Link>
           ) : (
-            <LinkRouter to="/#contact-us" onClick={handleLinkClick} >
-                            Contact Us
-
+            <LinkRouter to="/#contact-us" onClick={handleLinkClick}>
+              {t("sidebar.contactUs")}
             </LinkRouter>
           )}
         </li>
-        <li
+        {/* <li
           className="p-4 hover:text-[#fddc15] transition-colors duration-300 cursor-pointer"
           data-aos="fade-up"
           data-aos-delay="800"
+          onClick={handleLinkClick}
         >
-          العربية
-        </li>
+          <LanguageSwitcher />
+        </li> */}
       </ul>
-      <div className="absolute bottom-4 left-4 text-xs text-gray-400">
+      {/* <div className="absolute bottom-4 left-4 text-xs text-gray-400">
         © 2024 Company. All Rights Reserved.
-      </div>
+      </div> */}
     </div>
   );
 }

@@ -1,4 +1,79 @@
 {
-    "greeting": "Bonjour!",
-    "welcome": "Bienvenue sur notre site web."
+  "navbar": {
+    "language": "English",
+    "ourWorks": "Our Works"
+  },
+  "sidebar": {
+    "home": "Home",
+    "insights": "Insights",
+    "aboutUs": "About Us",
+    "ourWorks": "Our Works",
+    "services": "Services",
+    "contactUs": "Contact Us"
+  },
+  "header": {
+    "heading1": "Transform Your Vision Into Reality",
+    "heading2": "Your Vision, Our Innovation"
+  },
+  "insights": {
+    "title": "Insights",
+    "socialMedia": "Social Media Engagement",
+    "socialMediaDescription": "Harness the power of social media to engage with your audience. From interactive posts to captivating stories, create a buzz around your brand and connect with your customers like never before.",
+    "learnMore": "Learn More",
+    "seo": "Search Engine Optimization (SEO)",
+    "seoDescription": "Optimize your online presence with effective SEO strategies. From keyword research to on-page optimization, develop an SEO strategy that boosts your website's visibility, improves search engine rankings, and drives organic traffic to your business.",
+    "emailCampaign": "Email Campaign Optimization",
+    "emailCampaignDescription": "Optimize your email campaigns to deliver the right message at the right time. From personalized subject lines to A/B testing, unlock the full potential of email marketing and drive higher open rates, click-throughs, and conversions.",
+    "dataDriven": "Data-Driven Marketing",
+    "dataDrivenDescription": "Utilize data analytics to make informed marketing decisions. From customer segmentation to predictive modeling, harness the power of data to understand your audience, optimize campaigns, and maximize ROI."
+  },
+  "services": {
+    "title": "Services",
+    "marketingPlan": "Creating the marketing plan",
+    "digitalMarketing": "Digital marketing and marketing campaigns",
+    "socialMedia": "Managing social media accounts",
+    "creativeDesign": "Creative design",
+    "seo": "Search engine optimization",
+    "contentWriting": "Content writing of all types",
+    "developeSites": "Creating and developing websites",
+    "emailMarketing": "Email marketing",
+    "marketingConsulting": "Marketing consulting"
+  },
+  "contactUs": {
+    "title": "Contact Us",
+    "sendMessage": "Send Message",
+    "address": "Office Number 4, 2253 Mohammed bin Abdullah bin Abdul Latif, 7913, First Floor, Riyadh 12463, Kingdom of Saudi Arabia",
+    "workingHours": "Business Hours: 9:00 AM - 4:30 PM",
+    "phone": "9.66501E+11",
+    "whatsApp": "Contact via WhatsApp",
+    "yourName": "Your Name",
+    "yourPhone": "Your Phone",
+    "theMsg": "The message",
+    "send": "Send"
+  },
+  "footer": {
+    "title1": "Web Design & Digital Marketing",
+    "title2": "Increase Your Online Presence",
+    "contact": "Contact",
+    "number": "9.66501E+11",
+    "email": "info@adsmaster.me",
+    "address": " Office Number 4, 2253 Mohammed bin Abdullah bin Abdul Latif, 7913, First Floor, Riyadh 12463, Kingdom of Saudi Arabia",
+    "mainPages": " Main Pages",
+    "home": "Home",
+    "about": "About",
+    "ourWorks": "Our Works"
+  },
+  "aboutUs": {
+    "about": "About",
+    "title1": "The dream team of digital marketing.",
+    "title2": "We grow businesses online.",
+    "masterAdds": "Master Adds",
+    "cardOneTitle": " Master Adds - Your Marketing Partner",
+    "cardOneDescription": "We specialize in software development, website design, digital marketing, and web services. Our mission is to help our clients enhance their visibility and achieve success through innovative solutions.",
+    "cardTwoTitle": " Why Master Adds?",
+    "cardTwoDescription": "   Choose Master Adds for your marketing needs. With over 300 successful projects launched, we're dedicated to your success in the Middle East and beyond.",
+    "cardThreeTitle": "Master Adds - Your First Choice",
+    "cardThreeDescription": " At Master Adds, we aim to be your top choice for digital marketing solutions in the Arab world. Let us help you achieve your goals today and beyond."
+  
   }
+}

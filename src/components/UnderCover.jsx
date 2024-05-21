@@ -1,14 +1,17 @@
 import React, { useEffect } from "react";
-import bgImg from "../assets/imgs/bg-img.jpg"
+import bgImg from "../assets/imgs/bg-img.jpg";
 import AOS from "aos";
-import insights1 from "../assets/imgs/insights1.jpg"
-import insights2 from "../assets/imgs/insights2.jpg"
-import insights3 from "../assets/imgs/insights3.jpg"
-import insights4 from "../assets/imgs/insights4.png"
-import insights5 from "../assets/imgs/insights5.jpg"
-import insights6 from "../assets/imgs/insights6.jpg"
+import insights1 from "../assets/imgs/insights1.jpg";
+import insights2 from "../assets/imgs/insights2.jpg";
+import insights3 from "../assets/imgs/insights3.jpg";
+import insights4 from "../assets/imgs/insights4.png";
+import insights5 from "../assets/imgs/insights5.jpg";
+import insights6 from "../assets/imgs/insights6.jpg";
 import "aos/dist/aos.css";
+import { useTranslation } from "react-i18next";
 export default function UnderCover() {
+  const { t } = useTranslation();
+
   useEffect(() => {
     AOS.init({ duration: 1500, easing: "ease-in-out" });
 
@@ -19,35 +22,33 @@ export default function UnderCover() {
   }, []);
   const marketingConceptsData = [
     {
-      title: "Social Media Engagement",
-      description:
-        "Harness the power of social media to engage with your audience. From interactive posts to captivating stories, create a buzz around your brand and connect with your customers like never before.",
-      learnMore: "Learn More",
+      title: t("insights.socialMedia"),
+      description: t("insights.socialMediaDescription"),
+      learnMore: t("insights.learnMore"),
       img: insights1,
     },
     {
-      title: "Search Engine Optimization (SEO)",
+      title: t("insights.seo"),
       description:
-        "Optimize your online presence with effective SEO strategies. From keyword research to on-page optimization, develop an SEO strategy that boosts your website's visibility, improves search engine rankings, and drives organic traffic to your business.",
-      learnMore: "Discover More",
+      t("insights.seoDescription"),
+      learnMore: t("insights.learnMore"),
       img: insights2,
     },
     {
-      title: "Email Campaign Optimization",
+      title: t("insights.emailCampaign"),
       description:
-        "Optimize your email campaigns to deliver the right message at the right time. From personalized subject lines to A/B testing, unlock the full potential of email marketing and drive higher open rates, click-throughs, and conversions.",
-      learnMore: "Find Peace",
+      t("insights.emailCampaignDescription"),
+      learnMore: t("insights.learnMore"),
       img: insights6,
     },
     {
-      title: "Data-Driven Marketing",
+      title: t("insights.dataDriven"),
       description:
-        "Utilize data analytics to make informed marketing decisions. From customer segmentation to predictive modeling, harness the power of data to understand your audience, optimize campaigns, and maximize ROI.",
-      learnMore: "Explore More",
+      t("insights.dataDrivenDescription") ,
+      learnMore: t("insights.learnMore"),
       img: insights4,
     },
   ];
-
 
   return (
     <div
@@ -57,8 +58,7 @@ export default function UnderCover() {
       <div
         className="absolute inset-0 bg-cover bg-center opacity-5"
         style={{
-          backgroundImage:
-            `url(${bgImg})`,
+          backgroundImage: `url(${bgImg})`,
         }}
       ></div>
       <div className="flex items-center justify-center mt-10 md:mt-20 mb-12 relative">
@@ -84,7 +84,7 @@ export default function UnderCover() {
               </g>
             </g>
           </svg>
-          Insights
+          {t("insights.title")}
         </h1>
       </div>
 
@@ -100,8 +100,8 @@ export default function UnderCover() {
               backgroundPosition: "center",
             }}
           >
-                  <div className="absolute inset-0 bg-black opacity-30"></div> {/* Overlay with low opacity */}
-
+            <div className="absolute inset-0 bg-black opacity-30"></div>{" "}
+            {/* Overlay with low opacity */}
             {/* bg-gradient-to-r from-[#01c4be] to-[#01c699] opacity-20 */}
             <div className="absolute inset-0 "></div>
             <div className="relative p-6 md:p-12 text-left z-10 text-white">

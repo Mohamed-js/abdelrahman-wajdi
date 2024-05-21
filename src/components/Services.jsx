@@ -16,8 +16,13 @@ import { FaXTwitter } from "react-icons/fa6";
 import { AiOutlineTikTok } from "react-icons/ai";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { useTranslation } from "react-i18next";
 
 export default function Services() {
+  const { t } = useTranslation();
+
+  const direction =
+    localStorage.getItem("selectedLanguage") === "ar" ? "rtl" : "ltr";
   useEffect(() => {
     AOS.init({ duration: 1500, easing: "ease-in-out" });
 
@@ -27,44 +32,56 @@ export default function Services() {
     };
   }, []);
   // https://cdn.pixabay.com/photo/2016/11/27/21/42/stock-1863880_1280.jpg
-  const teamCard = [
+  const servicesCard = [
     {
-      name: "Creating the marketing plan",
+      name: t("services.marketingPlan"),
       description: "Description",
       img: service1,
     },
     {
-      name: "Digital marketing and marketing campaigns",
+      name: t("services.digitalMarketing"),
       description: "Description",
       img: service2,
     },
     {
-      name: "Managing social media accounts",
+      name: t("services.socialMedia"),
       description: "Description",
       img: service3,
     },
-    { name: "Creative design", description: "Description", img: service4 },
     {
-      name: "Search engine optimization",
+      name: t("services.creativeDesign"),
+      description: "Description",
+      img: service4,
+    },
+    {
+      name: t("services.seo"),
       description: "Description",
       img: service5,
     },
     {
-      name: "Content writing of all types",
+      name: t("services.contentWriting"),
       description: "Description",
       img: service6,
     },
     {
-      name: "Creating and developing websites",
+      name: t("services.developeSites"),
       description: "Description",
       img: service7,
     },
-    { name: "Email marketing", description: "Description", img: service8 },
-    { name: "Marketing consulting", description: "Description", img: service9 },
+    {
+      name: t("services.emailMarketing"),
+      description: "Description",
+      img: service8,
+    },
+    {
+      name: t("services.marketingConsulting"),
+      description: "Description",
+      img: service9,
+    },
   ];
   return (
     <div
-      className="relative z-[1] py-[100px] bg-gradient-to-r bg-[#051118] p-2"
+      className={`relative z-[1] py-[100px]  bg-[#051118] p-2`}
       id="services"
     >
       <div
@@ -78,7 +95,7 @@ export default function Services() {
         data-aos="fade-left"
       >
         <svg
-          className="absolute w-[200px] h-[200px] top-[-82px] left-[-35px]  opacity-50 z-[-1]	"
+          className={`absolute w-[200px] h-[200px] top-[-82px] left-[-35px]  opacity-50 z-[-1]	`}
           xmlns="http://www.w3.org/2000/svg"
           version="1.1"
           // xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -95,20 +112,20 @@ export default function Services() {
             </g>
           </g>
         </svg>
-        Services
+        {t("services.title")}
       </h2>
       <div className="grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-10 mx-auto px-[15px]">
-        {teamCard.map((card, i) => {
+        {servicesCard.map((card, i) => {
           return (
             <div
               data-aos="fade-up"
               key={i}
-              className=" group  relative before:bg-gradient-to-tr	before:from-[#051118] before:to-[#103743] before:content-[''] before:absolute  before:h-full 
-      before:transition-[0.3s] before:rounded-lg before:w-[calc(100%_-_60px)] 
-      before:z-[-2] before:right-0 before:top-0 after:content-[''] after:absolute 
-      after:h-full after:transition-[0.3s] 
-      after:rounded-lg after:right-0 after:top-0  after:z-[-1] after:bg-[#11333d] 
-      after:w-0 hover:after:w-[calc(100%_-_60px)]"
+              className={`group relative before:bg-gradient-to-${direction === "ltr" ? "tr" : "tl"} before:from-[#051118] before:to-[#103743] before:content-[''] before:absolute before:h-full before:transition-[0.3s] before:rounded-lg before:w-[calc(100%_-_60px)] before:z-[-2] before:${
+                direction === "ltr" ? "right-0" : "left-0"
+              } before:top-0 after:content-[''] after:absolute after:h-full after:transition-[0.3s] after:rounded-lg after:${
+                direction === "ltr" ? "right-0" : "left-0"
+              } after:top-0 after:z-[-1] after:bg-[#11333d] after:w-0 hover:after:w-[calc(100%_-_60px)] `}
+              style={{left: direction === "rtl" ? "0px" : ""}}
             >
               <div className="flex items-center pt-[60px]">
                 <img
@@ -143,7 +160,7 @@ export default function Services() {
                   </a>
                 </div>
               </div>
-              <div className="pl-20">
+              <div className={`${direction === "ltr" ? "pl-20" : "pr-20"}`}>
                 <h3 className="mt-3.5 font-black py-3 mx-2		 text-[#b7e4ea]  text-[18px] transition-[0.3s]  mb-0">
                   {card.name}
                 </h3>

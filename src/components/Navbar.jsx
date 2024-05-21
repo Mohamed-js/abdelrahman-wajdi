@@ -3,9 +3,14 @@ import { CiMenuBurger } from "react-icons/ci";
 import { FaShoppingBag } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import logo from "../assets/imgs/logo.jpeg";
+import LanguageSwitcher from "./LanguageSwitcher";
+import { useTranslation } from "react-i18next";
 
 export default function Navbar({ setHandleSidebar }) {
   const [isScrolled, setIsScrolled] = useState(false);
+  const { t } = useTranslation();
+  const direction =
+    localStorage.getItem("selectedLanguage") === "ar" ? "rtl" : "ltr";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -30,11 +35,13 @@ export default function Navbar({ setHandleSidebar }) {
       <div className="container mx-auto p-4">
         <div className="flex justify-between items-center">
           <div className="flex items-center gap-4 w-[35%] md:w-[40%] ">
-            <div className="main-color cursor-pointer">AR</div>
+            <div className="main-color cursor-pointer">
+              <LanguageSwitcher />
+            </div>
             {/* <FaShoppingBag size={20} className="main-color cursor-pointer" /> */}
             <Link to="our-works">
               <div className="main-color text-sm md:text-base cursor-pointer hidden md:block">
-                Our Works
+                {t("navbar.ourWorks")}
               </div>
             </Link>
           </div>
@@ -47,7 +54,9 @@ export default function Navbar({ setHandleSidebar }) {
           </div>
           <div className="w-[35%] md:w-[40%] ">
             <CiMenuBurger
-              className="ml-auto main-color cursor-pointer"
+              className={`${
+                direction === "ltr" ? "ml-auto" : "mr-auto"
+              } main-color cursor-pointer`}
               size={25}
               onClick={() => setHandleSidebar((prev) => !prev)}
             />

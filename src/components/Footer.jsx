@@ -10,7 +10,13 @@ import {
   FaYoutube,
   FaEnvelope,
 } from "react-icons/fa";
+import { useTranslation } from "react-i18next";
 export default function Footer() {
+  const direction =
+    localStorage.getItem("selectedLanguage") === "ar" ? "rtl" : "ltr";
+
+  const { t } = useTranslation();
+
   // bg-gradient-to-tr	from-[#051118] to-[#103743]
   return (
     <div className="bg-[#051118]  relative  ">
@@ -44,36 +50,43 @@ export default function Footer() {
             </svg>
             <img src={logo} alt="Logo" className="w-[90px] rounded-lg" />
           </h2>
-          <p className="leading-3	text-[#62a0a8]">
-            Web Design & Digital Marketing
-          </p>
-          <p className="text-[#62a0a8]">Increase Your Online Presence</p>
+          <p className="leading-3	text-[#62a0a8]">{t("footer.title1")}</p>
+          <p className="text-[#62a0a8]">{t("footer.title2")}</p>
         </div>
         <div className="mb-5 md:mb-0 pb-5 border-b border-[#b7e4ea2e]">
-          <h3 className="mb-4 text-xl">Contact</h3>
+          <h3 className="mb-4 text-xl">{t("footer.contact")}</h3>
           <div className="mb-3 flex items-center">
-            <FaPhoneVolume className="mr-2.5 w-4 h-4 " />
-            <span className="text-[#62a0a8]">9.66501E+11</span>
+            <FaPhoneVolume
+              className={`${
+                direction === "ltr" ? "mr-2.5" : "ml-2.5"
+              } w-4 h-4 `}
+            />
+            <span className="text-[#62a0a8]">{t("footer.number")}</span>
           </div>
           <div className="mb-3 flex items-center">
-            <FaEnvelope className="mr-2.5 w-4 h-4" />
-            <span className="text-[#62a0a8]">info@adsmaster.me</span>
+            <FaEnvelope
+              className={`${
+                direction === "ltr" ? "mr-2.5" : "ml-2.5"
+              } w-4 h-4 `}
+            />
+            <span className="text-[#62a0a8]">{t("footer.email")}</span>
           </div>
           <div className="mb-3 flex items-start">
-  <div className="mb-3 flex items-start">
-  <div className="w-8">
-    <FaMapMarkerAlt className="mr-2.5 w-4 h-4" />
-  </div>
-  <div className="max-w-xs">
-    <span className="text-[#62a0a8]">
-      Office Number 4, 2253 Mohammed bin Abdullah bin Abdul Latif, 7913,
-      First Floor, Riyadh 12463, Kingdom of Saudi Arabia
-    </span>
-  </div>
-</div>
+            <div className="mb-3 flex items-start">
+              <div className="w-8">
+                <FaMapMarkerAlt
+                  className={`${
+                    direction === "ltr" ? "mr-2.5" : "ml-2.5"
+                  } w-4 h-4 `}
+                />
+              </div>
+              <div className="max-w-xs">
+                <span className="text-[#62a0a8]">{t("footer.address")}</span>
+              </div>
+            </div>
 
-  {/*             {/* مكتب رقم 4، 2253 محمد بن عبدالله بن عبداللطيف، 7913، الدور الاول، الرياض 12463، المملكة العربية السعودية */}
-</div>
+            {/*             {/* مكتب رقم 4، 2253 محمد بن عبدالله بن عبداللطيف، 7913، الدور الاول، الرياض 12463، المملكة العربية السعودية */}
+          </div>
 
           {/* <ul className="flex ml-8">
         <li className="mr-5">
@@ -95,29 +108,35 @@ export default function Footer() {
         </div>
         <div className="text-[#62a0a8] pb-5 border-b border-[#b7e4ea2e] relative">
           <h3 className="mb-4 text-xl font-semibold text-[#b7e4ea]">
-            Main Pages
+            {t("footer.mainPages")}
           </h3>
           <div className="flex flex-wrap">
             <Link
               to="/"
-              className="link-item flex items-center mr-3.5 cursor-pointer hover:text-[#fddc15] duration-300"
+              className={`link-item flex items-center ${
+                direction === "ltr" ? "mr-3.5" : "ml-3.5"
+              } cursor-pointer hover:text-[#fddc15] duration-300`}
             >
-              <span className="w-2 h-2 bg-[#b7e4ea] rounded-full mr-2"></span>
-              <span className="text-sm cursor-pointer">Home</span>
+              <span className={`w-2 h-2 bg-[#b7e4ea] rounded-full ${direction === "ltr" ? "mr-2" : "ml-2"}`}></span>
+              <span className="text-sm cursor-pointer">{t("footer.home")}</span>
             </Link>
             <Link
               to="/about-us"
-              className="link-item flex items-center mr-3.5 cursor-pointer hover:text-[#fddc15] duration-300"
+              className={`link-item flex items-center ${
+                direction === "ltr" ? "mr-3.5" : "ml-3.5"
+              } cursor-pointer hover:text-[#fddc15] duration-300`}
             >
-              <span className="w-2 h-2 bg-[#b7e4ea] rounded-full mr-2"></span>
-              <span className="text-sm">About</span>
+              <span className={`w-2 h-2 bg-[#b7e4ea] rounded-full ${direction === "ltr" ? "mr-2" : "ml-2"}`}></span>
+              <span className="text-sm">{t("footer.about")}</span>
             </Link>
             <Link
               to="/our-works"
-              className="link-item flex items-center mr-3.5 cursor-pointer hover:text-[#fddc15] duration-300"
+              className={`link-item flex items-center ${
+                direction === "ltr" ? "mr-3.5" : "ml-3.5"
+              } cursor-pointer hover:text-[#fddc15] duration-300`}
             >
-              <span className="w-2 h-2 bg-[#b7e4ea] rounded-full mr-2"></span>
-              <span className="text-sm">Our Works</span>
+              <span className={`w-2 h-2 bg-[#b7e4ea] rounded-full ${direction === "ltr" ? "mr-2" : "ml-2"}`}></span>
+              <span className="text-sm">{t("footer.ourWorks")}</span>
             </Link>
           </div>
         </div>
