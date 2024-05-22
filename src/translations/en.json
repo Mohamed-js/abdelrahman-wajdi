@@ -49,7 +49,8 @@
     "yourName": "Your Name",
     "yourPhone": "Your Phone",
     "theMsg": "The message",
-    "send": "Send"
+    "send": "Send",
+    "getInTouch" : "Get in Touch"
   },
   "footer": {
     "title1": "Web Design & Digital Marketing",
@@ -75,5 +76,13 @@
     "cardThreeTitle": "Master Adds - Your First Choice",
     "cardThreeDescription": " At Master Adds, we aim to be your top choice for digital marketing solutions in the Arab world. Let us help you achieve your goals today and beyond."
   
+  },
+  "ourWorks": {
+    "title1": "Mohammed Ibrahim Al-Hakil",
+    "description1" : "Lawyers and Consultants ",
+    "title2": "Future Star",
+    "description2" : "Your son is not alone in russia",
+    "title3":"Health Steps",
+    "description3": "Revise your first targets  in 2024"
   }
 }

@@ -32,14 +32,14 @@ export default function Header() {
         >
         {t("header.heading2")}
       </h2>
-      <div className="absolute bottom-8 left-0 right-0 flex justify-center">
+      <div className="absolute bottom-24 md:bottom-8 left-0 right-0 flex justify-center">
         <motion.div
           initial={{ y: 0 }}
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 1.5, repeat: Infinity }}
           style={{ overflow: "hidden" }}
         >
-          <Link to="undercover" smooth={true} duration={500}>
+          <Link to="insights" smooth={true} duration={500}>
             <RxDoubleArrowDown className="cursor-pointer" size={32} />
           </Link>
         </motion.div>

@@ -21,13 +21,17 @@ import Footer from "../components/Footer";
 import { useTranslation } from "react-i18next";
 
 export default function AboutUs() {
+  
+  const direction =
+  localStorage.getItem("selectedLanguage") === "ar" ? "rtl" : "ltr";
+  
   const { t } = useTranslation();
 
   useEffect(() => {
     window.scrollTo(0, 0); // Ensure scroll position is at the top on initial load
   }, []);
   return (
-    <div className="relative z-[1] py-5 bg-[#051118] " id="team-members">
+    <div className="relative z-[1] py-5 bg-[#051118] " id="team-members" dir="ltr">
       <div
         className="absolute inset-0 bg-cover bg-center opacity-5"
         style={{
@@ -71,7 +75,8 @@ export default function AboutUs() {
         centeredSlides={true}
         className="px-10"
         effect={"coverflow"}
-        // loop={true}
+        
+        // loop={true}  
         grabCursor={true}
         slideActiveClass="swiper-slide-active" // Class for the active slide
         slidePrevClass="swiper-slide-prev" // Class for the slide to the left of the active slide
@@ -95,12 +100,12 @@ export default function AboutUs() {
         }}
       >
         <SwiperSlide>
-          <div className="mb-16 relative before:absolute before:h-[calc(100%_-_50px)] before:bottom-0 before:rounded-xl before:z-[-1] before:bg-gradient-to-tr before:from-[#051118] before:to-[#103743] before:w-full">
+          <div className={`mb-16 relative before:absolute before:h-[calc(100%_-_50px)] before:bottom-0 before:rounded-xl before:z-[-1] ${direction === "ltr" ?" before:bg-gradient-to-tr" : "before:bg-gradient-to-tl"}  before:from-[#051118] before:to-[#103743] before:w-full`}>
             <div className="p-2">
               <img src={about1} alt="Custom SEO Services" className="" />
             </div>
-            <div className="relative w-full bg-[#103743] text-[#b7e4ea] text-xs pl-5 py-1 z-10">
-              <div className="absolute px-2.5 flex w-[100px] items-center justify-between border border-[#103743] bg-[#051118] rounded-[60px] right-[15px] top-[-22px]">
+            <div className={`relative w-full bg-[#103743] text-[#b7e4ea] text-xs ${direction === "ltr" ? "pl-5" : "pr-5"} py-1 z-10`}>
+              <div className={`absolute px-2.5 flex w-[100px] items-center justify-between border border-[#103743] bg-[#051118] rounded-[60px] ${direction === "ltr"  ? "right-[15px]" : "left-[15px]"} top-[-22px] `}>
                 <span className="w-[7px] h-[7px] rounded-[50%] bg-[#b7e4ea]"></span>
                 <div className="text-[10px] text-[#b7e4ea]">
                   {t("aboutUs.masterAdds")}
@@ -119,12 +124,12 @@ export default function AboutUs() {
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <div className="mb-16 relative before:absolute before:h-[calc(100%_-_50px)] before:bottom-0 before:rounded-xl before:z-[-1] before:bg-gradient-to-tr before:from-[#051118] before:to-[#103743] before:w-full">
+          <div className={`mb-16 relative before:absolute before:h-[calc(100%_-_50px)] before:bottom-0 before:rounded-xl before:z-[-1] ${direction === "ltr" ? "before:bg-gradient-to-tr" : "before:bg-gradient-to-tl"}  before:from-[#051118] before:to-[#103743] before:w-full`}>
             <div className="p-2">
               <img src={about2} alt="SEO Website Design" className="" />
             </div>
-            <div className="relative w-full bg-[#103743] text-[#b7e4ea] text-xs pl-5 py-0.5 z-10">
-              <div className="absolute px-2.5 flex w-[100px] items-center justify-between border border-[#103743] bg-[#051118] rounded-[60px] right-[15px] top-[-22px]">
+            <div className={`relative w-full bg-[#103743] text-[#b7e4ea] text-xs ${direction === "ltr" ? "pl-5" : "pr-5"} py-0.5 z-10`}>
+              <div className={`absolute px-2.5 flex w-[100px] items-center justify-between border border-[#103743] bg-[#051118] rounded-[60px] ${direction === "ltr" ? "right-[15px]" : "left-[15px]"} top-[-22px]`}>
                 <span className="w-[7px] h-[7px] rounded-[50%] bg-[#b7e4ea]"></span>
                 <div className="text-[10px] text-[#b7e4ea]">
                   {" "}
@@ -144,12 +149,12 @@ export default function AboutUs() {
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <div className="mb-16 relative before:absolute before:h-[calc(100%_-_50px)] before:bottom-0 before:rounded-xl before:z-[-1] before:bg-gradient-to-tr before:from-[#051118] before:to-[#103743] before:w-full">
+          <div className={`mb-16 relative before:absolute before:h-[calc(100%_-_50px)] before:bottom-0 before:rounded-xl before:z-[-1] ${direction === "ltr" ? "before:bg-gradient-to-tr" : "before:bg-gradient-to-tl" }  before:from-[#051118] before:to-[#103743] before:w-full`}>
             <div className="p-2">
               <img src={about3} alt="SEO Consulting" className="" />
             </div>
-            <div className="relative w-full bg-[#103743] text-[#b7e4ea] text-xs pl-5 py-0.5 z-10">
-              <div className="absolute px-2.5 flex w-[100px] items-center justify-between border border-[#103743] bg-[#051118] rounded-[60px] right-[15px] top-[-22px]">
+            <div className={`relative w-full bg-[#103743] text-[#b7e4ea] text-xs ${direction === "ltr" ? "pl-5" : "pr-5"} py-0.5 z-10`}>
+            <div className={`absolute px-2.5 flex w-[100px] items-center justify-between border border-[#103743] bg-[#051118] rounded-[60px] ${direction === "ltr" ? "right-[15px]" : "left-[15px]"} top-[-22px]`}>
                 <span className="w-[7px] h-[7px] rounded-[50%] bg-[#b7e4ea]"></span>
                 <div className="text-[10px] text-[#b7e4ea]">
                   {" "}

@@ -11,6 +11,8 @@ import "aos/dist/aos.css";
 import { useTranslation } from "react-i18next";
 export default function UnderCover() {
   const { t } = useTranslation();
+  const direction =
+    localStorage.getItem("selectedLanguage") === "ar" ? "rtl" : "ltr";
 
   useEffect(() => {
     AOS.init({ duration: 1500, easing: "ease-in-out" });
@@ -29,22 +31,19 @@ export default function UnderCover() {
     },
     {
       title: t("insights.seo"),
-      description:
-      t("insights.seoDescription"),
+      description: t("insights.seoDescription"),
       learnMore: t("insights.learnMore"),
       img: insights2,
     },
     {
       title: t("insights.emailCampaign"),
-      description:
-      t("insights.emailCampaignDescription"),
+      description: t("insights.emailCampaignDescription"),
       learnMore: t("insights.learnMore"),
       img: insights6,
     },
     {
       title: t("insights.dataDriven"),
-      description:
-      t("insights.dataDrivenDescription") ,
+      description: t("insights.dataDrivenDescription"),
       learnMore: t("insights.learnMore"),
       img: insights4,
     },
@@ -100,18 +99,19 @@ export default function UnderCover() {
               backgroundPosition: "center",
             }}
           >
-            <div className="absolute inset-0 bg-black opacity-30"></div>{" "}
+            <div className="absolute inset-0 bg-black opacity-60"></div>{" "}
             {/* Overlay with low opacity */}
             {/* bg-gradient-to-r from-[#01c4be] to-[#01c699] opacity-20 */}
             <div className="absolute inset-0 "></div>
-            <div className="relative p-6 md:p-12 text-left z-10 text-white">
+            <div className={`relative p-6 md:p-12 ${direction === "ltr" ? "text-left" : "text-right"} z-10 text-white`}>
               <h2
                 className="text-2xl md:text-4xl font-bold mb-4"
-                data-aos="fade-right"
-              >
+                data-aos={`${direction === "ltr" ? "fade-right" : "fade-left"}`}
+                >
                 {data.title}
               </h2>
-              <p className="mb-4 text-base md:text-lg" data-aos="fade-left">
+              <p className="mb-4 text-base md:text-lg" data-aos={`${direction === "ltr" ? "fade-left" : "fade-right"}`}
+>
                 {data.description}
               </p>
               <button

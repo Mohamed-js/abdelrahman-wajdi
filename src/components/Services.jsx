@@ -21,8 +21,8 @@ import { useTranslation } from "react-i18next";
 export default function Services() {
   const { t } = useTranslation();
 
-  const direction =
-    localStorage.getItem("selectedLanguage") === "ar" ? "rtl" : "ltr";
+  const direction = localStorage.getItem("selectedLanguage") === "ar" ? "rtl" : "ltr";
+  
   useEffect(() => {
     AOS.init({ duration: 1500, easing: "ease-in-out" });
 
@@ -120,12 +120,8 @@ export default function Services() {
             <div
               data-aos="fade-up"
               key={i}
-              className={`group relative before:bg-gradient-to-${direction === "ltr" ? "tr" : "tl"} before:from-[#051118] before:to-[#103743] before:content-[''] before:absolute before:h-full before:transition-[0.3s] before:rounded-lg before:w-[calc(100%_-_60px)] before:z-[-2] before:${
-                direction === "ltr" ? "right-0" : "left-0"
-              } before:top-0 after:content-[''] after:absolute after:h-full after:transition-[0.3s] after:rounded-lg after:${
-                direction === "ltr" ? "right-0" : "left-0"
-              } after:top-0 after:z-[-1] after:bg-[#11333d] after:w-0 hover:after:w-[calc(100%_-_60px)] `}
-              style={{left: direction === "rtl" ? "0px" : ""}}
+              className={`group relative before:${direction === "ltr" ? "bg-gradient-to-tr" : "bg-gradient-to-tl"}
+              } before:from-[#051118] before:to-[#103743] before:content-[''] before:absolute before:h-full before:transition-[0.3s] before:rounded-lg before:w-[calc(100%_-_60px)] before:z-[-2] ${direction === "ltr" ? "before:right-0" : "before:left-0"} before:top-0 after:content-[''] after:absolute after:h-full after:transition-[0.3s] after:rounded-lg ${direction === "ltr" ? "after:right-0" : "after:left-0"} after:top-0 after:z-[-1] after:bg-[#11333d] after:w-0 hover:after:w-[calc(100%_-_60px)]`}
             >
               <div className="flex items-center pt-[60px]">
                 <img

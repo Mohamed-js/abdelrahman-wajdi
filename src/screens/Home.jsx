@@ -30,7 +30,7 @@ export default function Home() {
       <div className="container " id="cover">
         <div className="h-screen p-4 w-screen overflow-hidden relative">
           <div className="absolute inset-0 w-full h-full z-40">
-            <div className="absolute inset-0 bg-gradient-to-t from-[#000000] via-[#103743] to-[#000000] opacity-90"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-[#000000] via-[#103743] to-[#000000] opacity-85 md:opacity-90"></div>
             <div className="absolute inset-0 bg-black opacity-50"></div>
           </div>
           <Cover />

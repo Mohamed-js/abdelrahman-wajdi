@@ -54,74 +54,74 @@ export default function ClientSlider() {
   return (
     <div className="mx-auto max-w-7xl p-4 relative">
       <Slider {...settings}>
-        <div>
+        <div className="object-contain">
           <img
             src={ClientLogo01}
             alt="client logo"
-            className="mx-auto h-32 object-cover rounded-md shadow-md"
+            className="mx-auto h-32 w-36 rounded-lg shadow-md bg-[#d4dee1] "
           />
         </div>
         <div>
           <img
             src={ClientLogo02}
             alt="client logo"
-            className="mx-auto h-32 object-cover rounded-md shadow-md"
+            className="mx-auto h-32 w-36 rounded-md shadow-md bg-[#d4dee1] object-contain"
           />
         </div>
         <div>
           <img
             src={ClientLogo03}
             alt="client logo"
-            className="mx-auto h-32 object-cover rounded-md shadow-md"
+            className="mx-auto h-32 w-36 rounded-md shadow-md bg-[#d4dee1] object-contain"
           />
         </div>
         <div>
           <img
             src={ClientLogo04}
             alt="client logo"
-            className="mx-auto h-32 object-cover rounded-md shadow-md"
+            className="mx-auto h-32 w-36 rounded-md shadow-md bg-[#d4dee1] object-contain"
           />
         </div>
         <div>
           <img
             src={ClientLogo05}
             alt="client logo"
-            className="mx-auto h-32 object-cover rounded-md shadow-md"
+            className="mx-auto h-32 w-36 rounded-md shadow-md bg-[#d4dee1] object-contain"
           />
         </div>
         <div>
           <img
             src={ClientLogo06}
             alt="client logo"
-            className="mx-auto h-32 object-cover rounded-md shadow-md"
+            className="mx-auto h-32 w-36 rounded-md shadow-md bg-[#d4dee1] object-contain"
           />
         </div>
         <div>
           <img
             src={ClientLogo07}
             alt="client logo"
-            className="mx-auto h-32 object-cover rounded-md shadow-md"
+            className="mx-auto h-32 w-36 rounded-md shadow-md bg-[#d4dee1] object-contain"
           />
         </div>
         <div>
           <img
             src={ClientLogo08}
             alt="client logo"
-            className="mx-auto h-32 object-cover rounded-md shadow-md "
+            className="mx-auto h-32 w-36 rounded-md shadow-md bg-[#d4dee1] object-contain"
           />
         </div>
         <div>
           <img
             src={ClientLogo010}
             alt="client logo"
-            className="mx-auto h-32 object-cover rounded-md shadow-md"
+            className="mx-auto h-32 w-36 rounded-md shadow-md bg-[#d4dee1] object-contain"
           />
         </div>
         <div>
           <img
             src={ClientLogo09}
             alt="client logo"
-            className="mx-auto h-32 object-cover rounded-md shadow-md"
+            className="mx-auto h-32 w-36 rounded-md shadow-md bg-[#d4dee1] object-contain"
           />
         </div>
       </Slider>

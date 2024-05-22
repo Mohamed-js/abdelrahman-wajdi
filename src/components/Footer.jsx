@@ -55,21 +55,25 @@ export default function Footer() {
         </div>
         <div className="mb-5 md:mb-0 pb-5 border-b border-[#b7e4ea2e]">
           <h3 className="mb-4 text-xl">{t("footer.contact")}</h3>
-          <div className="mb-3 flex items-center">
+          <div className="mb-3 flex items-center relative">
             <FaPhoneVolume
               className={`${
                 direction === "ltr" ? "mr-2.5" : "ml-2.5"
               } w-4 h-4 `}
             />
-            <span className="text-[#62a0a8]">{t("footer.number")}</span>
+            <a href={`tel:9.66501E+11`} className="text-[#62a0a8]">
+              {t("footer.number")}
+            </a>
           </div>
-          <div className="mb-3 flex items-center">
+          <div className="mb-3 flex items-center relative">
             <FaEnvelope
               className={`${
                 direction === "ltr" ? "mr-2.5" : "ml-2.5"
               } w-4 h-4 `}
             />
-            <span className="text-[#62a0a8]">{t("footer.email")}</span>
+            <a href={`mailto:info@adsmaster.me`} className="text-[#62a0a8]">
+              {t("footer.email")}
+            </a>
           </div>
           <div className="mb-3 flex items-start">
             <div className="mb-3 flex items-start">
@@ -117,7 +121,11 @@ export default function Footer() {
                 direction === "ltr" ? "mr-3.5" : "ml-3.5"
               } cursor-pointer hover:text-[#fddc15] duration-300`}
             >
-              <span className={`w-2 h-2 bg-[#b7e4ea] rounded-full ${direction === "ltr" ? "mr-2" : "ml-2"}`}></span>
+              <span
+                className={`w-2 h-2 bg-[#b7e4ea] rounded-full ${
+                  direction === "ltr" ? "mr-2" : "ml-2"
+                }`}
+              ></span>
               <span className="text-sm cursor-pointer">{t("footer.home")}</span>
             </Link>
             <Link
@@ -126,7 +134,11 @@ export default function Footer() {
                 direction === "ltr" ? "mr-3.5" : "ml-3.5"
               } cursor-pointer hover:text-[#fddc15] duration-300`}
             >
-              <span className={`w-2 h-2 bg-[#b7e4ea] rounded-full ${direction === "ltr" ? "mr-2" : "ml-2"}`}></span>
+              <span
+                className={`w-2 h-2 bg-[#b7e4ea] rounded-full ${
+                  direction === "ltr" ? "mr-2" : "ml-2"
+                }`}
+              ></span>
               <span className="text-sm">{t("footer.about")}</span>
             </Link>
             <Link
@@ -135,7 +147,11 @@ export default function Footer() {
                 direction === "ltr" ? "mr-3.5" : "ml-3.5"
               } cursor-pointer hover:text-[#fddc15] duration-300`}
             >
-              <span className={`w-2 h-2 bg-[#b7e4ea] rounded-full ${direction === "ltr" ? "mr-2" : "ml-2"}`}></span>
+              <span
+                className={`w-2 h-2 bg-[#b7e4ea] rounded-full ${
+                  direction === "ltr" ? "mr-2" : "ml-2"
+                }`}
+              ></span>
               <span className="text-sm">{t("footer.ourWorks")}</span>
             </Link>
           </div>
