@@ -4,16 +4,16 @@ import cover2 from "../assets/imgs/cover2.jpg"
 import cover3 from "../assets/imgs/cover3.jpg"
 import cover4 from "../assets/imgs/cover4.jpg"
 import cover5 from "../assets/imgs/cover5.jpg"
-import cover6 from "../assets/imgs/cover6.png"
+import cover7 from "../assets/imgs/cover7.jpg"
 const images = [
-  cover5,
-  cover6,
+  cover3,
+  cover7,
   cover2,
   cover4,
-  cover1,
-  "https://cdn.pixabay.com/photo/2015/03/29/08/47/entrepreneur-696966_640.jpg",
-  "https://cdn.pixabay.com/photo/2016/11/21/15/13/work-harder-1845901_640.jpg",
-  "https://cdn.pixabay.com/photo/2016/06/12/20/27/macro-1452987_640.jpg",
+  cover7,
+  cover4,
+  cover7,
+  cover3,
 ];
 
 import React from "react";
@@ -55,12 +55,12 @@ export default function Cover() {
           <Row
             images={[
               images[0],
-              images[1],
+              images[3],
               images[2],
               images[3],
               images[3],
               images[4],
-              images[0],
+              images[3],
               images[1],
               images[2],
               images[3],
@@ -68,7 +68,102 @@ export default function Cover() {
               images[5],
               images[6],
               images[7],
-              images[8],
+              images[3],
+            ]}
+          />
+          <Row
+            images={[
+              images[3],
+              images[1],
+              images[4],
+              images[2],
+              images[3],
+              images[3],
+              images[4],
+              images[3],
+              images[5],
+              images[6],
+              images[3],
+              images[3],
+              images[4],
+              images[0],
+              images[1],
+            ]}
+          />
+          <Row
+            images={[
+              images[7],
+              images[3],
+              images[4],
+              images[2],
+              images[4],
+              images[3],
+              images[7],
+              images[4],
+              images[0],
+              images[2],
+              images[3],
+              images[5],
+              images[6],
+              images[7],
+              images[3],
+            ]}
+          />
+          <Row
+            images={[
+              images[3],
+              images[7],
+              images[4],
+              images[3],
+              images[2],
+              images[5],
+              images[7],
+              images[4],
+              images[7],
+              images[1],
+              images[0],
+              images[5],
+              images[6],
+              images[7],
+              images[3],
+            ]}
+          />
+          <Row
+            images={[
+              images[7],
+              images[3],
+              images[4],
+              images[2],
+              images[0],
+              images[4],
+              images[7],
+              images[1],
+              images[2],
+              images[4],
+              images[3],
+              images[5],
+              images[6],
+              images[7],
+              images[3],
+            ]}
+          />
+          <Row
+            images={[
+              images[0],
+              images[1],
+              images[2],
+              images[4],
+              images[3],
+              images[3],
+              images[0],
+              images[1],
+              images[2],
+              images[4],
+              images[3],
+              images[5],
+              images[6],
+              images[7],
+              images[3],
             ]}
           />
           <Row
@@ -83,106 +178,11 @@ export default function Cover() {
               images[1],
               images[2],
               images[3],
-              images[4],
+              images[3],
               images[5],
               images[6],
               images[7],
-              images[8],
-            ]}
-          />
-          <Row
-            images={[
-              images[0],
-              images[1],
-              images[2],
               images[3],
-              images[3],
-              images[4],
-              images[0],
-              images[1],
-              images[2],
-              images[3],
-              images[4],
-              images[5],
-              images[6],
-              images[7],
-              images[8],
-            ]}
-          />
-          <Row
-            images={[
-              images[0],
-              images[1],
-              images[2],
-              images[3],
-              images[3],
-              images[4],
-              images[0],
-              images[1],
-              images[2],
-              images[3],
-              images[4],
-              images[5],
-              images[6],
-              images[7],
-              images[8],
-            ]}
-          />
-          <Row
-            images={[
-              images[0],
-              images[1],
-              images[2],
-              images[3],
-              images[3],
-              images[4],
-              images[0],
-              images[1],
-              images[2],
-              images[3],
-              images[4],
-              images[5],
-              images[6],
-              images[7],
-              images[8],
-            ]}
-          />
-          <Row
-            images={[
-              images[0],
-              images[1],
-              images[2],
-              images[3],
-              images[3],
-              images[4],
-              images[0],
-              images[1],
-              images[2],
-              images[3],
-              images[4],
-              images[5],
-              images[6],
-              images[7],
-              images[8],
-            ]}
-          />
-          <Row
-            images={[
-              images[0],
-              images[1],
-              images[2],
-              images[3],
-              images[3],
-              images[4],
-              images[0],
-              images[1],
-              images[2],
-              images[3],
-              images[4],
-              images[5],
-              images[6],
-              images[7],
-              images[8],
             ]}
           />
         </div>
