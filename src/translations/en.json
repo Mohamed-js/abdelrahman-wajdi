@@ -50,7 +50,7 @@
     "yourPhone": "Your Phone",
     "theMsg": "The message",
     "send": "Send",
-    "getInTouch" : "Get in Touch"
+    "getInTouch": "Get in Touch"
   },
   "footer": {
     "title1": "Web Design & Digital Marketing",
@@ -75,14 +75,15 @@
     "cardTwoDescription": "   Choose ADS Master for your marketing needs. With over 300 successful projects launched, we're dedicated to your success in the Middle East and beyond.",
     "cardThreeTitle": "ADS Master - Your First Choice",
     "cardThreeDescription": " At ADS Master, we aim to be your top choice for digital marketing solutions in the Arab world. Let us help you achieve your goals today and beyond."
-  
   },
   "ourWorks": {
     "title1": "Mohammed Ibrahim Al-Hakil",
-    "description1" : "Lawyers and Consultants ",
+    "description1": "Lawyers and Consultants ",
     "title2": "Future Star",
-    "description2" : "Your son is not alone in russia",
-    "title3":"Health Steps",
-    "description3": "Revise your first targets  in 2024"
+    "description2": "Your son is not alone in russia",
+    "title3": "Health Steps",
+    "description3": "Revise your first targets  in 2024",
+    "title4": "Shaza",
+    "description4": "Shaza Medical Complex"
   }
 }

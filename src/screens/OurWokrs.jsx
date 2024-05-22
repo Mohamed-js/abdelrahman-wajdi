@@ -66,7 +66,7 @@ export default function OurWorks() {
   const { t } = useTranslation();
  
   const parallax = useRef(null);
-  const totalPages = 3; // Update this to the total number of pages
+  const totalPages = 4; // Update this to the total number of pages
 
   const scroll = (to) => {
     if (parallax.current) {
@@ -107,6 +107,20 @@ export default function OurWorks() {
       img: healthStep1,
       logo: healthStep,
     },
+    {
+      title: t("ourWorks.title4"),
+      description: t("ourWorks.description4"),
+      gradient: "pink",
+      img: shaza,
+      logo: shaza,
+    },
+    // {
+    //   title: t("ourWorks.title4"),
+    //   description: t("ourWorks.description4"),
+    //   gradient: "pink",
+    //   img: superGym3,
+    //   logo: superGym1,
+    // },
     // {
     //   title: "E-commerce Solutions",
     //   description:
