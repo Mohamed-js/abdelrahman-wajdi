@@ -95,7 +95,8 @@ export default function Sidebar({ handleSidebar, setHandleSidebar }) {
           )}
         </li>
         <li
-          className="p-4 hover:text-[#fddc15] transition-colors duration-300 cursor-pointer mt-none"
+          className="p-4 hover:text-[#fddc15] transition-colors duration-300 cursor-pointer mt-0"
+          style={{marginTop: "0px"}}
           data-aos="fade-up"
           data-aos-delay="300"
         >
@@ -119,9 +120,11 @@ export default function Sidebar({ handleSidebar, setHandleSidebar }) {
           onClick={() => setHandleSidebar((prev) => !prev)}
         >
           <li
-            className="p-4 hover:text-[#fddc15] transition-colors duration-300 cursor-pointer"
+            className="p-4 hover:text-[#fddc15] transition-colors duration-300 cursor-pointer mt-none"
             data-aos="fade-up"
             data-aos-delay="400"
+            style={{marginTop: "0px"}}
+
           >
             {t("sidebar.aboutUs")}
           </li>
@@ -131,9 +134,11 @@ export default function Sidebar({ handleSidebar, setHandleSidebar }) {
           onClick={() => setHandleSidebar((prev) => !prev)}
         >
           <li
-            className="p-4 hover:text-[#fddc15] transition-colors duration-300 cursor-pointer"
+            className="p-4 hover:text-[#fddc15] transition-colors duration-300 cursor-pointer mt-none"
             data-aos="fade-up"
             data-aos-delay="500"
+            style={{marginTop: "0px"}}
+
           >
             {t("sidebar.ourWorks")}
           </li>
@@ -141,6 +146,8 @@ export default function Sidebar({ handleSidebar, setHandleSidebar }) {
         <li
           className="p-4 hover:text-[#fddc15] transition-colors duration-300 cursor-pointer mt-none"
           data-aos="fade-up"
+          style={{marginTop: "0px"}}
+
           data-aos-delay="600"
         >
           {isSamePage("/") ? (
@@ -159,6 +166,8 @@ export default function Sidebar({ handleSidebar, setHandleSidebar }) {
           )}
         </li>
         <li
+                  style={{marginTop: "0px"}}
+
           className="p-4 hover:text-[#fddc15] transition-colors duration-300 cursor-pointer mt-none"
           data-aos="fade-up"
           data-aos-delay="700"
