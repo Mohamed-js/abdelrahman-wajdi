@@ -111,9 +111,9 @@ export default function AboutUs() {
                   {t("aboutUs.masterAdds")}
                 </div>
               </div>
-              <span>01</span>
+              <span className={`${direction === "rtl" && "ml-4"}`}>01</span>
             </div>
-            <div className="px-5">
+            <div className={`${direction === "ltr" ? "text-left" : "text-right"} px-5`}>
               <h3 className="mt-3.5 mb-2.5 font-black text-[#b7e4ea] text-l mb-0">
                 {t("aboutUs.cardOneTitle")}
               </h3>
@@ -136,9 +136,9 @@ export default function AboutUs() {
                   {t("aboutUs.masterAdds")}
                 </div>
               </div>
-              <span>02</span>
+              <span className={`${direction === "rtl" && "ml-4"}`}>02</span>
             </div>
-            <div className="px-5">
+            <div className={`${direction === "ltr" ? "text-left" : "text-right"} px-5`}>
               <h3 className="mt-3.5 mb-2.5 font-black text-[#b7e4ea] text-l mb-0">
                 {t("aboutUs.cardTwoTitle")}
               </h3>
@@ -161,9 +161,9 @@ export default function AboutUs() {
                   {t("aboutUs.masterAdds")}
                 </div>
               </div>
-              <span>03</span>
+              <span className={`${direction === "rtl" && "ml-4"}`}>03</span>
             </div>
-            <div className="px-5">
+            <div className={`${direction === "ltr" ? "text-left" : "text-right"} px-5`}>
               <h3 className="mt-3.5 mb-2.5 font-black text-[#b7e4ea] text-l mb-0">
                 {t("aboutUs.cardThreeTitle")}
               </h3>
