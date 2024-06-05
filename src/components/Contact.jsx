@@ -180,6 +180,9 @@
 //     </div>
 //   );
 // }
+
+
+
 import React, { useEffect, useState } from "react";
 import {
   FaMapMarkerAlt,
@@ -216,7 +219,7 @@ export default function Contact() {
     e.preventDefault();
 
     emailjs
-      .sendForm("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", e.target, "YOUR_USER_ID")
+      .sendForm("service_8zh20vo", "template_7jqgest", e.target, "SPtJzIpf9h6JGNIGO")
       .then(
         (result) => {
           console.log(result.text);

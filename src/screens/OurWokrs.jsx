@@ -6,6 +6,7 @@ import { getFirestore, collection, getDocs } from "firebase/firestore";
 import { db } from "../helpers/firebase";
 import { Link as RouterLink } from "react-router-dom";
 import Loading from "../components/Loading";
+import Footer from "../components/Footer";
 
 export default function OurWorks() {
   const { t } = useTranslation();
@@ -47,7 +48,7 @@ export default function OurWorks() {
   }, {});
 
   return (
-    <div className="bg-[#051118] min-h-screen py-32 w-screen overflow-hidden relative">
+    <div className="bg-[#051118] min-h-screen pt-32 w-screen overflow-hidden relative">
       <div className="absolute inset-0 bg-cover bg-center opacity-5" style={{ backgroundImage: `url(${bgImg})` }}></div>
 
       <h2 className="relative w-fit mx-auto text-3xl font-semibold leading-10 drop-shadow-md mb-12 capitalize text-[#b7e4ea] text-center animate__animated animate__fadeInDown">
@@ -120,6 +121,7 @@ export default function OurWorks() {
         </Element>
       ))}
       {loading && <Loading />}
+      <Footer />
     </div>
   );
 }
