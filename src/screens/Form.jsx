@@ -56,11 +56,11 @@ const [images, setImages] = useState([]);
     setDescriptions(newDescriptions);
   };
 
-  const handleImageUpload = async (index, file) => {
+  const handleFirstImageUpload = async (file) => {
     const formData = new FormData();
     formData.append("file", file);
     formData.append("upload_preset", "ca0qjdpw");
-
+  
     try {
       const response = await fetch(
         `https://api.cloudinary.com/v1_1/dwawhl9j4/image/upload`,
@@ -70,19 +70,50 @@ const [images, setImages] = useState([]);
         }
       );
       const data = await response.json();
-      const newImages = [...images];
-      newImages[index] = data.secure_url;
-      setImages(newImages);
-
-      if (index === 0) {
-        setFirstImage(data.secure_url);
-      }
+      setFirstImage(data.secure_url);
     } catch (error) {
       console.error("Error uploading image to Cloudinary", error);
       // Provide feedback to the user about the error
       setSubmitMessage("Failed to upload image. Please try again.");
     }
   };
+  
+  // Inside your JSX, update the first image input change handler to use this function
+  
+  <input
+    type="file"
+    id={`image`}
+    onChange={(e) => handleFirstImageUpload(e.target.files[0])}
+    className="w-full px-3 py-2 border rounded-md bg-gray-700 focus:outline-none focus:ring focus:ring-blue-400 text-white"
+    required
+  />
+
+  
+  const handleImageUpload = async (index, file) => {
+    const formData = new FormData();
+    formData.append("file", file);
+    formData.append("upload_preset", "ca0qjdpw");
+  
+    try {
+      const response = await fetch(
+        `https://api.cloudinary.com/v1_1/dwawhl9j4/image/upload`,
+        {
+          method: "POST",
+          body: formData,
+        }
+      );
+      const data = await response.json();
+      const updatedImages = [...images]; // Copy the images array
+      updatedImages[index] = data.secure_url; // Update the URL at the specified index
+      setImages(updatedImages); // Update the images state array
+    } catch (error) {
+      console.error("Error uploading image to Cloudinary", error);
+      // Provide feedback to the user about the error
+      setSubmitMessage("Failed to upload image. Please try again.");
+    }
+  };
+  
+  
 
   const handleOptionChange = (event) => {
     setSelectedOption(event.target.value);
@@ -103,11 +134,14 @@ const [images, setImages] = useState([]);
     setLoading(true);
     if (isLoggedIn) {
       try {
-        if (descriptions.length === 0 || images.length === 0) {
+     
+        const isAtLeastOneDescription = descriptions.some(desc => desc.trim() !== "");
+        const isAtLeastOneImage = images.some(img => img.trim() !== "" && img !== undefined);
+  
+        if (!isAtLeastOneDescription || !isAtLeastOneImage) {
           alert("Please add at least one description and image.");
           return;
         }
-
         const combinedData = descriptions.map((desc, index) => ({
           title: titles[index], // Include title
           description: desc,
@@ -123,7 +157,7 @@ const [images, setImages] = useState([]);
           projectBrief,
           combinedData,
         };
-
+console.log(newProduct)
         await addDoc(collection(db, "formSubmissions"), newProduct);
         setSubmitMessage("Form submitted successfully!");
         resetForm();
@@ -144,8 +178,9 @@ const [images, setImages] = useState([]);
     setShowDetailsInput(true);
     setTitles([...titles, ""]); // Add empty title
     setDescriptions([...descriptions, ""]);
-    setImages([...images, ""]);
+    setImages([...images, ""]); 
   };
+  
   return (
     <>
     <div className="flex justify-center py-32 items-center min-h-screen bg-gray-900 text-white">
@@ -174,12 +209,12 @@ const [images, setImages] = useState([]);
                 Image
               </label>
               <input
-                type="file"
-                id={`image`}
-                onChange={(e) => handleImageUpload(0, e.target.files[0])}
-                className="w-full px-3 py-2 border rounded-md bg-gray-700 focus:outline-none focus:ring focus:ring-blue-400 text-white"
-                required
-              />
+  type="file"
+  id={`image`}
+  onChange={(e) => handleFirstImageUpload(e.target.files[0])}
+  className="w-full px-3 py-2 border rounded-md bg-gray-700 focus:outline-none focus:ring focus:ring-blue-400 text-white"
+  required
+/>
             </div>
             {descriptions.map((desc, index) => (
               <div key={index} className="mb-4">

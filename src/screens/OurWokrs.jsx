@@ -111,7 +111,7 @@ export default function OurWorks() {
                   <div className=" rounded-lg overflow-hidden shadow-lg  transform hover:scale-105 transition duration-300">
                     <img src={work.firstImage} alt={`Image ${index}`} className="w-full h-64 object-cover" />
                     <div className="px-4 py-8">
-                      <p className="text-[#fffffc] text-sm sm:text-base line-clamp-3">{work.firstTitle} Lorem ipsum dolor sit, amet consectetur adipisicing.</p>
+                      <p className="text-[#fffffc] text-base md:text-lg text-center  line-clamp-3">{work.firstTitle}</p>
                     </div>
                   </div>
                 </RouterLink>

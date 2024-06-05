@@ -128,7 +128,7 @@ export default function WorkDetails() {
                 <h1 className="text-3xl font-semibold">Case Study</h1>
               </div>
               <h2 className="text-xl font-semibold mb-2">{workDetails.selectedOption}</h2>
-              <p className="text-lg mb-4 overflow-auto max-h-[300px] relative py-2">{workDetails.firstDescription} Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse impedit veniam ad mollitia rerum doloribus repellat quaerat quasi quibusdam voluptas exercitationem consectetur asperiores unde dignissimos, expedita ea beatae eveniet modi. Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis esse alias quae saepe at fuga, ut debitis error animi labore sequi, iusto, suscipit beatae accusantium provident consectetur id obcaecati rem.</p>
+              <p className="text-lg mb-4 overflow-auto max-h-[300px] relative py-2">{workDetails.firstDescription}</p>
               <div className="flex items-center gap-4">
                 {getIcon(workDetails.selectedOption)}
                 <p className="text-lg">{workDetails.selectedOption}</p>
@@ -138,7 +138,7 @@ export default function WorkDetails() {
               <img
                 src={workDetails.firstImage}
                 alt={workDetails.selectedOption}
-                className="w-full h-auto rounded-lg shadow-xl"
+                className="max-w-full h-auto  rounded-lg shadow-xl"
               />
             </animated.div>
           </div>
@@ -157,16 +157,20 @@ export default function WorkDetails() {
           <ProjectBrief workDetails={workDetails} />
           <h2 className="component-heading text-gray-600">Details</h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid gap-8">
   {workDetails.combinedData.map((item, index) => (
-    <div key={index} className="bg-[#1a1a1a] rounded-lg p-6 relative overflow-hidden">
-      <h2 className="text-xl font-semibold text-white mb-4 text-center">{item.title}</h2>
-      <img
-        src={item.image}
-        alt={`Image ${index}`}
-        className="w-full relative z-50 h-auto rounded-lg shadow-xl mb-4 transform transition duration-300 hover:scale-105"
-      />
-      <p className="text-lg text-gray-300 mb-4">{item.description} Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum maiores delectus fugit? Velit vitae, iusto vel magni voluptas quae ducimus! Ad dolorem a et cumque ipsum inventore quis debitis reiciendis!</p>
+    <div key={index} className="border border-gray-800 rounded-xl p-6 relative overflow-hidden w-full">
+      <div className="md:flex md:justify-between">
+        <div className="md:w-1/2 mb-4 md:mb-0">
+          <h2 className="text-xl font-semibold text-[#e6953e] mb-4 text-center ">{item.title}</h2>
+          <p className="text-lg text-gray-300 mb-4">{item.description}</p>
+        </div>
+        <img
+          src={item.image}
+          alt={`Image ${index}`}
+          className="md:w-1/2 w-full relative max-w-full object-contain h-[400px] z-50  rounded-xl shadow-xl p-4 mb-4 transform transition duration-300 hover:scale-105"
+        />
+      </div>
       <animated.div
         className="absolute inset-0 bg-gradient-to-r from-transparent to-black opacity-0 hover:opacity-100 transition-opacity duration-300"
       ></animated.div>
@@ -176,6 +180,9 @@ export default function WorkDetails() {
     </div>
   ))}
 </div>
+
+
+
 
         </div>
       )}
