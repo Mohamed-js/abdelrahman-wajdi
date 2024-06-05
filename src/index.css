@@ -14,7 +14,7 @@
   color: #050e16;
 }
 .main-color {
-  color: #fddc15;
+  color: #e6953e;
 }
 /* #fddc15 */
 /* #bde1e8 */
@@ -55,19 +55,21 @@ body {
 ::-webkit-scrollbar {
   width: 8px;
 }
-
+/* #e6953e */
+/* fffffc */
+/* #3d2f7a */
 ::-webkit-scrollbar-track {
   background:  #050e16/* Background color of the scrollbar track */
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #fddc15; /* Color of the scrollbar thumb */
+  background-color: #e6953e; /* Color of the scrollbar thumb */
   border-radius: 4px; /* Rounded corners */
   border: 2px solid #050e16; /* Creates a padding effect */
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background-color: #fcb900; /* Color of the scrollbar thumb on hover */
+  background-color: #f38f24; /* Color of the scrollbar thumb on hover */
 }
 
 /* --tw-gradient-to: #103743 var(--tw-gradient-to-position);
@@ -88,5 +90,203 @@ body {
 }
 
 
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;  
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal;
+}
 
+
+
+
+
+
+
+
+
+
+
+/* .component-heading {
+  text-align: center;
+  font-size: 30px;
+  text-transform: uppercase;
+  padding: 10px 20px;
+  width: fit-content;
+  margin: 10px auto;
+  border: 2px solid black;
+  position: relative;
+  margin-bottom: 60px;
+  margin-top: 60px;
+  z-index: 10;
+}
+
+.component-heading::before {
+  content: '';
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: #e6953e;
+  top: 50%;
+  transform: translateY(-50%);
+  position: absolute;
+  left: -40px;
+  transition: 1s;
+}
+
+.component-heading::after {
+  content: '';
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: #e6953e;
+  top: 50%;
+  transform: translateY(-50%);
+  position: absolute;
+  right: -40px;
+  transition: 1s;
+}
+
+.component-heading:hover::before {
+  animation: left-move linear forwards 0.5s;
+  z-index: -1;
+}
+
+.component-heading:hover::after {
+  animation: right-move linear forwards 0.5s;
+  z-index: -1;
+}
+
+.component-heading:hover {
+  color: white;
+  transition-delay: 0.5s;
+}
+
+
+@keyframes left-move {
+  50% {
+      left: 0;
+      border-radius: 50%;
+      width: 16px;
+      height: 16px;
+  }
+
+  100% {
+      left: 0;
+      width: 50%;
+      height: 100%;
+      border-radius: 0;
+
+  }
+
+}
+
+@keyframes right-move {
+  50% {
+      right: 0;
+      border-radius: 50%;
+      width: 16px;
+      height: 16px;
+  }
+
+  100% {
+      right: 0;
+      width: 50%;
+      height: 100%;
+      border-radius: 0;
+
+  }
+
+}
+
+
+ */
+
+
+ .component-heading {
+  text-align: center;
+  font-size: 30px;
+  text-transform: uppercase;
+  padding: 10px 20px;
+  width: fit-content;
+  margin: 10px auto;
+  border: 2px solid black;
+  position: relative;
+  margin-bottom: 60px;
+  margin-top: 60px;
+  z-index: 10;
+}
+
+.component-heading::before {
+  content: '';
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: #e6953e;
+  top: 50%;
+  transform: translateY(-50%);
+  position: absolute;
+  left: -40px;
+  transition: 1s;
+}
+
+.component-heading::after {
+  content: '';
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: #e6953e;
+  top: 50%;
+  transform: translateY(-50%);
+  position: absolute;
+  right: -40px;
+  transition: 1s;
+}
+
+.component-heading:hover::before {
+  animation: left-move linear forwards 0.5s;
+  z-index: -1;
+}
+
+.component-heading:hover::after {
+  animation: right-move linear forwards 0.5s;
+  z-index: -1;
+}
+
+.component-heading:hover {
+  color: white;
+  transition-delay: 0.5s;
+}
+
+@keyframes left-move {
+  50% {
+    left: 0;
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+  }
+  100% {
+    left: 0;
+    width: 50%;
+    height: 100%;
+    border-radius: 0;
+  }
+}
+
+@keyframes right-move {
+  50% {
+    right: 0;
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+  }
+  100% {
+    right: 0;
+    width: 50%;
+    height: 100%;
+    border-radius: 0;
+  }
+}
 

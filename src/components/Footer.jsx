@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../assets/imgs/logo.jpeg";
+import logo from "../assets/imgs/adslogo.png";
 import bgImg from "../assets/imgs/bg-img.jpg";
 import { Link } from "react-router-dom";
 import {
@@ -31,7 +31,7 @@ export default function Footer() {
         <div className=" mb-5 pb-5  border-b border-[#b7e4ea2e] md:col-span-2	lg:col-span-1 lg:mb-0">
           <h2 className="relative text-3xl	font-semibold	 border-b-2 border-[#b7e4ea] w-fit pb-1 mb-3 z-10	">
             <svg
-              className="absolute w-[200px] h-[200px] top-[-72px] left-[-66px]  opacity-50 z-[-1]	"
+              className="absolute w-[200px] h-[200px] top-[-64px] left-[-60px]  opacity-50 z-[-1]	"
               xmlns="http://www.w3.org/2000/svg"
               version="1.1"
               // xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -50,7 +50,7 @@ export default function Footer() {
             </svg>
             <img src={logo} alt="Logo" className="w-[90px] rounded-lg" />
           </h2>
-          <p className="leading-3	text-[#62a0a8]">{t("footer.title1")}</p>
+          <p className="leading-3	text-[#62a0a8] mb-1">{t("footer.title1")}</p>
           <p className="text-[#62a0a8]">{t("footer.title2")}</p>
         </div>
         <div className="mb-5 md:mb-0 pb-5 border-b border-[#b7e4ea2e]">
@@ -119,7 +119,7 @@ export default function Footer() {
               to="/"
               className={`link-item flex items-center ${
                 direction === "ltr" ? "mr-3.5" : "ml-3.5"
-              } cursor-pointer hover:text-[#fddc15] duration-300`}
+              } cursor-pointer hover:text-[#e6953e] duration-300`}
             >
               <span
                 className={`w-2 h-2 bg-[#b7e4ea] rounded-full ${
@@ -132,7 +132,7 @@ export default function Footer() {
               to="/about-us"
               className={`link-item flex items-center ${
                 direction === "ltr" ? "mr-3.5" : "ml-3.5"
-              } cursor-pointer hover:text-[#fddc15] duration-300`}
+              } cursor-pointer hover:text-[#e6953e] duration-300`}
             >
               <span
                 className={`w-2 h-2 bg-[#b7e4ea] rounded-full ${
@@ -145,7 +145,7 @@ export default function Footer() {
               to="/our-works"
               className={`link-item flex items-center ${
                 direction === "ltr" ? "mr-3.5" : "ml-3.5"
-              } cursor-pointer hover:text-[#fddc15] duration-300`}
+              } cursor-pointer hover:text-[#e6953e] duration-300`}
             >
               <span
                 className={`w-2 h-2 bg-[#b7e4ea] rounded-full ${

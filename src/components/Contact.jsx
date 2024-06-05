@@ -181,11 +181,17 @@
 //   );
 // }
 import React, { useEffect, useState } from "react";
-import { FaMapMarkerAlt, FaWhatsapp, FaFacebookF, FaTwitter, FaCheckCircle } from "react-icons/fa";
+import {
+  FaMapMarkerAlt,
+  FaWhatsapp,
+  FaFacebookF,
+  FaTwitter,
+  FaCheckCircle,
+} from "react-icons/fa";
 import { AiOutlineTikTok } from "react-icons/ai";
 import { IoMdTime } from "react-icons/io";
 import { LiaPhoneVolumeSolid } from "react-icons/lia";
-import emailjs from 'emailjs-com';
+import emailjs from "emailjs-com";
 import bgImg from "../assets/imgs/bg-img.jpg";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -193,7 +199,8 @@ import { useTranslation } from "react-i18next";
 
 export default function Contact() {
   const { t } = useTranslation();
-  const direction = localStorage.getItem("selectedLanguage") === "ar" ? "rtl" : "ltr";
+  const direction =
+    localStorage.getItem("selectedLanguage") === "ar" ? "rtl" : "ltr";
   const [showSuccess, setShowSuccess] = useState(false);
 
   useEffect(() => {
@@ -208,15 +215,19 @@ export default function Contact() {
   const sendEmail = (e) => {
     e.preventDefault();
 
-    emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', e.target, 'YOUR_USER_ID')
-      .then((result) => {
-        console.log(result.text);
-        setShowSuccess(true);
-        setTimeout(() => setShowSuccess(false), 3000);
-      }, (error) => {
-        console.log(error.text);
-        alert("Failed to send the message, please try again.");
-      });
+    emailjs
+      .sendForm("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", e.target, "YOUR_USER_ID")
+      .then(
+        (result) => {
+          console.log(result.text);
+          setShowSuccess(true);
+          setTimeout(() => setShowSuccess(false), 3000);
+        },
+        (error) => {
+          console.log(error.text);
+          alert("Failed to send the message, please try again.");
+        }
+      );
 
     e.target.reset();
   };
@@ -258,14 +269,19 @@ export default function Contact() {
         <div className="fixed top-0 left-0 z-50 w-full h-full flex items-center justify-center bg-black bg-opacity-50">
           <div className="bg-white p-4 rounded-lg flex items-center gap-2">
             <FaCheckCircle className="text-green-500" size={24} />
-            <span className="text-green-500">Message sent successfully!</span>
+            <span className="text-green-500">
+              {" "}
+              {t("contactUs.sentSuccessfully")}
+            </span>
           </div>
         </div>
       )}
 
       <div className="flex flex-col gap-5 md:flex-row md:gap-0 justify-around items-center">
         <div
-          className={`w-full md:w-1/2 ${direction === "ltr" ? "md:mr-10" : "md:ml-10"} rounded-xl pt-11 pb-8 px-8 bg-[#103743]`}
+          className={`w-full md:w-1/2 ${
+            direction === "ltr" ? "md:mr-10" : "md:ml-10"
+          } rounded-xl pt-11 pb-8 px-8 bg-[#103743]`}
           data-aos="fade-up"
           data-aos-duration="1600"
         >
@@ -314,7 +330,9 @@ export default function Contact() {
             data-aos-duration="1100"
           >
             <div className="">
-              <FaMapMarkerAlt className={`${direction === "ltr" ? "mr-2.5" : "ml-2.5"}`} />
+              <FaMapMarkerAlt
+                className={`${direction === "ltr" ? "mr-2.5" : "ml-2.5"}`}
+              />
             </div>
             <div className="max-w-xs">
               <span className="text-[#b7e4ea]">{t("contactUs.address")}</span>
@@ -325,7 +343,9 @@ export default function Contact() {
             data-aos={direction === "ltr" ? "fade-left" : "fade-right"}
             data-aos-duration="1200"
           >
-            <IoMdTime className={`${direction === "ltr" ? "mr-2.5" : "ml-2.5"}`} />
+            <IoMdTime
+              className={`${direction === "ltr" ? "mr-2.5" : "ml-2.5"}`}
+            />
             <div className="text-[#b7e4ea]">{t("contactUs.workingHours")}</div>
           </div>
           <div
@@ -333,7 +353,9 @@ export default function Contact() {
             data-aos={direction === "ltr" ? "fade-left" : "fade-right"}
             data-aos-duration="1300"
           >
-            <LiaPhoneVolumeSolid className={`${direction === "ltr" ? "mr-2.5" : "ml-2.5"}`} />
+            <LiaPhoneVolumeSolid
+              className={`${direction === "ltr" ? "mr-2.5" : "ml-2.5"}`}
+            />
             <div className="text-[#b7e4ea]">
               <span className="block">{t("contactUs.phone")}</span>
             </div>
@@ -371,10 +393,14 @@ export default function Contact() {
           <a
             data-aos={direction === "ltr" ? "fade-left" : "fade-right"}
             data-aos-duration="1500"
-            href="#"
+            href={`https://wa.me/966501E11`}
+            target="_blank"
             className="flex items-center text-xs rounded-3xl text-white bg-[#1c3f49] w-fit py-2 px-5 hover:bg-[#214a55] duration-300 cursor-pointer"
           >
-            <FaWhatsapp className={`${direction === "ltr" ? "mr-2" : "ml-2"}`} size={20} />
+            <FaWhatsapp
+              className={`${direction === "ltr" ? "mr-2" : "ml-2"}`}
+              size={20}
+            />
             <p>{t("contactUs.whatsApp")}</p>
           </a>
         </div>

@@ -1,167 +1,125 @@
-import React, { useEffect, useRef } from "react";
-import { Parallax, ParallaxLayer } from "@react-spring/parallax";
-import styles from "../styles.module.css";
-import landingImg from "../assets/imgs/landing-image.png";
-import { MdKeyboardArrowRight } from "react-icons/md";
-import { MdKeyboardArrowLeft } from "react-icons/md";
-import lawyerLogo from "../assets/imgs/logo-.png";
-import lawyerWork from "../assets/imgs/lawyerWork.jpg";
-import shaza from "../assets/imgs/shaza.png";
-import futureStar1 from "../assets/imgs/future-star1.jpg";
-import futureStar2 from "../assets/imgs/future-star2.jpg";
-import healthStep from "../assets/imgs/healthsteps.png";
-import healthStep1 from "../assets/imgs/healthsteps1.png";
-import superGym1 from "../assets/imgs/super-gym1.jpg";
-import superGym3 from "../assets/imgs/super-gym3.jpg";
+import React, { useEffect, useState } from "react";
+import { Link, Element, Events, animateScroll as scroll, scrollSpy } from "react-scroll";
+import bgImg from "../assets/imgs/bg-img.jpg";
 import { useTranslation } from "react-i18next";
-const Page = ({ offset, gradient, title, description, onClick, img, logo }) => {
-  const direction =
-  localStorage.getItem("selectedLanguage") === "ar" ? "rtl" : "ltr";
-  const handleClick = () => {
-    onClick();
-  };
-
-  return (
-    <>
-      <ParallaxLayer offset={offset} speed={0.2} onClick={handleClick}>
-        <div className={styles.slopeBegin} />
-      </ParallaxLayer>
-
-      <ParallaxLayer offset={offset} speed={0.6} onClick={handleClick}>
-        <div className={`${styles.slopeEnd} ${styles[gradient]}`} />
-      </ParallaxLayer>
-
-      <ParallaxLayer className={`${styles.text}`} offset={offset} speed={0.3}>
-        <div className="  ">
-          <span className={`md:ml-4 ${direction === "ltr" ? "md:ml-4" : "md:mr-4"} mt-[90px] mb-8 flex justify-center ${direction === "ltr" ? "md:justify-start" : "md:justify-end"} w-full md:w-auto`}>
-            <img src={logo} className=" max-w-[120px] rounded-full" />
-          </span>
-          <div className="flex justify-center items-start h-screen ">
-            <div className="bg-gray-800 rounded-lg shadow-lg overflow-hidden max-w-[600px] mx-12 min-w-[70%] md:min-w-[500px]">
-              <div className="relative">
-                <img
-                  src={img}
-                  className="w-full h-auto max-h-[200px] object-contain rounded-t-lg"
-                  alt="Card Image"
-                />
-                <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black opacity-75"></div>
-              </div>
-              <div className="p-4">
-                <h1 className="text-white text-base md:text-3xl text-center mb-4">
-                  {title}
-                </h1>
-                <p className="text-gray-300 text-base md:text-lg text-center">
-                  {description}
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </ParallaxLayer>
-    </>
-  );
-};
+import { getFirestore, collection, getDocs } from "firebase/firestore";
+import { db } from "../helpers/firebase";
+import { Link as RouterLink } from "react-router-dom";
+import Loading from "../components/Loading";
 
 export default function OurWorks() {
   const { t } = useTranslation();
- 
-  const parallax = useRef(null);
-  const totalPages = 4; // Update this to the total number of pages
+  const direction = localStorage.getItem("selectedLanguage") === "ar" ? "rtl" : "ltr";
+  const [workData, setWorkData] = useState([]);
+  const [loading, setLoading] = useState(true); 
 
-  const scroll = (to) => {
-    if (parallax.current) {
-      const currentOffset = parallax.current.offset;
-      let newOffset;
 
-      if (to === "next") {
-        newOffset = currentOffset < totalPages - 1 ? currentOffset + 1 : 0;
-      } else if (to === "prev") {
-        newOffset = currentOffset > 0 ? currentOffset - 1 : totalPages - 1;
-      } else {
-        newOffset = to;
-      }
-
-      parallax.current.scrollTo(newOffset);
-    }
-  };
-
-  const ourWorks = [
-    {
-      title: t("ourWorks.title1"),
-      description: t("ourWorks.description1"),
-      gradient: "pink",
-      img: lawyerWork,
-      logo: lawyerLogo,
-    },
-    {
-      title: t("ourWorks.title2"),
-      description: t("ourWorks.description2"),
-      gradient: "teal",
-      img: futureStar2,
-      logo: futureStar1,
-    },
-    {
-      title: t("ourWorks.title3"),
-      description: t("ourWorks.description3"),
-      gradient: "tomato",
-      img: healthStep1,
-      logo: healthStep,
-    },
-    {
-      title: t("ourWorks.title4"),
-      description: t("ourWorks.description4"),
-      gradient: "pink",
-      img: shaza,
-      logo: shaza,
-    },
-    // {
-    //   title: t("ourWorks.title4"),
-    //   description: t("ourWorks.description4"),
-    //   gradient: "pink",
-    //   img: superGym3,
-    //   logo: superGym1,
-    // },
-    // {
-    //   title: "E-commerce Solutions",
-    //   description:
-    //     "Develop scalable and secure e-commerce platforms to enhance your online sales.",
-    //   gradient: "pink",
-    //   img: superGym1,
-    //   logo: superGym3
-    // },
-  ];
   useEffect(() => {
-    window.scrollTo(0, 0); // Ensure scroll position is at the top on initial load
+    const fetchData = async () => {
+      const worksCollectionRef = collection(db, "formSubmissions");
+      const snapshot = await getDocs(worksCollectionRef);
+      const worksData = snapshot.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      }));
+      console.log(worksData)
+      setWorkData(worksData);
+      setLoading(false); // Set loading to false after data fetching is complete
+    };
+    fetchData();
+
+    Events.scrollEvent.register("begin", function () {});
+    Events.scrollEvent.register("end", function () {});
+    scrollSpy.update();
+
+    return () => {
+      Events.scrollEvent.remove("begin");
+      Events.scrollEvent.remove("end");
+    };
   }, []);
 
+  const groupedWorks = workData.reduce((acc, work) => {
+    if (!acc[work.selectedOption]) {
+      acc[work.selectedOption] = [];
+    }
+    acc[work.selectedOption].push(work);
+    return acc;
+  }, {});
+
   return (
-    <div style={{ background: "#dfdfdf" }} dir="ltr">
-      <div className="fixed left-2  md:left-4 top-1/2 transform -translate-y-1/2 text-4xl md:text-6xl text-[#fddc15] z-30 cursor-pointer">
-        <MdKeyboardArrowLeft onClick={() => scroll("prev")} />
+    <div className="bg-[#051118] min-h-screen py-32 w-screen overflow-hidden relative">
+      <div className="absolute inset-0 bg-cover bg-center opacity-5" style={{ backgroundImage: `url(${bgImg})` }}></div>
+
+      <h2 className="relative w-fit mx-auto text-3xl font-semibold leading-10 drop-shadow-md mb-12 capitalize text-[#b7e4ea] text-center animate__animated animate__fadeInDown">
+        <svg
+          className="absolute w-[200px] h-[200px] top-[-82px] left-[-35px] opacity-50 z-[-1]"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 2000 2000"
+        >
+          <g>
+            <g fill="hsl(194, 45%, 50%)" id="star">
+              <path
+                d="M 500 500 C 1000 1000 1000 1000 1300 750 C 1000 1000 1000 1000 2000 2000 C 1000 1000 1000 1000 750 1300 C 1000 1000 1000 1000 500 500"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              ></path>
+            </g>
+          </g>
+        </svg>
+        Our Works
+      </h2>
+
+      <div className="flex justify-center flex-wrap gap-4 mb-8 relative mt-16">
+        <Link
+          to="Web Design"
+          spy={true}
+          smooth={true}
+          duration={500}
+          className="mx-2 px-4 py-2 rounded-full font-semibold cursor-pointer transition shadow-lg hover:[] text-[#fffffc] hover:bg-[#e6953e] hover:text-white"
+        >
+          Web Design
+        </Link>
+        <Link
+          to="Social Media Management"
+          spy={true}
+          smooth={true}
+          duration={500}
+          className="mx-2 px-4 py-2 rounded-full font-semibold cursor-pointer transition shadow-lg text-[#fffffc] hover:bg-[#e6953e] hover:text-white"
+        >
+          Social Media Management
+        </Link>
+        <Link
+          to="Logo & Branding"
+          spy={true}
+          smooth={true}
+          duration={500}
+          className="mx-2 px-4 py-2 rounded-full font-semibold cursor-pointer transition shadow-lg text-[#fffffc] hover:bg-[#e6953e] hover:text-white"
+        >
+          Logo & Branding
+        </Link>
       </div>
-      <div className="fixed right-2  md:right-4 top-1/2 transform -translate-y-1/2 text-4xl md:text-6xl text-[#fddc15] z-30 cursor-pointer">
-        <MdKeyboardArrowRight onClick={() => scroll("next")} />
-      </div>
-      <Parallax
-        className={styles.container}
-        style={{ overflow: "hidden" }}
-        ref={parallax}
-        pages={4}
-        horizontal
-      >
-        {ourWorks.map((work, index) => (
-          <Page
-            key={index}
-            offset={index}
-            title={work.title}
-            description={work.description}
-            img={work.img}
-            logo={work.logo}
-            gradient={work.gradient}
-            onClick={() => scroll("next")}
-          />
-        ))}
-      </Parallax>
+
+
+      {Object.entries(groupedWorks).map(([option, works]) => (
+        <Element name={option} key={option} id={option}>
+          <div className="animate__animated animate__fadeIn animate__slow mb-16 p-8 max-w-5xl mx-auto mt-32 relative">
+          <h2 className="component-heading text-gray-600">{option}</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-10">
+              {works.map((work, index) => (
+                <RouterLink to={`/our-works/${work.id}`} key={index}>
+                  <div className=" rounded-lg overflow-hidden shadow-lg  transform hover:scale-105 transition duration-300">
+                    <img src={work.firstImage} alt={`Image ${index}`} className="w-full h-64 object-cover" />
+                    <div className="px-4 py-8">
+                      <p className="text-[#fffffc] text-sm sm:text-base line-clamp-3">{work.firstTitle} Lorem ipsum dolor sit, amet consectetur adipisicing.</p>
+                    </div>
+                  </div>
+                </RouterLink>
+              ))}
+            </div>
+          </div>
+        </Element>
+      ))}
+      {loading && <Loading />}
     </div>
   );
 }

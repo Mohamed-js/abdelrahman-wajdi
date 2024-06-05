@@ -3,7 +3,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { Link } from "react-scroll";
 import { Link as LinkRouter, useLocation } from "react-router-dom";
-import logo from "../assets/imgs/logo.jpeg";
+import logo from "../assets/imgs/adslogo.png";
 import { useTranslation } from "react-i18next";
 import LanguageSwitcher from "./LanguageSwitcher";
 export default function Sidebar({ handleSidebar, setHandleSidebar }) {
@@ -47,7 +47,7 @@ export default function Sidebar({ handleSidebar, setHandleSidebar }) {
       <div className="flex justify-end p-4">
         <button
           onClick={() => setHandleSidebar((prev) => !prev)}
-          className="text-[#fddc15] text-2xl font-bold cursor-pointer"
+          className="text-[#e6953e] text-2xl font-bold cursor-pointer"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -75,7 +75,7 @@ export default function Sidebar({ handleSidebar, setHandleSidebar }) {
       </div>
       <ul className="space-y-4 text-center">
         <li
-          className="p-4 hover:text-[#fddc15] transition-colors duration-300 cursor-pointer"
+          className="p-4 hover:text-[#e6953e] transition-colors duration-300 cursor-pointer"
           data-aos="fade-up"
           data-aos-delay="200"
         >
@@ -95,7 +95,7 @@ export default function Sidebar({ handleSidebar, setHandleSidebar }) {
           )}
         </li>
         <li
-          className="p-4 hover:text-[#fddc15] transition-colors duration-300 cursor-pointer mt-0"
+          className="p-4 hover:text-[#e6953e] transition-colors duration-300 cursor-pointer mt-0"
           style={{marginTop: "0px"}}
           data-aos="fade-up"
           data-aos-delay="300"
@@ -120,7 +120,7 @@ export default function Sidebar({ handleSidebar, setHandleSidebar }) {
           onClick={() => setHandleSidebar((prev) => !prev)}
         >
           <li
-            className="p-4 hover:text-[#fddc15] transition-colors duration-300 cursor-pointer mt-none"
+            className="p-4 hover:text-[#e6953e] transition-colors duration-300 cursor-pointer mt-none"
             data-aos="fade-up"
             data-aos-delay="400"
             style={{marginTop: "0px"}}
@@ -134,7 +134,7 @@ export default function Sidebar({ handleSidebar, setHandleSidebar }) {
           onClick={() => setHandleSidebar((prev) => !prev)}
         >
           <li
-            className="p-4 hover:text-[#fddc15] transition-colors duration-300 cursor-pointer mt-none"
+            className="p-4 hover:text-[#e6953e] transition-colors duration-300 cursor-pointer mt-none"
             data-aos="fade-up"
             data-aos-delay="500"
             style={{marginTop: "0px"}}
@@ -144,7 +144,7 @@ export default function Sidebar({ handleSidebar, setHandleSidebar }) {
           </li>
         </LinkRouter>
         <li
-          className="p-4 hover:text-[#fddc15] transition-colors duration-300 cursor-pointer mt-none"
+          className="p-4 hover:text-[#e6953e] transition-colors duration-300 cursor-pointer mt-none"
           data-aos="fade-up"
           style={{marginTop: "0px"}}
 
@@ -168,7 +168,7 @@ export default function Sidebar({ handleSidebar, setHandleSidebar }) {
         <li
                   style={{marginTop: "0px"}}
 
-          className="p-4 hover:text-[#fddc15] transition-colors duration-300 cursor-pointer mt-none"
+          className="p-4 hover:text-[#e6953e] transition-colors duration-300 cursor-pointer mt-none"
           data-aos="fade-up"
           data-aos-delay="700"
         >
@@ -188,7 +188,7 @@ export default function Sidebar({ handleSidebar, setHandleSidebar }) {
           )}
         </li>
         {/* <li
-          className="p-4 hover:text-[#fddc15] transition-colors duration-300 cursor-pointer"
+          className="p-4 hover:text-[#e6953e] transition-colors duration-300 cursor-pointer"
           data-aos="fade-up"
           data-aos-delay="800"
           onClick={handleLinkClick}

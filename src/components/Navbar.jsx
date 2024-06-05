@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { CiMenuBurger } from "react-icons/ci";
 import { FaShoppingBag } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import logo from "../assets/imgs/logo.jpeg";
+import logo from "../assets/imgs/adslogo.png";
 import LanguageSwitcher from "./LanguageSwitcher";
 import { useTranslation } from "react-i18next";
 
@@ -48,7 +48,7 @@ export default function Navbar({ setHandleSidebar }) {
           <div className="flex items-center justify-center w-[30%] md:w-[10%] text-center">
             <Link to="/">
               <div className="text-center w-full text-3xl cursor-pointer text-[#78b6db] ">
-                <img src={logo} alt="Logo" className="w-[60px] rounded-lg" />
+                <img src={logo} alt="Logo" className="w-[70px] rounded-lg" />
               </div>
             </Link>
           </div>

@@ -19,6 +19,7 @@ import about3 from "../assets/imgs/about-3.png";
 import bgImg from "../assets/imgs/bg-img.jpg";
 import Footer from "../components/Footer";
 import { useTranslation } from "react-i18next";
+import AboutusVision from "../components/AboutusVision";
 
 export default function AboutUs() {
   
@@ -26,7 +27,7 @@ export default function AboutUs() {
   localStorage.getItem("selectedLanguage") === "ar" ? "rtl" : "ltr";
   
   const { t } = useTranslation();
-
+  
   useEffect(() => {
     window.scrollTo(0, 0); // Ensure scroll position is at the top on initial load
   }, []);
@@ -38,10 +39,20 @@ export default function AboutUs() {
           backgroundImage: `url(${bgImg})`,
         }}
       ></div>
-      <div className="mb-14 text-center mx-auto">
+      <div className="my-32">
+
+                <h2 className="component-heading text-gray-600 ">          {t("aboutUs.about")}
+</h2>
+      </div>
+
+      <AboutusVision aboutBg={"https://cdn.pixabay.com/photo/2018/09/29/10/22/vision-3711143_640.jpg"} title={t("aboutUs.ourVisionTitle")} description={t("aboutUs.ourVision")}/>
+      <AboutusVision aboutBg={" https://cdn.pixabay.com/photo/2017/02/07/13/46/target-2045924_640.jpg"} title={t("aboutUs.ourGoalsTitle")} description={t("aboutUs.ourGoals")}/>
+      <AboutusVision aboutBg={"https://cdn.pixabay.com/photo/2021/08/27/15/26/email-6578913_640.jpg"}  title={t("aboutUs.ourMessageTitle")} description={t("aboutUs.ourMessage")}/>
+      <AboutusVision aboutBg={"https://cdn.pixabay.com/photo/2024/04/27/07/00/ai-generated-8723233_640.jpg"}  title={t("aboutUs.additionCardTitle")} description={t("aboutUs.additionCard")}/>
         <h4 className="w-fit mx-auto text-xs tracking-[4px] leading-10 uppercase text-[#b7e4ea] text-center mt-12">
           {t("aboutUs.about")}
         </h4>
+      <div className="mb-14 text-center mx-auto">
         <p className="relative leading-[1.1] text-3xl max-w-[300px] md:max-w-[500px] md:text-[50px] w-fit mx-auto text-3xl font-semibold leading-10 text-[#b7e4ea] text-center">
           <svg
             className="absolute -translate-x-2/4 -translate-y-2/4 text-[50px] w-[300px] md:w-[500px] h-[400px] left-2/4 top-2/4 opacity-50 z-[-1]"

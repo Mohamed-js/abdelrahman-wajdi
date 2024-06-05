@@ -9,6 +9,7 @@ import insights5 from "../assets/imgs/insights5.jpg";
 import insights6 from "../assets/imgs/insights6.jpg";
 import "aos/dist/aos.css";
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 export default function UnderCover() {
   const { t } = useTranslation();
   const direction =
@@ -60,13 +61,13 @@ export default function UnderCover() {
           backgroundImage: `url(${bgImg})`,
         }}
       ></div>
-      <div className="flex items-center justify-center mt-10 md:mt-20 mb-12 relative">
+      <div className="flex items-center justify-center mt-10 md:mt-20  relative">
         <h1
           className="relative w-fit mx-auto  text-4xl font-semibold leading-10	drop-shadow-md mb-12 capitalize text-[#b7e4ea] text-center"
           data-aos="fade"
         >
           <svg
-            className="absolute w-[200px] h-[200px] top-[-82px] left-[-35px]  opacity-50 z-[-1]	"
+            className={`absolute w-[200px] h-[200px] top-[-82px]  ${direction === "ltr" ? "left-[100px]" : "left-[30px]"}  opacity-50 z-[-1]`}
             xmlns="http://www.w3.org/2000/svg"
             version="1.1"
             // xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -83,9 +84,13 @@ export default function UnderCover() {
               </g>
             </g>
           </svg>
-          {t("insights.title")}
+          {t("insights.title1")}
         </h1>
       </div>
+      <p className="text-white text-xl text-center mb-12" data-aos="fade">
+        {" "}
+        {t("insights.title2")}
+      </p>
 
       <div className="space-y-16 md:space-y-32">
         {marketingConceptsData.map((data, index) => (
@@ -103,24 +108,32 @@ export default function UnderCover() {
             {/* Overlay with low opacity */}
             {/* bg-gradient-to-r from-[#01c4be] to-[#01c699] opacity-20 */}
             <div className="absolute inset-0 "></div>
-            <div className={`relative p-6 md:p-12 ${direction === "ltr" ? "text-left" : "text-right"} z-10 text-white`}>
+            <div
+              className={`relative p-6 md:p-12  ${
+                direction === "ltr" ? "text-left mr-auto" : "text-right ml-auto"
+              } z-10 text-white`}
+            >
               <h2
                 className="text-2xl md:text-4xl font-bold mb-4"
                 data-aos={`${direction === "ltr" ? "fade-right" : "fade-left"}`}
-                >
+              >
                 {data.title}
               </h2>
-              <p className="mb-4 text-base md:text-lg" data-aos={`${direction === "ltr" ? "fade-left" : "fade-right"}`}
->
+              <p
+                className="mb-4 text-base md:text-lg md:w-[50%]"
+                data-aos={`${direction === "ltr" ? "fade-left" : "fade-right"}`}
+              >
                 {data.description}
               </p>
+              <Link to="/about-us">
               <button
-                className="relative mt-4 px-8 py-3 bg-[#fddc15] text-black font-semibold text-sm md:text-base rounded-full transition transform-positive duration-300 ease-in-out shadow-lg hover:bg-[#ffe44c] hover:shadow-2xl hover:-translate-y-1 before:absolute before:inset-0 before:bg-white before:opacity-20 before:blur-lg before:rounded-full before:transform before:scale-105 before:transition before:duration-300 before:ease-in-out hover:before:opacity-10 hover:before:scale-125"
+                className="relative mt-4 px-8 py-3 bg-[#e6953e] hover:bg-[#d58435] text-black font-semibold text-sm md:text-base rounded-full transition transform-positive duration-300 ease-in-out shadow-lg  hover:shadow-2xl hover:-translate-y-1 before:absolute before:inset-0 before:bg-white before:opacity-20 before:blur-lg before:rounded-full before:transform before:scale-105 before:transition before:duration-300 before:ease-in-out hover:before:opacity-10 hover:before:scale-125"
                 data-aos="fade-bottom"
-              >
+                >
                 {data.learnMore}
                 {/* deelte transform from styling*/}
               </button>
+                </Link>
             </div>
           </div>
         ))}
