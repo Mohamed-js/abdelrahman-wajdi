@@ -9,7 +9,7 @@ import Contact from "../components/Contact";
 import Footer from "../components/Footer";
 import UnderCoverMobile from "../components/UnderCoverMobile";
 import ClientSlider from "../components/ClientSlider";
-import Services from "../components/Services";
+import Services from "./Services";
 import bgImg from "../assets/imgs/bg-img.jpg";
 import DownloadPdf from "../components/DownloadPdf";
 import { FaWhatsapp } from "react-icons/fa";
@@ -69,14 +69,15 @@ export default function Home() {
         </div>
       </div>
       
-      {/* <div className="block md:hidden">
+     <div className="block md:hidden">
 
       <UnderCoverMobile />
-      </div> */}
-      <div className="">
+      </div> 
+      <div className="hidden md:block ">
         <UnderCover />
+        
       </div>
-      <Services />
+      
       <ClientSlider rtl={true} mt={true} images={firstSliderImages} />
       <div
       className="h-2  relative"

@@ -96,7 +96,7 @@ export default function Sidebar({ handleSidebar, setHandleSidebar }) {
         </li>
         <li
           className="p-4 hover:text-[#e6953e] transition-colors duration-300 cursor-pointer mt-0"
-          style={{marginTop: "0px"}}
+          style={{ marginTop: "0px" }}
           data-aos="fade-up"
           data-aos-delay="300"
         >
@@ -123,8 +123,7 @@ export default function Sidebar({ handleSidebar, setHandleSidebar }) {
             className="p-4 hover:text-[#e6953e] transition-colors duration-300 cursor-pointer mt-none"
             data-aos="fade-up"
             data-aos-delay="400"
-            style={{marginTop: "0px"}}
-
+            style={{ marginTop: "0px" }}
           >
             {t("sidebar.aboutUs")}
           </li>
@@ -137,37 +136,26 @@ export default function Sidebar({ handleSidebar, setHandleSidebar }) {
             className="p-4 hover:text-[#e6953e] transition-colors duration-300 cursor-pointer mt-none"
             data-aos="fade-up"
             data-aos-delay="500"
-            style={{marginTop: "0px"}}
-
+            style={{ marginTop: "0px" }}
           >
             {t("sidebar.ourWorks")}
           </li>
         </LinkRouter>
-        <li
-          className="p-4 hover:text-[#e6953e] transition-colors duration-300 cursor-pointer mt-none"
-          data-aos="fade-up"
-          style={{marginTop: "0px"}}
-
-          data-aos-delay="600"
+        <LinkRouter
+          to="services"
+          onClick={() => setHandleSidebar((prev) => !prev)}
         >
-          {isSamePage("/") ? (
-            <Link
-              to="services"
-              smooth={true}
-              duration={1500}
-              onClick={handleLinkClick}
-            >
-              {t("sidebar.services")}
-            </Link>
-          ) : (
-            <LinkRouter to="/#services" onClick={handleLinkClick}>
-              {t("sidebar.services")}
-            </LinkRouter>
-          )}
-        </li>
+          <li
+            className="p-4 hover:text-[#e6953e] transition-colors duration-300 cursor-pointer mt-none"
+            data-aos="fade-up"
+            style={{ marginTop: "0px" }}
+            data-aos-delay="600"
+          >
+            {t("sidebar.services")}
+          </li>
+        </LinkRouter>
         <li
-                  style={{marginTop: "0px"}}
-
+          style={{ marginTop: "0px" }}
           className="p-4 hover:text-[#e6953e] transition-colors duration-300 cursor-pointer mt-none"
           data-aos="fade-up"
           data-aos-delay="700"

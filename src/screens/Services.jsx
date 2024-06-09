@@ -13,7 +13,15 @@ import service11 from "../assets/imgs/service11.jpg";
 import service12 from "../assets/imgs/service12.jpg";
 
 import bgImg from "../assets/imgs/bg-img.jpg";
-import { FaCoffee, FaBriefcase, FaChartLine, FaLightbulb, FaStar, FaRegClock, FaTasks } from "react-icons/fa";
+import {
+  FaCoffee,
+  FaBriefcase,
+  FaChartLine,
+  FaLightbulb,
+  FaStar,
+  FaRegClock,
+  FaTasks,
+} from "react-icons/fa";
 
 import { FaWhatsapp } from "react-icons/fa";
 import { FaFacebookF } from "react-icons/fa";
@@ -22,12 +30,14 @@ import { AiOutlineTikTok } from "react-icons/ai";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useTranslation } from "react-i18next";
+import Footer from "../components/Footer";
 
 export default function Services() {
   const { t } = useTranslation();
 
-  const direction = localStorage.getItem("selectedLanguage") === "ar" ? "rtl" : "ltr";
-  
+  const direction =
+    localStorage.getItem("selectedLanguage") === "ar" ? "rtl" : "ltr";
+
   useEffect(() => {
     AOS.init({ duration: 1500, easing: "ease-in-out" });
 
@@ -40,7 +50,7 @@ export default function Services() {
   const servicesCard = [
     {
       name: t("services.marketingPlan"),
-      description:  t("services.marketingPlanDescription"),
+      description: t("services.marketingPlanDescription"),
       img: service1,
     },
     {
@@ -101,7 +111,7 @@ export default function Services() {
   ];
   return (
     <div
-      className={`relative z-[1] py-[100px]  bg-[#051118] p-2`}
+      className={`relative z-[1] pt-[140px]  bg-[#051118] p-2`}
       id="services"
     >
       <div
@@ -134,16 +144,27 @@ export default function Services() {
         </svg>
         {t("services.title")}
       </h2>
-      <p className="text-white text-center mb-12 max-w-[80%] md:max-w-[50%] mx-auto" data-aos="fade-left">{t("services.description")}</p>
+      <p
+        className="text-white text-center mb-12 max-w-[80%] md:max-w-[50%] mx-auto"
+        data-aos="fade-left"
+      >
+        {t("services.description")}
+      </p>
 
-      <div className="grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-10 mx-auto px-[15px]">
+      <div className="grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-10 mx-auto px-[15px] mb-16">
         {servicesCard.map((card, i) => {
           return (
             <div
               data-aos="fade-up"
               key={i}
-              className={`group relative before:${direction === "ltr" ? "bg-gradient-to-tr" : "bg-gradient-to-tl"}
-              } before:from-[#051118] before:to-[#103743] before:content-[''] before:absolute before:h-full before:transition-[0.3s] before:rounded-lg before:w-[calc(100%_-_60px)] before:z-[-2] ${direction === "ltr" ? "before:right-0" : "before:left-0"} before:top-0 after:content-[''] after:absolute after:h-full after:transition-[0.3s] after:rounded-lg ${direction === "ltr" ? "after:right-0" : "after:left-0"} after:top-0 after:z-[-1] after:bg-[#11333d] after:w-0 hover:after:w-[calc(100%_-_60px)]`}
+              className={`group relative before:${
+                direction === "ltr" ? "bg-gradient-to-tr" : "bg-gradient-to-tl"
+              }
+              } before:from-[#051118] before:to-[#103743] before:content-[''] before:absolute before:h-full before:transition-[0.3s] before:rounded-lg before:w-[calc(100%_-_60px)] before:z-[-2] ${
+                direction === "ltr" ? "before:right-0" : "before:left-0"
+              } before:top-0 after:content-[''] after:absolute after:h-full after:transition-[0.3s] after:rounded-lg ${
+                direction === "ltr" ? "after:right-0" : "after:left-0"
+              } after:top-0 after:z-[-1] after:bg-[#11333d] after:w-0 hover:after:w-[calc(100%_-_60px)]`}
             >
               <div className="flex items-center pt-[60px]">
                 <img
@@ -151,36 +172,36 @@ export default function Services() {
                   alt=""
                   className="group-hover:grayscale	 w-[calc(100%_-_60px)] transition-[0.3s] rounded-[15px]"
                 />
-             <div className="flex flex-col items-center gap-5">
-  <div className="w-[60px] h-[30px] flex justify-center items-center">
-    <FaChartLine className="text-[#b7e4ea] transition-[0.3s] group-hover:z-10 icon" />
-  </div>
-  <div className="w-[60px] h-[30px] flex justify-center items-center">
-    <FaLightbulb className="text-[#b7e4ea] transition-[0.3s] group-hover:z-10 icon" />
-  </div>
-  <div className="w-[60px] h-[30px] flex justify-center items-center">
-    <FaTasks className="text-[#b7e4ea] transition-[0.3s] group-hover:z-10 icon" />
-  </div>
-  <div className="w-[60px] h-[30px] flex justify-center items-center">
-    <FaRegClock className="text-[#b7e4ea] transition-[0.3s] group-hover:z-10 icon" />
-  </div>
-</div>
-
+                <div className="flex flex-col items-center gap-5">
+                  <div className="w-[60px] h-[30px] flex justify-center items-center">
+                    <FaChartLine className="text-[#b7e4ea] transition-[0.3s] group-hover:z-10 icon" />
+                  </div>
+                  <div className="w-[60px] h-[30px] flex justify-center items-center">
+                    <FaLightbulb className="text-[#b7e4ea] transition-[0.3s] group-hover:z-10 icon" />
+                  </div>
+                  <div className="w-[60px] h-[30px] flex justify-center items-center">
+                    <FaTasks className="text-[#b7e4ea] transition-[0.3s] group-hover:z-10 icon" />
+                  </div>
+                  <div className="w-[60px] h-[30px] flex justify-center items-center">
+                    <FaRegClock className="text-[#b7e4ea] transition-[0.3s] group-hover:z-10 icon" />
+                  </div>
+                </div>
               </div>
               <div className={`${direction === "ltr" ? "pl-20" : "pr-20"}`}>
-              {/* Title */}
-              <h3 className="mt-3.5 font-black py-3 mx-2 text-[#b7e4ea] text-[18px] mb-0">
-                {card.name}
-              </h3>
-              {/* Description */}
-              <p className="mb-3.5 text-[#fffffc] text-[15px] mx-2">{card.description}</p>
-            </div>
+                {/* Title */}
+                <h3 className="mt-3.5 font-black py-3 mx-2 text-[#b7e4ea] text-[18px] mb-0">
+                  {card.name}
+                </h3>
+                {/* Description */}
+                <p className="mb-3.5 text-[#fffffc] text-[15px] mx-2">
+                  {card.description}
+                </p>
+              </div>
             </div>
           );
         })}
       </div>
+      <Footer />
     </div>
   );
 }
-
-// group-hover:text-[#144f61]

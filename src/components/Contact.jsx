@@ -366,7 +366,7 @@ export default function Contact() {
             </div>
           </div>
           <ul
-            className="flex pl-7 border-l border-[#b7e4ea] mb-5"
+            className={`flex   ${direction === "ltr" ? "border-l pl-7" : "border-r pr-7"} border-[#b7e4ea] mb-5`}
             data-aos={direction === "ltr" ? "fade-left" : "fade-right"}
             data-aos-duration="1400"
           >

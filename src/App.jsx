@@ -10,6 +10,7 @@ import OurWorks from "./screens/OurWokrs";
 import Login from "./screens/Login";
 import Form from "./screens/Form";
 import WorkDetails from "./screens/WorkDetails";
+import Services from "./screens/Services";
 
 function App() {
   const [handleSidebar, setHandleSidebar] = useState(false);
@@ -34,6 +35,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/our-works" element={<OurWorks />} />
+        <Route path="/services" element={<Services />} />
         <Route path="/our-works/:id" element={<WorkDetails />} />
         <Route path="/about-us" element={<AboutUs />} />
         <Route path="/login" element={<Login onLogin={handleLogin} />} />
