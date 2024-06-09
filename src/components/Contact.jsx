@@ -217,9 +217,11 @@ export default function Contact() {
 
   const sendEmail = (e) => {
     e.preventDefault();
-
+//  Pulbic key: 4NoHlOBMRT4eW_XXa
+// template id: template_k1ccei8
+// service_ek4f4f6
     emailjs
-      .sendForm("service_8zh20vo", "template_7jqgest", e.target, "SPtJzIpf9h6JGNIGO")
+      .sendForm("service_ek4f4f6", "template_k1ccei8", e.target, "4NoHlOBMRT4eW_XXa")
       .then(
         (result) => {
           console.log(result.text);

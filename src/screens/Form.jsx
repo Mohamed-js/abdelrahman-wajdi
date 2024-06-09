@@ -78,8 +78,37 @@ const [images, setImages] = useState([]);
     }
   };
   
+//   mo tolba
+// 11:18 AM
+// shplumnr
+// mo tolba
+// 11:23 AM
+// // Import the functions you need from the SDKs you need
+// import { initializeApp } from "firebase/app";
+// import { getAnalytics } from "firebase/analytics";
+// // TODO: Add SDKs for Firebase products that you want to use
+// // https://firebase.google.com/docs/web/setup#available-libraries
+
+// // Your web app's Firebase configuration
+// // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+// const firebaseConfig = {
+//   apiKey: "AIzaSyDF8CJut4WFcU3-HrNtVbgPZC40-EgguLI",
+//   authDomain: "ads-master-14c2a.
+// mo tolba
+// 11:27 AM
+// // Import the functions you need from the SDKs you need
+// import { initializeApp } from "firebase/app";
+// import { getAnalytics } from "firebase/analytics";
+// // TODO: Add SDKs for Firebase products that you want to use
+// // https://firebase.google.com/docs/web/setup#available-libraries
+
+// // Your web app's Firebase configuration
+// // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+// const firebaseConfig = {
+//   apiKey: "AIzaSyDF8CJut4WFcU3-HrNtVbgPZC40-EgguLI",
+//   authDomain: "ads-master-14c2a.
   // Inside your JSX, update the first image input change handler to use this function
-  
+  // shplumnr  preset name 
   <input
     type="file"
     id={`image`}
@@ -92,11 +121,21 @@ const [images, setImages] = useState([]);
   const handleImageUpload = async (index, file) => {
     const formData = new FormData();
     formData.append("file", file);
-    formData.append("upload_preset", "ca0qjdpw");
+    // upload preset name  ca0qjdpw       => sign in settings (left down )  then upload then add upload preset down its the name of the preset
+     formData.append("upload_preset", "shplumnr"); 
+    // old name preset  ca0qjdpw
   
+
+
+    
+    // new dicaytdci
+    // new shplumnr
+
+
     try {
+      // cloud name from dashboard : dwawhl9j4
       const response = await fetch(
-        `https://api.cloudinary.com/v1_1/dwawhl9j4/image/upload`,
+        `https://api.cloudinary.com/v1_1/dicaytdci/image/upload`,
         {
           method: "POST",
           body: formData,
@@ -135,13 +174,7 @@ const [images, setImages] = useState([]);
     if (isLoggedIn) {
       try {
      
-        const isAtLeastOneDescription = descriptions.some(desc => desc.trim() !== "");
-        const isAtLeastOneImage = images.some(img => img.trim() !== "" && img !== undefined);
-  
-        if (!isAtLeastOneDescription || !isAtLeastOneImage) {
-          alert("Please add at least one description and image.");
-          return;
-        }
+ 
         const combinedData = descriptions.map((desc, index) => ({
           title: titles[index], // Include title
           description: desc,
