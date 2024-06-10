@@ -32,8 +32,10 @@
     "dataDrivenDescription": "Your success is our success. Your professionalism is our mission. You are our success partner, not just a client."
   },
   "services": {
-    "title": "Services",
-    "description": "Your sole choice for professionalism. The latest solutions for providing marketing services from all aspects in a professional manner that reflects your image to increase your chances of success and sales percentage.",
+    "title": "Marketing Mastery",
+    "title2" : "Your First Destination",
+    "description2" : "The pinnacle of professional marketing. Innovative solutions to elevate your brand and drive sales to new heights.",
+    "description": "Your ultimate choice for professional marketing. Cutting-edge services to elevate your brand and boost sales.",
 
     "marketingPlan": "Creating the marketing plan",
     "marketingPlanDescription": "We will help you create your own marketing plan through which you will be able to compete and dominate the market.",
