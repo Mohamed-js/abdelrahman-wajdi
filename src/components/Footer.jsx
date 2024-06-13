@@ -21,9 +21,11 @@ export default function Footer() {
   return (
     <div className="bg-[#051118]  relative  ">
       <div
-        className="absolute inset-0 bg-cover bg-center opacity-5"
+        className="absolute inset-0 bg-cover bg-center= opacity-5 " 
         style={{
           backgroundImage: `url(${bgImg})`,
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
         }}
       ></div>
 
@@ -61,7 +63,7 @@ export default function Footer() {
                 direction === "ltr" ? "mr-2.5" : "ml-2.5"
               } w-4 h-4 `}
             />
-            <a href={`tel:9.66501E+11`} className="text-[#62a0a8]">
+            <a href={`tel:966500685333`} className="text-[#62a0a8]">
               {t("footer.number")}
             </a>
           </div>
@@ -91,24 +93,6 @@ export default function Footer() {
 
             {/*             {/* مكتب رقم 4، 2253 محمد بن عبدالله بن عبداللطيف، 7913، الدور الاول، الرياض 12463، المملكة العربية السعودية */}
           </div>
-
-          {/* <ul className="flex ml-8">
-        <li className="mr-5">
-          <a href="#" className="hover:text-[#1c3f49] duration-300">
-            <FaFacebookF />
-          </a>
-        </li>
-        <li className="mr-5">
-          <a href="#" className="hover:text-[#1c3f49] duration-300">
-            <FaTwitter />
-          </a>
-        </li>
-        <li>
-          <a href="#" className="hover:text-[#1c3f49] duration-300">
-            <FaYoutube />
-          </a>
-        </li>
-      </ul> */}
         </div>
         <div className="text-[#62a0a8] pb-5 border-b border-[#b7e4ea2e] relative">
           <h3 className="mb-4 text-xl font-semibold text-[#b7e4ea]">

@@ -1,12 +1,10 @@
 import React, { useEffect } from "react";
 import bgImg from "../assets/imgs/bg-img.jpg";
 import AOS from "aos";
-import insights1 from "../assets/imgs/insights1.jpg";
-import insights2 from "../assets/imgs/insights2.jpg";
-import insights3 from "../assets/imgs/insights3.jpg";
-import insights4 from "../assets/imgs/insights4.png";
-import insights5 from "../assets/imgs/insights5.jpg";
-import insights6 from "../assets/imgs/insights6.jpg";
+import undercover1 from "../assets/imgs/undercover1.jpg"
+import undercover2 from "../assets/imgs/undercover2.jpg"
+import undercover3 from "../assets/imgs/undercover3.jpg"
+import undercover4 from "../assets/imgs/undercover4.png"
 import "aos/dist/aos.css";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
@@ -28,25 +26,25 @@ export default function UnderCover() {
       title: t("insights.socialMedia"),
       description: t("insights.socialMediaDescription"),
       learnMore: t("insights.learnMore"),
-      img: insights1,
+      img: undercover1,
     },
     {
       title: t("insights.seo"),
       description: t("insights.seoDescription"),
       learnMore: t("insights.learnMore"),
-      img: insights2,
+      img: undercover2,
     },
     {
       title: t("insights.emailCampaign"),
       description: t("insights.emailCampaignDescription"),
       learnMore: t("insights.learnMore"),
-      img: insights6,
+      img: undercover3,
     },
     {
       title: t("insights.dataDriven"),
       description: t("insights.dataDrivenDescription"),
       learnMore: t("insights.learnMore"),
-      img: insights4,
+      img: undercover4,
     },
   ];
 
@@ -63,11 +61,11 @@ export default function UnderCover() {
       ></div>
       <div className="flex items-center justify-center mt-10 md:mt-20  relative">
         <h1
-          className="relative w-fit mx-auto  text-4xl font-semibold leading-10	drop-shadow-md mb-12 capitalize text-[#b7e4ea] text-center"
+          className="relative w-fit mx-auto text-xl md:text-4xl font-semibold leading-10	drop-shadow-md mb-12 capitalize text-[#b7e4ea] text-center"
           data-aos="fade"
         >
           <svg
-            className={`absolute w-[200px] h-[200px] top-[-82px]  ${direction === "ltr" ? "left-[100px]" : "left-[30px]"}  opacity-50 z-[-1]`}
+            className={`absolute w-[200px] h-[200px] top-[-82px]  ${direction === "ltr" ? "left-[0px]" : "left-[-20px]"}  opacity-50 z-[-1]`}
             xmlns="http://www.w3.org/2000/svg"
             version="1.1"
             // xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -87,7 +85,7 @@ export default function UnderCover() {
           {t("insights.title1")}
         </h1>
       </div>
-      <p className="text-white text-xl text-center mb-12" data-aos="fade">
+      <p className="text-white  text-lg md:xl text-center mb-12" data-aos="fade">
         {" "}
         {t("insights.title2")}
       </p>
@@ -96,7 +94,7 @@ export default function UnderCover() {
         {marketingConceptsData.map((data, index) => (
           <div
             key={index}
-            className="relative h-64 flex items-center justify-center mx-auto w-full max-w-5xl rounded-lg shadow-lg overflow-hidden"
+            className="relative h-72 flex items-center justify-center mx-auto w-full max-w-5xl rounded-lg shadow-lg overflow-hidden"
             style={{
               backgroundImage: `url(${data.img})`,
               backgroundSize: "cover",
@@ -113,13 +111,13 @@ export default function UnderCover() {
               } z-10 text-white`}
             >
               <h2
-                className="text-2xl md:text-4xl font-bold mb-4"
+                className="text-lg md:text-4xl font-bold mb-4"
                 data-aos={`${direction === "ltr" ? "fade-right" : "fade-left"}`}
               >
                 {data.title}
               </h2>
               <p
-                className="mb-4 text-base md:text-lg md:w-[80%]"
+                className="mb-4 text-sm md:text-lg md:w-[80%]"
                 data-aos={`${direction === "ltr" ? "fade-left" : "fade-right"}`}
               >
                 {data.description}

@@ -16,23 +16,41 @@ import "swiper/css/effect-coverflow";
 import about1 from "../assets/imgs/about-1.png";
 import about2 from "../assets/imgs/about-2.png";
 import about3 from "../assets/imgs/about-3.png";
+import ourGoals from "../assets/imgs/ourgoals.jpg";
+import ourVision from "../assets/imgs/ourvision.jpg";
+import ourMessage from "../assets/imgs/ourmessage.jpg";
+import reflect from "../assets/imgs/reflect.jpg";
 import bgImg from "../assets/imgs/bg-img.jpg";
 import Footer from "../components/Footer";
 import { useTranslation } from "react-i18next";
 import AboutusVision from "../components/AboutusVision";
-
+{
+  /* https://cdn.pixabay.com/photo/2018/09/29/10/22/vision-3711143_640.jpg */
+}
+{
+  /* https://cdn.pixabay.com/photo/2017/02/07/13/46/target-2045924_640.jpg */
+}
+{
+  /* https://cdn.pixabay.com/photo/2021/08/27/15/26/email-6578913_640.jpg */
+}
+{
+  /* https://cdn.pixabay.com/photo/2024/04/27/07/00/ai-generated-8723233_640.jpg */
+}
 export default function AboutUs() {
-  
   const direction =
-  localStorage.getItem("selectedLanguage") === "ar" ? "rtl" : "ltr";
-  
+    localStorage.getItem("selectedLanguage") === "ar" ? "rtl" : "ltr";
+
   const { t } = useTranslation();
-  
+
   useEffect(() => {
     window.scrollTo(0, 0); // Ensure scroll position is at the top on initial load
   }, []);
   return (
-    <div className="relative z-[1] py-5 bg-[#051118] " id="team-members" dir="ltr">
+    <div
+      className="relative z-[1] py-5 bg-[#051118] "
+      id="team-members"
+      dir="ltr"
+    >
       <div
         className="absolute inset-0 bg-cover bg-center opacity-5"
         style={{
@@ -40,18 +58,35 @@ export default function AboutUs() {
         }}
       ></div>
       <div className="my-32">
-
-                <h2 className="component-heading text-gray-600 ">          {t("aboutUs.about")}
-</h2>
+        <h2 className="component-heading text-gray-600 ">
+          {" "}
+          {t("aboutUs.about")}
+        </h2>
       </div>
 
-      <AboutusVision aboutBg={"https://cdn.pixabay.com/photo/2018/09/29/10/22/vision-3711143_640.jpg"} title={t("aboutUs.ourVisionTitle")} description={t("aboutUs.ourVision")}/>
-      <AboutusVision aboutBg={" https://cdn.pixabay.com/photo/2017/02/07/13/46/target-2045924_640.jpg"} title={t("aboutUs.ourGoalsTitle")} description={t("aboutUs.ourGoals")}/>
-      <AboutusVision aboutBg={"https://cdn.pixabay.com/photo/2021/08/27/15/26/email-6578913_640.jpg"}  title={t("aboutUs.ourMessageTitle")} description={t("aboutUs.ourMessage")}/>
-      <AboutusVision aboutBg={"https://cdn.pixabay.com/photo/2024/04/27/07/00/ai-generated-8723233_640.jpg"}  title={t("aboutUs.additionCardTitle")} description={t("aboutUs.additionCard")}/>
-        <h4 className="w-fit mx-auto text-xs tracking-[4px] leading-10 uppercase text-[#b7e4ea] text-center mt-12">
-          {t("aboutUs.about")}
-        </h4>
+      <AboutusVision
+        aboutBg={ourVision}
+        title={t("aboutUs.ourVisionTitle")}
+        description={t("aboutUs.ourVision")}
+      />
+      <AboutusVision
+        aboutBg={ourGoals}
+        title={t("aboutUs.ourGoalsTitle")}
+        description={t("aboutUs.ourGoals")}
+      />
+      <AboutusVision
+        aboutBg={ourMessage}
+        title={t("aboutUs.ourMessageTitle")}
+        description={t("aboutUs.ourMessage")}
+      />
+      <AboutusVision
+        aboutBg={reflect}
+        title={t("aboutUs.additionCardTitle")}
+        description={t("aboutUs.additionCard")}
+      />
+      <h4 className="w-fit mx-auto text-xs tracking-[4px] leading-10 uppercase text-[#b7e4ea] text-center mt-12">
+        {t("aboutUs.about")}
+      </h4>
       <div className="mb-14 text-center mx-auto">
         <p className="relative leading-[1.1] text-3xl max-w-[300px] md:max-w-[500px] md:text-[50px] w-fit mx-auto text-3xl font-semibold leading-10 text-[#b7e4ea] text-center">
           <svg
@@ -86,8 +121,7 @@ export default function AboutUs() {
         centeredSlides={true}
         className="px-10"
         effect={"coverflow"}
-        
-        // loop={true}  
+        // loop={true}
         grabCursor={true}
         slideActiveClass="swiper-slide-active" // Class for the active slide
         slidePrevClass="swiper-slide-prev" // Class for the slide to the left of the active slide
@@ -111,12 +145,26 @@ export default function AboutUs() {
         }}
       >
         <SwiperSlide>
-          <div className={`mb-16 relative before:absolute before:h-[calc(100%_-_50px)] before:bottom-0 before:rounded-xl before:z-[-1] ${direction === "ltr" ?" before:bg-gradient-to-tr" : "before:bg-gradient-to-tl"}  before:from-[#051118] before:to-[#103743] before:w-full`}>
+          <div
+            className={`mb-16 relative before:absolute before:h-[calc(100%_-_50px)] before:bottom-0 before:rounded-xl before:z-[-1] ${
+              direction === "ltr"
+                ? " before:bg-gradient-to-tr"
+                : "before:bg-gradient-to-tl"
+            }  before:from-[#051118] before:to-[#103743] before:w-full`}
+          >
             <div className="p-2">
               <img src={about1} alt="Custom SEO Services" className="" />
             </div>
-            <div className={`relative w-full bg-[#103743] text-[#b7e4ea] text-xs ${direction === "ltr" ? "pl-5" : "pr-5"} py-1 z-10`}>
-              <div className={`absolute px-2.5 flex w-[100px] items-center justify-between border border-[#103743] bg-[#051118] rounded-[60px] ${direction === "ltr"  ? "right-[15px]" : "left-[15px]"} top-[-22px] `}>
+            <div
+              className={`relative w-full bg-[#103743] text-[#b7e4ea] text-xs ${
+                direction === "ltr" ? "pl-5" : "pr-5"
+              } py-1 z-10`}
+            >
+              <div
+                className={`absolute px-2.5 flex w-[100px] items-center justify-between border border-[#103743] bg-[#051118] rounded-[60px] ${
+                  direction === "ltr" ? "right-[15px]" : "left-[15px]"
+                } top-[-22px] `}
+              >
                 <span className="w-[7px] h-[7px] rounded-[50%] bg-[#b7e4ea]"></span>
                 <div className="text-[10px] text-[#b7e4ea]">
                   {t("aboutUs.masterAdds")}
@@ -124,7 +172,11 @@ export default function AboutUs() {
               </div>
               <span className={`${direction === "rtl" && "ml-4"}`}>01</span>
             </div>
-            <div className={`${direction === "ltr" ? "text-left" : "text-right"} px-5`}>
+            <div
+              className={`${
+                direction === "ltr" ? "text-left" : "text-right"
+              } px-5`}
+            >
               <h3 className="mt-3.5 mb-2.5 font-black text-[#b7e4ea] text-l mb-0">
                 {t("aboutUs.cardOneTitle")}
               </h3>
@@ -135,12 +187,26 @@ export default function AboutUs() {
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <div className={`mb-16 relative before:absolute before:h-[calc(100%_-_50px)] before:bottom-0 before:rounded-xl before:z-[-1] ${direction === "ltr" ? "before:bg-gradient-to-tr" : "before:bg-gradient-to-tl"}  before:from-[#051118] before:to-[#103743] before:w-full`}>
+          <div
+            className={`mb-16 relative before:absolute before:h-[calc(100%_-_50px)] before:bottom-0 before:rounded-xl before:z-[-1] ${
+              direction === "ltr"
+                ? "before:bg-gradient-to-tr"
+                : "before:bg-gradient-to-tl"
+            }  before:from-[#051118] before:to-[#103743] before:w-full`}
+          >
             <div className="p-2">
               <img src={about2} alt="SEO Website Design" className="" />
             </div>
-            <div className={`relative w-full bg-[#103743] text-[#b7e4ea] text-xs ${direction === "ltr" ? "pl-5" : "pr-5"} py-0.5 z-10`}>
-              <div className={`absolute px-2.5 flex w-[100px] items-center justify-between border border-[#103743] bg-[#051118] rounded-[60px] ${direction === "ltr" ? "right-[15px]" : "left-[15px]"} top-[-22px]`}>
+            <div
+              className={`relative w-full bg-[#103743] text-[#b7e4ea] text-xs ${
+                direction === "ltr" ? "pl-5" : "pr-5"
+              } py-0.5 z-10`}
+            >
+              <div
+                className={`absolute px-2.5 flex w-[100px] items-center justify-between border border-[#103743] bg-[#051118] rounded-[60px] ${
+                  direction === "ltr" ? "right-[15px]" : "left-[15px]"
+                } top-[-22px]`}
+              >
                 <span className="w-[7px] h-[7px] rounded-[50%] bg-[#b7e4ea]"></span>
                 <div className="text-[10px] text-[#b7e4ea]">
                   {" "}
@@ -149,7 +215,11 @@ export default function AboutUs() {
               </div>
               <span className={`${direction === "rtl" && "ml-4"}`}>02</span>
             </div>
-            <div className={`${direction === "ltr" ? "text-left" : "text-right"} px-5`}>
+            <div
+              className={`${
+                direction === "ltr" ? "text-left" : "text-right"
+              } px-5`}
+            >
               <h3 className="mt-3.5 mb-2.5 font-black text-[#b7e4ea] text-l mb-0">
                 {t("aboutUs.cardTwoTitle")}
               </h3>
@@ -160,12 +230,26 @@ export default function AboutUs() {
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <div className={`mb-16 relative before:absolute before:h-[calc(100%_-_50px)] before:bottom-0 before:rounded-xl before:z-[-1] ${direction === "ltr" ? "before:bg-gradient-to-tr" : "before:bg-gradient-to-tl" }  before:from-[#051118] before:to-[#103743] before:w-full`}>
+          <div
+            className={`mb-16 relative before:absolute before:h-[calc(100%_-_50px)] before:bottom-0 before:rounded-xl before:z-[-1] ${
+              direction === "ltr"
+                ? "before:bg-gradient-to-tr"
+                : "before:bg-gradient-to-tl"
+            }  before:from-[#051118] before:to-[#103743] before:w-full`}
+          >
             <div className="p-2">
               <img src={about3} alt="SEO Consulting" className="" />
             </div>
-            <div className={`relative w-full bg-[#103743] text-[#b7e4ea] text-xs ${direction === "ltr" ? "pl-5" : "pr-5"} py-0.5 z-10`}>
-            <div className={`absolute px-2.5 flex w-[100px] items-center justify-between border border-[#103743] bg-[#051118] rounded-[60px] ${direction === "ltr" ? "right-[15px]" : "left-[15px]"} top-[-22px]`}>
+            <div
+              className={`relative w-full bg-[#103743] text-[#b7e4ea] text-xs ${
+                direction === "ltr" ? "pl-5" : "pr-5"
+              } py-0.5 z-10`}
+            >
+              <div
+                className={`absolute px-2.5 flex w-[100px] items-center justify-between border border-[#103743] bg-[#051118] rounded-[60px] ${
+                  direction === "ltr" ? "right-[15px]" : "left-[15px]"
+                } top-[-22px]`}
+              >
                 <span className="w-[7px] h-[7px] rounded-[50%] bg-[#b7e4ea]"></span>
                 <div className="text-[10px] text-[#b7e4ea]">
                   {" "}
@@ -174,7 +258,11 @@ export default function AboutUs() {
               </div>
               <span className={`${direction === "rtl" && "ml-4"}`}>03</span>
             </div>
-            <div className={`${direction === "ltr" ? "text-left" : "text-right"} px-5`}>
+            <div
+              className={`${
+                direction === "ltr" ? "text-left" : "text-right"
+              } px-5`}
+            >
               <h3 className="mt-3.5 mb-2.5 font-black text-[#b7e4ea] text-l mb-0">
                 {t("aboutUs.cardThreeTitle")}
               </h3>

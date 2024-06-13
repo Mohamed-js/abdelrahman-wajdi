@@ -1,29 +1,32 @@
 import React from "react";
 import bgImg from "../assets/imgs/bg-img.jpg";
 import { useTranslation } from "react-i18next";
-import download from "../assets/imgs/download1.jpg"
+import download from "../assets/imgs/download1.jpg";
+import profile from "../assets/imgs/profile.jpg"
 
 export default function DownloadPdf() {
-  const direction =
-    localStorage.getItem("selectedLanguage") === "ar" ? "rtl" : "ltr";
+  const direction = localStorage.getItem("selectedLanguage") === "ar" ? "rtl" : "ltr";
   const { t } = useTranslation();
 
   return (
     <div className="relative bg-[#051118] py-24">
       <div
         className="absolute inset-0 bg-cover bg-center opacity-5"
-        style={{ backgroundImage: `url(${bgImg})` }}
+        style={{
+          backgroundImage: `url(${bgImg})`,
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
+        }}
       ></div>
       <div
-        className="relative h-96 flex items-center justify-center mx-auto w-full max-w-5xl rounded-lg shadow-lg overflow-hidden"
+        className="relative h-48 md:h-96 flex items-center justify-center mx-auto w-[90%] max-w-5xl rounded-lg shadow-lg overflow-hidden"
         style={{
-          backgroundImage: `url(${download})`,
+          backgroundImage: `url(${profile})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
       >
-        <div className="absolute inset-0 bg-black opacity-40"></div>{" "}
-        <div className="absolute inset-0 "></div>
+        <div className="absolute inset-0 bg-black opacity-40"></div>
         <div
           className={`relative p-6 md:p-12 ${
             direction === "ltr" ? "text-left" : "text-right"

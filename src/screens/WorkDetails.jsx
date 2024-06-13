@@ -108,7 +108,7 @@ export default function WorkDetails() {
   });
 
   return (
-    <div className="bg-[#051118] min-h-screen w-screen overflow-hidden relative">
+    <div className="bg-[#051118] min-h-screen w-screen overflow-hidden relative" dir="ltr">
       <animated.div
         className="absolute inset-0 bg-cover bg-center opacity-5"
         style={{

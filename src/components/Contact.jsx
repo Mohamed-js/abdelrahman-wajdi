@@ -181,8 +181,6 @@
 //   );
 // }
 
-
-
 import React, { useEffect, useState } from "react";
 import {
   FaMapMarkerAlt,
@@ -190,6 +188,8 @@ import {
   FaFacebookF,
   FaTwitter,
   FaCheckCircle,
+  FaInstagram,
+  FaLinkedin,
 } from "react-icons/fa";
 import { AiOutlineTikTok } from "react-icons/ai";
 import { IoMdTime } from "react-icons/io";
@@ -217,11 +217,16 @@ export default function Contact() {
 
   const sendEmail = (e) => {
     e.preventDefault();
-//  Pulbic key: 4NoHlOBMRT4eW_XXa
-// template id: template_k1ccei8
-// service_ek4f4f6
+    //  Pulbic key: 4NoHlOBMRT4eW_XXa
+    // template id: template_k1ccei8
+    // service_ek4f4f6
     emailjs
-      .sendForm("service_ek4f4f6", "template_k1ccei8", e.target, "4NoHlOBMRT4eW_XXa")
+      .sendForm(
+        "service_ek4f4f6",
+        "template_k1ccei8",
+        e.target,
+        "4NoHlOBMRT4eW_XXa"
+      )
       .then(
         (result) => {
           console.log(result.text);
@@ -246,6 +251,8 @@ export default function Contact() {
         className="absolute inset-0 bg-cover bg-center opacity-5"
         style={{
           backgroundImage: `url(${bgImg})`,
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
         }}
       ></div>
       <h2
@@ -344,6 +351,20 @@ export default function Contact() {
             </div>
           </div>
           <div
+            className="mb-3 flex items-start"
+            data-aos={direction === "ltr" ? "fade-left" : "fade-right"}
+            data-aos-duration="1100"
+          >
+            <div className="">
+              <FaMapMarkerAlt
+                className={`${direction === "ltr" ? "mr-2.5" : "ml-2.5"}`}
+              />
+            </div>
+            <div className="max-w-xs">
+              <span className="text-[#b7e4ea]">{t("contactUs.address2")}</span>
+            </div>
+          </div>
+          <div
             className="flex items-center mb-3"
             data-aos={direction === "ltr" ? "fade-left" : "fade-right"}
             data-aos-duration="1200"
@@ -354,6 +375,18 @@ export default function Contact() {
             <div className="text-[#b7e4ea]">{t("contactUs.workingHours")}</div>
           </div>
           <div
+            className="flex items-center mb-2"
+            data-aos={direction === "ltr" ? "fade-left" : "fade-right"}
+            data-aos-duration="1300"
+          >
+            <LiaPhoneVolumeSolid
+              className={`${direction === "ltr" ? "mr-2.5" : "ml-2.5"}`}
+            />
+            <a href={`tel:966500685333`} className="text-[#b7e4ea]">
+              <span className="block">{t("contactUs.phone")}</span>
+            </a>
+          </div>
+          <div
             className="flex items-center mb-5"
             data-aos={direction === "ltr" ? "fade-left" : "fade-right"}
             data-aos-duration="1300"
@@ -361,18 +394,22 @@ export default function Contact() {
             <LiaPhoneVolumeSolid
               className={`${direction === "ltr" ? "mr-2.5" : "ml-2.5"}`}
             />
-            <div className="text-[#b7e4ea]">
-              <span className="block">{t("contactUs.phone")}</span>
-            </div>
+            <a href={`tel:1097788133`} className="text-[#b7e4ea]">
+              <span className="block">{t("contactUs.phone2")}</span>
+            </a>
           </div>
           <ul
-            className={`flex   ${direction === "ltr" ? "border-l pl-7" : "border-r pr-7"} border-[#b7e4ea] mb-5`}
+            className={`flex ${
+              direction === "ltr" ? "border-l pl-7" : "border-r pr-7"
+            } border-[#b7e4ea] mb-5`}
             data-aos={direction === "ltr" ? "fade-left" : "fade-right"}
             data-aos-duration="1400"
           >
             <li className={`${direction === "ltr" ? "mr-3.5" : "ml-3.5"}`}>
               <a
-                href="#"
+                href="https://www.facebook.com/profile.php?id=61559359181626"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="hover:text-[#307f95] duration-300 cursor-pointer"
               >
                 <FaFacebookF />
@@ -380,15 +417,39 @@ export default function Contact() {
             </li>
             <li className={`${direction === "ltr" ? "mr-3.5" : "ml-3.5"}`}>
               <a
-                href="#"
+                href="https://x.com/home?lang=ar"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="hover:text-[#307f95] duration-300 cursor-pointer"
               >
                 <FaTwitter />
               </a>
             </li>
+            <li className={`${direction === "ltr" ? "mr-3.5" : "ml-3.5"}`}>
+              <a
+                href="https://www.instagram.com/adsmaster.sa?igsh=dnJnNmp0a2tvYzBy"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-[#307f95] duration-300 cursor-pointer"
+              >
+                <FaInstagram />
+              </a>
+            </li>
+            <li className={`${direction === "ltr" ? "mr-3.5" : "ml-3.5"}`}>
+              <a
+                href="https://www.linkedin.com/company/99885115/admin/feed/posts/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-[#307f95] duration-300 cursor-pointer"
+              >
+                <FaLinkedin />
+              </a>
+            </li>
             <li>
               <a
-                href="#"
+                href="https://www.tiktok.com/ar/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="hover:text-[#307f95] duration-300 cursor-pointer"
               >
                 <AiOutlineTikTok />
@@ -398,7 +459,7 @@ export default function Contact() {
           <a
             data-aos={direction === "ltr" ? "fade-left" : "fade-right"}
             data-aos-duration="1500"
-            href={`https://wa.me/966501E11`}
+            href={`https://wa.me/966500685333`}
             target="_blank"
             className="flex items-center text-xs rounded-3xl text-white bg-[#1c3f49] w-fit py-2 px-5 hover:bg-[#214a55] duration-300 cursor-pointer"
           >

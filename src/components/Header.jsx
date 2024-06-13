@@ -39,7 +39,7 @@ export default function Header() {
           transition={{ duration: 1.5, repeat: Infinity }}
           style={{ overflow: "hidden" }}
         >
-          <Link to="insights" smooth={true} duration={500}>
+          <Link to="insights" smooth={true} duration={500} spy={true} >
             <RxDoubleArrowDown className="cursor-pointer" size={32} />
           </Link>
         </motion.div>

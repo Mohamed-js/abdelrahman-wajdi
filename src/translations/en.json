@@ -33,8 +33,8 @@
   },
   "services": {
     "title": "Marketing Mastery",
-    "title2" : "Your First Destination",
-    "description2" : "The pinnacle of professional marketing. Innovative solutions to elevate your brand and drive sales to new heights.",
+    "title2": "Your First Destination",
+    "description2": "The pinnacle of professional marketing. Innovative solutions to elevate your brand and drive sales to new heights.",
     "description": "Your ultimate choice for professional marketing. Cutting-edge services to elevate your brand and boost sales.",
 
     "marketingPlan": "Creating the marketing plan",
@@ -70,8 +70,11 @@
     "title": "Contact Us",
     "sendMessage": "Send Message",
     "address": "Office Number 4, 2253 Mohammed bin Abdullah bin Abdul Latif, 7913, First Floor, Riyadh 12463, Kingdom of Saudi Arabia",
-    "workingHours": "Business Hours: 9:00 AM - 4:30 PM",
-    "phone": "9.66501E+11",
+    "address2": "7 Taj Al-Maali St., branching from 45, next to Al-Kataa Fish",
+
+    "workingHours": "Business Hours: 9:00 AM - 5:00 PM",
+    "phone": "966500685333",
+    "phone2": "1097788133",
     "whatsApp": "Contact via WhatsApp",
     "yourName": "Your Name",
     "yourPhone": "Your Phone",
@@ -84,9 +87,10 @@
     "title1": "Digital Marketing & Web Design",
     "title2": "Increase Your Online Presence",
     "contact": "Contact",
-    "number": "9.66501E+11",
+    "number": "966500685333",
     "email": "info@adsmaster.me",
     "address": " Office Number 4, 2253 Mohammed bin Abdullah bin Abdul Latif, 7913, First Floor, Riyadh 12463, Kingdom of Saudi Arabia",
+
     "mainPages": " Main Pages",
     "home": "Home",
     "about": "About",

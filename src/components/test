@@ -1,248 +1,246 @@
-import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import { initializeApp } from "firebase/app";
-import { getFirestore, collection, addDoc } from "firebase/firestore";
-import { db } from "../helpers/firebase";
+// import React, { useState, useEffect } from "react";
+// import { useNavigate } from "react-router-dom";
+// import { initializeApp } from "firebase/app";
+// import { getFirestore, collection, addDoc } from "firebase/firestore";
+// import { db } from "../helpers/firebase";
 
-const Form = ({ isLoggedIn }) => {
-  const [descriptions, setDescriptions] = useState([""]);
-  const [images, setImages] = useState([""]);
-  const [additionalDetails, setAdditionalDetails] = useState([]);
-  const [newDescription, setNewDescription] = useState("");
-  const [newImage, setNewImage] = useState("");
-  const [selectedOption, setSelectedOption] = useState("");
-  const [isFormValid, setIsFormValid] = useState(false);
-  const [submitMessage, setSubmitMessage] = useState("");
-  const navigate = useNavigate();
+// const Form = ({ isLoggedIn }) => {
+//   const [descriptions, setDescriptions] = useState([""]);
+//   const [images, setImages] = useState([""]);
+//   const [additionalDetails, setAdditionalDetails] = useState([]);
+//   const [newDescription, setNewDescription] = useState("");
+//   const [newImage, setNewImage] = useState("");
+//   const [selectedOption, setSelectedOption] = useState("");
+//   const [isFormValid, setIsFormValid] = useState(false);
+//   const [submitMessage, setSubmitMessage] = useState("");
+//   const navigate = useNavigate();
 
-  useEffect(() => {
-    const allDescriptionsFilled = descriptions.every((desc) => desc !== "");
-    const allImagesUploaded = images.every((img) => img !== "");
-    const isSelectOptionChosen = selectedOption !== "";
-    setIsFormValid(allDescriptionsFilled && allImagesUploaded && isSelectOptionChosen);
-  }, [descriptions, images, selectedOption]);
+//   useEffect(() => {
+//     const allDescriptionsFilled = descriptions.every((desc) => desc !== "");
+//     const allImagesUploaded = images.every((img) => img !== "");
+//     const isSelectOptionChosen = selectedOption !== "";
+//     setIsFormValid(allDescriptionsFilled && allImagesUploaded && isSelectOptionChosen);
+//   }, [descriptions, images, selectedOption]);
 
-  useEffect(() => {
-    if (submitMessage) {
-      const timer = setTimeout(() => {
-        setSubmitMessage("");
-      }, 5000);
-      return () => clearTimeout(timer); // Cleanup the timer on component unmount or when submitMessage changes
-    }
-  }, [submitMessage]);
+//   useEffect(() => {
+//     if (submitMessage) {
+//       const timer = setTimeout(() => {
+//         setSubmitMessage("");
+//       }, 5000);
+//       return () => clearTimeout(timer); // Cleanup the timer on component unmount or when submitMessage changes
+//     }
+//   }, [submitMessage]);
 
-  const handleAddDetail = () => {
-    if (newDescription && newImage) {
-      const newDetail = { description: newDescription, image: newImage };
-      setAdditionalDetails([...additionalDetails, newDetail]); // Add new detail to the existing array
-      setNewDescription("");
-      setNewImage("");
-    }
-  };
-  const handleAddDescription = () => {
-    setDescriptions([...descriptions, ""]);
-    setImages([...images, ""]);
-  };
+//   const handleAddDetail = () => {
+//     if (newDescription && newImage) {
+//       const newDetail = { description: newDescription, image: newImage };
+//       setAdditionalDetails([...additionalDetails, newDetail]); // Add new detail to the existing array
+//       setNewDescription("");
+//       setNewImage("");
+//     }
+//   };
+//   const handleAddDescription = () => {
+//     setDescriptions([...descriptions, ""]);
+//     setImages([...images, ""]);
+//   };
 
-  const handleDescriptionChange = (index, value) => {
-    const newDescriptions = [...descriptions];
-    newDescriptions[index] = value;
-    setDescriptions(newDescriptions);
-  };
+//   const handleDescriptionChange = (index, value) => {
+//     const newDescriptions = [...descriptions];
+//     newDescriptions[index] = value;
+//     setDescriptions(newDescriptions);
+//   };
 
-  const handleImageUpload = async (index, file) => {
-    const formData = new FormData();
-    formData.append("file", file);
-    formData.append("upload_preset", "ca0qjdpw");
+//   const handleImageUpload = async (index, file) => {
+//     const formData = new FormData();
+//     formData.append("file", file);
+//     formData.append("upload_preset", "ca0qjdpw");
 
-    try {
-      const response = await fetch(
-        `https://api.cloudinary.com/v1_1/dwawhl9j4/image/upload`,
-        {
-          method: "POST",
-          body: formData,
-        }
-      );
-      const data = await response.json();
-      const newImages = [...images];
-      newImages[index] = data.secure_url;
-      setImages(newImages);
-    } catch (error) {
-      console.error("Error uploading image to Cloudinary", error);
-    }
-  };
+//     try {
+//       const response = await fetch(
+//         `https://api.cloudinary.com/v1_1/dwawhl9j4/image/upload`,
+//         {
+//           method: "POST",
+//           body: formData,
+//         }
+//       );
+//       const data = await response.json();
+//       const newImages = [...images];
+//       newImages[index] = data.secure_url;
+//       setImages(newImages);
+//     } catch (error) {
+//       console.error("Error uploading image to Cloudinary", error);
+//     }
+//   };
 
-  const handleOptionChange = (event) => {
-    setSelectedOption(event.target.value);
-  };
+//   const handleOptionChange = (event) => {
+//     setSelectedOption(event.target.value);
+//   };
 
-  const resetForm = () => {
-    setDescriptions([""]);
-    setImages([""]);
-    setAdditionalDetails([]);
-    setSelectedOption("");
-    setIsFormValid(false);
-  };
+//   const resetForm = () => {
+//     setDescriptions([""]);
+//     setImages([""]);
+//     setAdditionalDetails([]);
+//     setSelectedOption("");
+//     setIsFormValid(false);
+//   };
 
-  const handleFormSubmit = async () => {
-    if (isLoggedIn) {
-      try {
-        if (descriptions.length === 0 || images.length === 0) {
-          // Check if descriptions or images arrays are empty
-          alert("Please add at least one description and image.");
-          return;
-        }
+//   const handleFormSubmit = async () => {
+//     if (isLoggedIn) {
+//       try {
+//         if (descriptions.length === 0 || images.length === 0) {
+//           // Check if descriptions or images arrays are empty
+//           alert("Please add at least one description and image.");
+//           return;
+//         }
   
-        const newProduct = {
-          firstDescription: descriptions[0],
-          firstImage: images[0], // Ensure images array has at least one element
-          selectedOption,
-          additionalDetails: additionalDetails.map(detail => ({
-            description: detail.description,
-            image: detail.image
-          }))
-        };
-        console.log(newProduct)
-        await addDoc(collection(db, "formSubmissions"), newProduct);
-        setSubmitMessage("Form submitted successfully!");
-        resetForm();
-      } catch (error) {
-        console.error("Error submitting form data to Firebase", error);
-        setSubmitMessage("Failed to submit form. Please try again.");
-      }
-    } else {
-      alert("You must be logged in to submit the form.");
-    }
-  };
+//         const newProduct = {
+//           firstDescription: descriptions[0],
+//           firstImage: images[0], // Ensure images array has at least one element
+//           selectedOption,
+//           additionalDetails: additionalDetails.map(detail => ({
+//             description: detail.description,
+//             image: detail.image
+//           }))
+//         };
+//         console.log(newProduct)
+//         await addDoc(collection(db, "formSubmissions"), newProduct);
+//         setSubmitMessage("Form submitted successfully!");
+//         resetForm();
+//       } catch (error) {
+//         console.error("Error submitting form data to Firebase", error);
+//         setSubmitMessage("Failed to submit form. Please try again.");
+//       }
+//     } else {
+//       alert("You must be logged in to submit the form.");
+//     }
+//   };
 
-  return (
-    <div className="flex justify-center py-32 items-center min-h-screen bg-gray-900 text-white">
-      <div className="max-w-3xl w-full p-6 bg-gray-800 rounded-md shadow-md">
-        <h2 className="text-2xl font-semibold mb-4">Form</h2>
-        <form action="">
-          <div className="h-[300px] overflow-y-auto p-4">
-            {descriptions.map((desc, index) => (
-              <div key={index} className="mb-4">
-                <label
-                  htmlFor={`description-${index}`}
-                  className="block text-gray-300 font-medium mb-2"
-                >
-                  Description {index + 1}
-                </label>
-                <textarea
-                  id={`description-${index}`}
-                  value={descriptions[index]}
-                  onChange={(e) => handleDescriptionChange(index, e.target.value)}
-                  rows="3"
-                  className="w-full px-3 py-2 border rounded-md bg-gray-700 focus:outline-none focus:ring focus:ring-blue-400 text-white"
-                  required
-                />
-                <label
-                  htmlFor={`image-${index}`}
-                  className="block text-gray-300 font-medium mb-2 mt-4"
-                >
-                  Image {index + 1}
-                </label>
-                <input
-                  type="file"
-                  id={`image-${index}`}
-                  onChange={(e) => handleImageUpload(index, e.target.files[0])}
-                  className="w-full px-3 py-2 border rounded-md bg-gray-700 focus:outline-none focus:ring focus:ring-blue-400 text-white"
-                  required
-                />
-                {images[index] && (
-                  <img
-                    src={images[index]}
-                    alt={`Description ${index + 1}`}
-                    className="mt-2 w-full rounded-md"
-                  />
-                )}
-              </div>
-            ))}
-          </div>
-          <div className="mb-4">
-            <label
-              htmlFor="select-option"
-              className="block text-gray-300 font-medium mb-2"
-            >
-              Select Option
-            </label>
-            <select
-              id="select-option"
-              value={selectedOption}
-              onChange={handleOptionChange}
-              className="w-full px-3 py-2 border rounded-md bg-gray-700 focus:outline-none focus:ring focus:ring-blue-400 text-white"
-              required
-            >
-              <option value="">Select...</option>
-              <option value="Web Design">Web Design</option>
-              <option value="Social Media Management">Social Media Management</option>
-              <option value="Logo & Branding">Logo & Branding</option>
-            </select>
-          </div>
-          <button
-            type="button"
-            onClick={handleAddDescription}
-            className="w-full mt-4 bg-[#e6953e] text-white font-semibold px-4 py-2 rounded-md  hover:bg-[#f8ad5d]  focus:outline-none focus:ring  mb-4"
-          >
-            Add Description
-          </button>
-          <hr className="my-6" />
-          {additionalDetails.map((detail, index) => (
-            <div key={index} className="mb-4">
-              <h3 className="text-lg font-semibold mb-2">
-                Additional Detail {index + 1}
-              </h3>
-              <p className="mb-2">
-                <strong>Description:</strong> {detail.description}
-              </p>
-              <p className="mb-2">
-                <strong>Option:</strong> {detail.option}
-              </p>
-              <img
-                src={detail.image}
-                alt={`Additional Detail ${index + 1}`}
-                className="w-full rounded-md mb-2"
-              />
-            </div>
-          ))}
-          <button
-            type="button"
-            onClick={() => {
-              if (isFormValid) {
-                handleFormSubmit();
-                console.log("Form submitted");
-              } else {
-                alert("Please fill out all required fields.");
-              }
-            }}
-            className={`w-full mt-4 bg-[#e6953e] text-white font-semibold px-4 py-2 rounded-md hover:bg-[#f8ad5d] focus:outline-none focus:ring ${
-              !isFormValid ? "opacity-50 cursor-not-allowed" : ""
-            }`}
-            disabled={!isFormValid}
-          >
-            Submit Form
-          </button>
-          {submitMessage && (
-            <div
-              className={`mt-4 p-4 ${
-                submitMessage.includes("successfully")
-                  ? "bg-green-500"
-                  : "bg-red-500"
-              } text-white rounded-md`}
-            >
-              {submitMessage}
-            </div>
-          )}
-        </form>
-      </div>
-    </div>
-  );
-};
+//   return (
+//     <div className="flex justify-center py-32 items-center min-h-screen bg-gray-900 text-white">
+//       <div className="max-w-3xl w-full p-6 bg-gray-800 rounded-md shadow-md">
+//         <h2 className="text-2xl font-semibold mb-4">Form</h2>
+//         <form action="">
+//           <div className="h-[300px] overflow-y-auto p-4">
+//             {descriptions.map((desc, index) => (
+//               <div key={index} className="mb-4">
+//                 <label
+//                   htmlFor={`description-${index}`}
+//                   className="block text-gray-300 font-medium mb-2"
+//                 >
+//                   Description {index + 1}
+//                 </label>
+//                 <textarea
+//                   id={`description-${index}`}
+//                   value={descriptions[index]}
+//                   onChange={(e) => handleDescriptionChange(index, e.target.value)}
+//                   rows="3"
+//                   className="w-full px-3 py-2 border rounded-md bg-gray-700 focus:outline-none focus:ring focus:ring-blue-400 text-white"
+//                   required
+//                 />
+//                 <label
+//                   htmlFor={`image-${index}`}
+//                   className="block text-gray-300 font-medium mb-2 mt-4"
+//                 >
+//                   Image {index + 1}
+//                 </label>
+//                 <input
+//                   type="file"
+//                   id={`image-${index}`}
+//                   onChange={(e) => handleImageUpload(index, e.target.files[0])}
+//                   className="w-full px-3 py-2 border rounded-md bg-gray-700 focus:outline-none focus:ring focus:ring-blue-400 text-white"
+//                   required
+//                 />
+//                 {images[index] && (
+//                   <img
+//                     src={images[index]}
+//                     alt={`Description ${index + 1}`}
+//                     className="mt-2 w-full rounded-md"
+//                   />
+//                 )}
+//               </div>
+//             ))}
+//           </div>
+//           <div className="mb-4">
+//             <label
+//               htmlFor="select-option"
+//               className="block text-gray-300 font-medium mb-2"
+//             >
+//               Select Option
+//             </label>
+//             <select
+//               id="select-option"
+//               value={selectedOption}
+//               onChange={handleOptionChange}
+//               className="w-full px-3 py-2 border rounded-md bg-gray-700 focus:outline-none focus:ring focus:ring-blue-400 text-white"
+//               required
+//             >
+//               <option value="">Select...</option>
+//               <option value="Web Design">Web Design</option>
+//               <option value="Social Media Management">Social Media Management</option>
+//               <option value="Logo & Branding">Logo & Branding</option>
+//             </select>
+//           </div>
+//           <button
+//             type="button"
+//             onClick={handleAddDescription}
+//             className="w-full mt-4 bg-[#e6953e] text-white font-semibold px-4 py-2 rounded-md  hover:bg-[#f8ad5d]  focus:outline-none focus:ring  mb-4"
+//           >
+//             Add Description
+//           </button>
+//           <hr className="my-6" />
+//           {additionalDetails.map((detail, index) => (
+//             <div key={index} className="mb-4">
+//               <h3 className="text-lg font-semibold mb-2">
+//                 Additional Detail {index + 1}
+//               </h3>
+//               <p className="mb-2">
+//                 <strong>Description:</strong> {detail.description}
+//               </p>
+//               <p className="mb-2">
+//                 <strong>Option:</strong> {detail.option}
+//               </p>
+//               <img
+//                 src={detail.image}
+//                 alt={`Additional Detail ${index + 1}`}
+//                 className="w-full rounded-md mb-2"
+//               />
+//             </div>
+//           ))}
+//           <button
+//             type="button"
+//             onClick={() => {
+//               if (isFormValid) {
+//                 handleFormSubmit();
+//                 console.log("Form submitted");
+//               } else {
+//                 alert("Please fill out all required fields.");
+//               }
+//             }}
+//             className={`w-full mt-4 bg-[#e6953e] text-white font-semibold px-4 py-2 rounded-md hover:bg-[#f8ad5d] focus:outline-none focus:ring ${
+//               !isFormValid ? "opacity-50 cursor-not-allowed" : ""
+//             }`}
+//             disabled={!isFormValid}
+//           >
+//             Submit Form
+//           </button>
+//           {submitMessage && (
+//             <div
+//               className={`mt-4 p-4 ${
+//                 submitMessage.includes("successfully")
+//                   ? "bg-green-500"
+//                   : "bg-red-500"
+//               } text-white rounded-md`}
+//             >
+//               {submitMessage}
+//             </div>
+//           )}
+//         </form>
+//       </div>
+//     </div>
+//   );
+// };
 
-export default Form;
-
-
+// export default Form;
 
 
 
@@ -262,160 +260,162 @@ export default Form;
 
 
 
-import React, { useEffect, useState } from "react";
-import { Link, Element } from "react-scroll";
-import bgImg from "../assets/imgs/bg-img.jpg";
-import { useTranslation } from "react-i18next";
-import "animate.css";
-import { getFirestore, collection, getDocs } from "firebase/firestore";
-import { db } from "../helpers/firebase"; 
+
+
+// import React, { useEffect, useState } from "react";
+// import { Link, Element } from "react-scroll";
+// import bgImg from "../assets/imgs/bg-img.jpg";
+// import { useTranslation } from "react-i18next";
+// import "animate.css";
+// import { getFirestore, collection, getDocs } from "firebase/firestore";
+// import { db } from "../helpers/firebase"; 
 
 
 
 
 
 
-export default function OurWorks() {
-  const { t } = useTranslation();
-  const direction = localStorage.getItem("selectedLanguage") === "ar" ? "rtl" : "ltr";
-  const [workData, setWorkData] = useState([]);
+// export default function OurWorks() {
+//   const { t } = useTranslation();
+//   const direction = localStorage.getItem("selectedLanguage") === "ar" ? "rtl" : "ltr";
+//   const [workData, setWorkData] = useState([]);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const worksCollectionRef = collection(db, "formSubmissions");
-      const snapshot = await getDocs(worksCollectionRef);
-      const worksData = snapshot.docs.map((doc) => ({
-        id: doc.id,
-        ...doc.data(),
-      }));
-      console.log(worksData)
-      setWorkData(worksData);
-    };
+//   useEffect(() => {
+//     const fetchData = async () => {
+//       const worksCollectionRef = collection(db, "formSubmissions");
+//       const snapshot = await getDocs(worksCollectionRef);
+//       const worksData = snapshot.docs.map((doc) => ({
+//         id: doc.id,
+//         ...doc.data(),
+//       }));
+//       console.log(worksData)
+//       setWorkData(worksData);
+//     };
 
-    fetchData();
-  }, [db]);
+//     fetchData();
+//   }, [db]);
 
-  console.log(workData)
-  return (
-    <div className="bg-[#051118] min-h-screen py-32 w-screen overflow-hidden relative">
-      <div className="absolute inset-0 bg-cover bg-center opacity-5" style={{ backgroundImage: `url(${bgImg})` }}></div>
+//   console.log(workData)
+//   return (
+//     <div className="bg-[#051118] min-h-screen py-32 w-screen overflow-hidden relative">
+//       <div className="absolute inset-0 bg-cover bg-center opacity-5" style={{ backgroundImage: `url(${bgImg})` }}></div>
 
-      <h2 className="relative w-fit mx-auto text-3xl font-semibold leading-10 drop-shadow-md mb-12 capitalize text-[#b7e4ea] text-center animate__animated animate__fadeInDown">
-        <svg
-          className="absolute w-[200px] h-[200px] top-[-82px] left-[-35px] opacity-50 z-[-1]"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 2000 2000"
-        >
-          <g>
-            <g fill="hsl(194, 45%, 50%)" id="star">
-              <path
-                d="M 500 500 C 1000 1000 1000 1000 1300 750 C 1000 1000 1000 1000 2000 2000 C 1000 1000 1000 1000 750 1300 C 1000 1000 1000 1000 500 500"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              ></path>
-            </g>
-          </g>
-        </svg>
-        Our Works
-      </h2>
+//       <h2 className="relative w-fit mx-auto text-3xl font-semibold leading-10 drop-shadow-md mb-12 capitalize text-[#b7e4ea] text-center animate__animated animate__fadeInDown">
+//         <svg
+//           className="absolute w-[200px] h-[200px] top-[-82px] left-[-35px] opacity-50 z-[-1]"
+//           xmlns="http://www.w3.org/2000/svg"
+//           viewBox="0 0 2000 2000"
+//         >
+//           <g>
+//             <g fill="hsl(194, 45%, 50%)" id="star">
+//               <path
+//                 d="M 500 500 C 1000 1000 1000 1000 1300 750 C 1000 1000 1000 1000 2000 2000 C 1000 1000 1000 1000 750 1300 C 1000 1000 1000 1000 500 500"
+//                 strokeLinecap="round"
+//                 strokeLinejoin="round"
+//               ></path>
+//             </g>
+//           </g>
+//         </svg>
+//         Our Works
+//       </h2>
 
-      <div className="flex justify-center mb-8">
-        <Link
-          to="webDesign"
-          spy={true}
-          smooth={true}
-          duration={500}
-          className="mx-2 px-4 py-2 rounded-full font-semibold cursor-pointer transition bg-[#3d2f7a] hover:[] text-[#fffffc] hover:bg-[#e6953e] hover:text-white"
-        >
-          Web Design
-        </Link>
-        <Link
-          to="socialMedia"
-          spy={true}
-          smooth={true}
-          duration={500}
-          className="mx-2 px-4 py-2 rounded-full font-semibold cursor-pointer transition bg-[#3d2f7a] text-[#fffffc] hover:bg-[#e6953e] hover:text-white"
-        >
-          Social Media Management
-        </Link>
-        <Link
-          to="logoBranding"
-          spy={true}
-          smooth={true}
-          duration={500}
-          className="mx-2 px-4 py-2 rounded-full font-semibold cursor-pointer transition bg-[#3d2f7a] text-[#fffffc] hover:bg-[#e6953e] hover:text-white"
-        >
-          Logo & Branding
-        </Link>
-      </div>
+//       <div className="flex justify-center mb-8">
+//         <Link
+//           to="webDesign"
+//           spy={true}
+//           smooth={true}
+//           duration={500}
+//           className="mx-2 px-4 py-2 rounded-full font-semibold cursor-pointer transition bg-[#3d2f7a] hover:[] text-[#fffffc] hover:bg-[#e6953e] hover:text-white"
+//         >
+//           Web Design
+//         </Link>
+//         <Link
+//           to="socialMedia"
+//           spy={true}
+//           smooth={true}
+//           duration={500}
+//           className="mx-2 px-4 py-2 rounded-full font-semibold cursor-pointer transition bg-[#3d2f7a] text-[#fffffc] hover:bg-[#e6953e] hover:text-white"
+//         >
+//           Social Media Management
+//         </Link>
+//         <Link
+//           to="logoBranding"
+//           spy={true}
+//           smooth={true}
+//           duration={500}
+//           className="mx-2 px-4 py-2 rounded-full font-semibold cursor-pointer transition bg-[#3d2f7a] text-[#fffffc] hover:bg-[#e6953e] hover:text-white"
+//         >
+//           Logo & Branding
+//         </Link>
+//       </div>
 
-      <div className="container mx-auto px-4">
-        <Element name="webDesign">
-          <div className="animate__animated animate__fadeIn animate__slow mb-16">
-            <h3 className="text-2xl text-[#fffffc] mb-4">Web Design</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {/* Add your card components here */}
-              <div className="bg-[#3d2f7a] rounded-lg p-4">
-                <img src="https://via.placeholder.com/150" alt="Web Design 1" className="w-full mb-4 rounded" />
-                <p className="text-[#fffffc]">Description for Web Design 1.</p>
-              </div>
-              <div className="bg-[#3d2f7a] rounded-lg p-4">
-                <img src="https://via.placeholder.com/150" alt="Web Design 2" className="w-full mb-4 rounded" />
-                <p className="text-[#fffffc]">Description for Web Design 2.</p>
-              </div>
-              <div className="bg-[#3d2f7a] rounded-lg p-4">
-                <img src="https://via.placeholder.com/150" alt="Web Design 3" className="w-full mb-4 rounded" />
-                <p className="text-[#fffffc]">Description for Web Design 3.</p>
-              </div>
-            </div>
-          </div>
-        </Element>
+//       <div className="container mx-auto px-4">
+//         <Element name="webDesign">
+//           <div className="animate__animated animate__fadeIn animate__slow mb-16">
+//             <h3 className="text-2xl text-[#fffffc] mb-4">Web Design</h3>
+//             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+//               {/* Add your card components here */}
+//               <div className="bg-[#3d2f7a] rounded-lg p-4">
+//                 <img src="https://via.placeholder.com/150" alt="Web Design 1" className="w-full mb-4 rounded" />
+//                 <p className="text-[#fffffc]">Description for Web Design 1.</p>
+//               </div>
+//               <div className="bg-[#3d2f7a] rounded-lg p-4">
+//                 <img src="https://via.placeholder.com/150" alt="Web Design 2" className="w-full mb-4 rounded" />
+//                 <p className="text-[#fffffc]">Description for Web Design 2.</p>
+//               </div>
+//               <div className="bg-[#3d2f7a] rounded-lg p-4">
+//                 <img src="https://via.placeholder.com/150" alt="Web Design 3" className="w-full mb-4 rounded" />
+//                 <p className="text-[#fffffc]">Description for Web Design 3.</p>
+//               </div>
+//             </div>
+//           </div>
+//         </Element>
 
-        <Element name="socialMedia">
-          <div className="animate__animated animate__fadeIn animate__slow mb-16">
-            <h3 className="text-2xl text-[#fffffc] mb-4">Social Media Management</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {/* Add your card components here */}
-              <div className="bg-[#3d2f7a] rounded-lg p-4">
-                <img src="https://via.placeholder.com/150" alt="Social Media 1" className="w-full mb-4 rounded" />
-                <p className="text-[#fffffc]">Description for Social Media 1.</p>
-              </div>
-              <div className="bg-[#3d2f7a] rounded-lg p-4">
-                <img src="https://via.placeholder.com/150" alt="Social Media 2" className="w-full mb-4 rounded" />
-                <p className="text-[#fffffc]">Description for Social Media 2.</p>
-              </div>
-              <div className="bg-[#3d2f7a] rounded-lg p-4">
-                <img src="https://via.placeholder.com/150" alt="Social Media 3" className="w-full mb-4 rounded" />
-                <p className="text-[#fffffc]">Description for Social Media 3.</p>
-              </div>
-            </div>
-          </div>
-        </Element>
+//         <Element name="socialMedia">
+//           <div className="animate__animated animate__fadeIn animate__slow mb-16">
+//             <h3 className="text-2xl text-[#fffffc] mb-4">Social Media Management</h3>
+//             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+//               {/* Add your card components here */}
+//               <div className="bg-[#3d2f7a] rounded-lg p-4">
+//                 <img src="https://via.placeholder.com/150" alt="Social Media 1" className="w-full mb-4 rounded" />
+//                 <p className="text-[#fffffc]">Description for Social Media 1.</p>
+//               </div>
+//               <div className="bg-[#3d2f7a] rounded-lg p-4">
+//                 <img src="https://via.placeholder.com/150" alt="Social Media 2" className="w-full mb-4 rounded" />
+//                 <p className="text-[#fffffc]">Description for Social Media 2.</p>
+//               </div>
+//               <div className="bg-[#3d2f7a] rounded-lg p-4">
+//                 <img src="https://via.placeholder.com/150" alt="Social Media 3" className="w-full mb-4 rounded" />
+//                 <p className="text-[#fffffc]">Description for Social Media 3.</p>
+//               </div>
+//             </div>
+//           </div>
+//         </Element>
 
-        <Element name="logoBranding">
-          <div className="animate__animated animate__fadeIn animate__slow mb-16">
-            <h3 className="text-2xl text-[#fffffc] mb-4">Logo & Branding</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {/* Add your card components here */}
-              <div className="bg-[#3d2f7a] rounded-lg p-4">
-                <img src="https://via.placeholder.com/150" alt="Logo & Branding 1" className="w-full mb-4 rounded" />
-                <p className="text-[#fffffc]">Description for Logo & Branding 1.</p>
-              </div>
-              <div className="bg-[#3d2f7a] rounded-lg p-4">
-                <img src="https://via.placeholder.com/150" alt="Logo & Branding 2" className="w-full mb-4 rounded" />
-                <p className="text-[#fffffc]">Description for Logo & Branding 2.</p>
-              </div>
-              <div className="bg-[#3d2f7a] rounded-lg p-4">
-                <img src="https://via.placeholder.com/150" alt="Logo & Branding 3" className="w-full mb-4 rounded" />
-                <p className="text-[#fffffc]">Description for Logo & Branding 3.</p>
-              </div>
-            </div>
-          </div>
-        </Element>
-      </div>
-    </div>
-  );
-}
+//         <Element name="logoBranding">
+//           <div className="animate__animated animate__fadeIn animate__slow mb-16">
+//             <h3 className="text-2xl text-[#fffffc] mb-4">Logo & Branding</h3>
+//             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+//               {/* Add your card components here */}
+//               <div className="bg-[#3d2f7a] rounded-lg p-4">
+//                 <img src="https://via.placeholder.com/150" alt="Logo & Branding 1" className="w-full mb-4 rounded" />
+//                 <p className="text-[#fffffc]">Description for Logo & Branding 1.</p>
+//               </div>
+//               <div className="bg-[#3d2f7a] rounded-lg p-4">
+//                 <img src="https://via.placeholder.com/150" alt="Logo & Branding 2" className="w-full mb-4 rounded" />
+//                 <p className="text-[#fffffc]">Description for Logo & Branding 2.</p>
+//               </div>
+//               <div className="bg-[#3d2f7a] rounded-lg p-4">
+//                 <img src="https://via.placeholder.com/150" alt="Logo & Branding 3" className="w-full mb-4 rounded" />
+//                 <p className="text-[#fffffc]">Description for Logo & Branding 3.</p>
+//               </div>
+//             </div>
+//           </div>
+//         </Element>
+//       </div>
+//     </div>
+//   );
+// }
 
 
 
@@ -769,3 +769,194 @@ export default function OurWorks() {
 
 // group-hover:text-[#144f61]
 
+
+
+
+// undercover
+{
+    /* <Link to="/about-us">
+                <button
+                  className="relative mt-4 px-8 py-3 bg-[#e6953e] hover:bg-[#d58435] text-black font-semibold text-sm md:text-base rounded-full transition transform-positive duration-300 ease-in-out shadow-lg  hover:shadow-2xl hover:-translate-y-1 before:absolute before:inset-0 before:bg-white before:opacity-20 before:blur-lg before:rounded-full before:transform before:scale-105 before:transition before:duration-300 before:ease-in-out hover:before:opacity-10 hover:before:scale-125"
+                  data-aos="fade-bottom"
+                  >
+                  {data.learnMore}
+                </button>
+                  </Link> */
+  }
+  
+  // import React, { useEffect, useRef } from "react";
+  // import AOS from "aos";
+  // import "aos/dist/aos.css";
+  // import { Parallax, ParallaxLayer } from "@react-spring/parallax";
+  
+  // export default function UnderCover() {
+  //   const sectionRef = useRef(null);
+  
+  //   useEffect(() => {
+  //     AOS.init({ duration: 1500, easing: "ease-in-out" });
+  
+  //     // Cleanup function
+  //     sectionRef.current.scrollIntoView({ behavior: "smooth" });
+  
+  //     return () => {
+  //       AOS.refresh();
+  //     };
+  //   }, []);
+  
+  //   const underCoverData = [
+  //     {
+  //       title: "Nature's Beauty",
+  //       description:
+  //         "Explore the mesmerizing landscapes of Iceland. From towering waterfalls to majestic mountains, Iceland offers a breathtaking experience for nature lovers.",
+  //       learnMore: "Learn More",
+  //       img: "https://cdn.pixabay.com/photo/2019/01/02/10/20/iceland-3908498_640.jpg",
+  //     },
+  //     {
+  //       title: "Ancient Wonders",
+  //       description:
+  //         "Step back in time and marvel at the ancient wonders of Egypt. Discover the mysteries of the pyramids, sail down the Nile, and uncover the secrets of a civilization lost to history.",
+  //       learnMore: "Discover More",
+  //       img: "https://cdn.pixabay.com/photo/2024/04/08/20/41/city-8684454_640.jpg",
+  //     },
+  //     {
+  //       title: "Urban Escapes",
+  //       description:
+  //         "Escape the hustle and bustle of city life. From hidden parks to rooftop gardens, urban escapes offer a sanctuary amidst the chaos.",
+  //       learnMore: "Find Peace",
+  //       img: "https://cdn.pixabay.com/photo/2024/01/15/10/31/winter-8509844_640.jpg",
+  //     },
+  //     {
+  //       title: "Urban Escapes",
+  //       description:
+  //         "Escape the hustle and bustle of city life. From hidden parks to rooftop gardens, urban escapes offer a sanctuary amidst the chaos.",
+  //       learnMore: "Find Peace",
+  //       img: "https://cdn.pixabay.com/photo/2024/04/12/14/59/ai-generated-8692122_1280.png",
+  //     },
+  //   ];
+  
+  //   return (
+  //     <div
+  //       className="min-h-screen py-10 px-4 md:px-10 bg-[#081014] flex gap-8"
+  //       id="undercover"
+  //     >
+  //             <div ref={sectionRef} />
+  
+  //       <Parallax pages={6}>
+  //         <ParallaxLayer offset={0} speed={0.5} style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
+  //           <h1 className="text-5xl md:text-6xl text-white font-bold tracking-wide text-center">Start Your Journey</h1>
+  //         </ParallaxLayer>
+  //         <ParallaxLayer
+  //           speed={0.5}
+  //           style={{
+  //             display: "flex",
+  //             alignItems: "center",
+  //             justifyContent: "left",
+  //           }}
+  //           sticky={{ start: 0, end: 4 }}
+  //         >
+  //           <div className="flex items-center justify-left mt-10 md:mt-20 mb-12">
+  //             <div
+  //               className="sticky top-0 h-96 flex items-center justify-center mx-auto w-full max-w-5xl rounded-lg shadow-lg overflow-hidden"
+  //               style={{
+  //                 backgroundImage: `url(${"https://cdn.pixabay.com/photo/2024/04/12/14/59/ai-generated-8692122_1280.png"})`,
+  //                 backgroundAttachment: "fixed",
+  //                 backgroundSize: "cover",
+  //                 backgroundPosition: "center",
+  //               }}
+  //             >
+  //               <div className="absolute inset-0 "></div>
+  //               <div className="relative p-6 md:p-12 text-left z-10 text-white">
+  //                 <h2
+  //                   className="text-2xl md:text-4xl font-bold mb-4"
+  //                   data-aos="fade-right"
+  //                 >
+  //                   Welcome
+  //                 </h2>
+  //                 <p className="mb-4 text-base md:text-lg" data-aos="fade-left">
+  //                   Start your journey with us
+  //                 </p>
+  //                 <button
+  //                   className="relative mt-4 px-8 py-3 bg-[#01c4be] text-white font-semibold text-sm md:text-base rounded-full transition duration-300 ease-in-out shadow-lg hover:bg-[#019c9d] hover:shadow-2xl hover:-translate-y-1 before:absolute before:inset-0 before:bg-white before:opacity-20 before:blur-lg before:rounded-full before:transform before:scale-105 before:transition before:duration-300 before:ease-in-out hover:before:opacity-10 hover:before:scale-125"
+  //                   data-aos="fade-bottom"
+  //                 >
+  //                   Learn more
+  //                 </button>
+  //               </div>
+  //             </div>
+  //           </div>
+  //         </ParallaxLayer>
+  
+  //         {underCoverData.map((data, index) => (
+  //           <ParallaxLayer key={index} offset={index + 1} speed={1 - index * 0.1}>
+  //             {" "}
+  //             <div
+  //               className="relative h-96 flex items-center justify-center mx-auto w-full max-w-[500px] rounded-lg shadow-lg overflow-hidden"
+  //               style={{
+  //                 backgroundImage: `url(${data.img})`,
+  //                 backgroundAttachment: "fixed",
+  //                 backgroundSize: "cover",
+  //                 backgroundPosition: "center",
+  //               }}
+  //             >
+  //               <div className="absolute inset-0 "></div>
+  //               <div className="relative p-6 md:p-12 text-left z-10 text-white">
+  //                 <h2
+  //                   className="text-2xl md:text-4xl font-bold mb-4"
+  //                   data-aos="fade-right"
+  //                 >
+  //                   {data.title}
+  //                 </h2>
+  //                 <p className="mb-4 text-base md:text-lg" data-aos="fade-left">
+  //                   {data.description}
+  //                 </p>
+  //                 <button
+  //                   className="relative mt-4 px-8 py-3 bg-[#01c4be] text-white font-semibold text-sm md:text-base rounded-full transition duration-300 ease-in-out shadow-lg hover:bg-[#019c9d] hover:shadow-2xl hover:-translate-y-1 before:absolute before:inset-0 before:bg-white before:opacity-20 before:blur-lg before:rounded-full before:transform before:scale-105 before:transition before:duration-300 before:ease-in-out hover:before:opacity-10 hover:before:scale-125"
+  //                   data-aos="fade-bottom"
+  //                 >
+  //                   {data.learnMore}
+  //                 </button>
+  //               </div>
+  //             </div>
+  //           </ParallaxLayer>
+  //         ))}
+  //       </Parallax>
+  //     </div>
+  //   );
+  // }
+
+
+  // services 
+
+  {/* <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mx-auto px-[15px] mb-16 md:max-w-[90%] lg:max-w-[70%] cursor-pointer">
+        <div className="relative rounded-lg group h-[400px] md:h-[90vh] flex flex-col justify-end overflow-hidden md:col-span-2">
+          <div className="h-[200px]">
+
+          <h2 className="absolute top-10 text-base md:text-xl text-white w-full text-center">We Are Leading At E-commerce</h2>
+          <p className="absolute top-20 text-sm md:text-base text-white w-full text-center">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nihil aut dolore, sit numquam incidunt deserunt molestiae? Consectetur ipsam sapiente ratione ipsum sunt amet accusamus, exercitationem nesciunt ipsa, saepe, nostrum quos.</p>
+          </div>
+          <div className="absolute inset-0 bg-gradient-to-tr from-[#051118] to-[#103743] opacity-30 transition-opacity duration-300"></div>
+          <Transition in={hoveredCard === 0} timeout={300} mountOnEnter unmountOnExit>
+            {(state) => (
+              <div className={`absolute inset-0 flex items-center justify-center text-white transition-opacity duration-500 ${state === "entered" ? "opacity-100" : "opacity-0"}`}>
+                <p className={`absolute left-4 ${direction === "ltr" ? "left-4" : "right-4"} w-[90%] md:w-[60%] text-sm md:text-lg`} data-aos="fade-right">
+                  {servicesCard[0].description}
+                </p>
+              </div>
+            )}
+          </Transition>
+          <Transition in={hoveredCard !== 0} timeout={300} mountOnEnter unmountOnExit>
+            {(state) => (
+              <h3 className={`absolute transition-opacity duration-500 w-[50%] ${state === "entered" ? "opacity-100" : "opacity-0"} text-xl md:text-3xl text-white`} data-aos="fade-left" style={{ right: direction === "rtl" && "1rem", left: direction === "ltr" && "1rem" }}>
+                {servicesCard[0].name}
+              </h3>
+            )}
+          </Transition>
+          <img
+            src={service2}
+            alt={servicesCard[0].name}
+            className="absolute z-[-1] inset-0 object-cover w-full h-full transition-transform duration-300 transform scale-x-100"
+            style={{ transform: direction === "rtl" ? "scaleX(1)" : "scaleX(-1)" }} 
+          />
+        </div>
+        </div> */}
+  

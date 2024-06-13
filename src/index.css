@@ -205,6 +205,10 @@ body {
  */
 
 
+
+
+
+
  .component-heading {
   text-align: center;
   text-transform: uppercase;
@@ -229,6 +233,9 @@ body {
     font-size: 13px;
   }
 }
+
+
+
 
 
 .component-heading::before {
@@ -272,6 +279,10 @@ body {
   transition-delay: 0.5s;
 }
 
+
+
+
+
 @keyframes left-move {
   50% {
     left: 0;
@@ -301,6 +312,8 @@ body {
     border-radius: 0;
   }
 }
+
+
 
 
 

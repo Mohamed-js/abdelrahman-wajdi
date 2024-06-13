@@ -73,7 +73,7 @@ export default function Home() {
 
       <UnderCoverMobile />
       </div> 
-      <div className="hidden md:block ">
+      <div className="hidden md:block" >
         <UnderCover />
         
       </div>

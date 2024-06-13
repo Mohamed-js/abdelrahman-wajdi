@@ -2,8 +2,8 @@ import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import service1 from "../assets/imgs/service1.jpg";
-import service2 from "../assets/imgs/service2.jpg";
+import service1 from "../assets/imgs/services1.jpg";
+import service2 from "../assets/imgs/services2.jpg";
 import { useTranslation } from "react-i18next";
 import { GrFormPrevious, GrFormNext } from "react-icons/gr";
 
@@ -33,13 +33,18 @@ const CustomNextArrow = (props) => {
 };
 
 const Slide = ({ img, title, description }) => {
-  const direction = localStorage.getItem("selectedLanguage") === "ar" ? "rtl" : "ltr";
+  const direction =
+    localStorage.getItem("selectedLanguage") === "ar" ? "rtl" : "ltr";
 
   return (
     <div className="relative h-[60vh] md:h-[90vh] w-full rounded-3xl overflow-hidden shadow-lg">
       <div
         className="absolute inset-0 bg-cover bg-center filter brightness-75"
-        style={{ backgroundImage: `url(${img})` }}
+        style={{
+          backgroundImage: `url(${img})`,
+          transform: direction === "rtl" ? "scaleX(1)" : "scaleX(-1)",
+          
+        }}
       ></div>
       <div className="absolute inset-0 flex flex-col justify-center items-start text-white px-12 md:px-32">
         <h2
