@@ -361,7 +361,15 @@ export default function Contact() {
               />
             </div>
             <div className="max-w-xs">
-              <span className="text-[#b7e4ea]">{t("contactUs.address2")}</span>
+              <a
+                href="https://maps.app.goo.gl/H8Umv47eedqqMagY7"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span className="text-[#b7e4ea]">
+                  {t("contactUs.address2")}
+                </span>
+              </a>
             </div>
           </div>
           <div

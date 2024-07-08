@@ -21,7 +21,7 @@ export default function Footer() {
   return (
     <div className="bg-[#051118]  relative  ">
       <div
-        className="absolute inset-0 bg-cover bg-center= opacity-5 " 
+        className="absolute inset-0 bg-cover bg-center= opacity-5 "
         style={{
           backgroundImage: `url(${bgImg})`,
           backgroundRepeat: "no-repeat",
@@ -63,7 +63,7 @@ export default function Footer() {
                 direction === "ltr" ? "mr-2.5" : "ml-2.5"
               } w-4 h-4 `}
             />
-            <a href={`tel:966500685333`} className="text-[#62a0a8]">
+            <a href={`tel:01097788133`} className="text-[#62a0a8]">
               {t("footer.number")}
             </a>
           </div>
@@ -86,8 +86,14 @@ export default function Footer() {
                   } w-4 h-4 `}
                 />
               </div>
-              <div className="max-w-xs">
-                <span className="text-[#62a0a8]">{t("footer.address")}</span>
+              <div className="max-w-xs relative">
+                <a
+                  href="https://maps.app.goo.gl/H8Umv47eedqqMagY7"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <span className="text-[#62a0a8]">{t("footer.address")}</span>
+                </a>
               </div>
             </div>
 

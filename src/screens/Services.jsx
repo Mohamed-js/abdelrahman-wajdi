@@ -110,71 +110,80 @@ export default function Services() {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mx-auto px-[15px] mb-16 md:max-w-[90%] lg:max-w-[70%] cursor-pointer">
-        {servicesCard.map((card, i) => (
-          <div
-            key={i}
-            className={`relative rounded-lg group h-36 md:h-64 flex items-center justify-center overflow-hidden`}
-            onMouseEnter={() => setHoveredCard(i)}
-            onMouseLeave={() => setHoveredCard(null)}
-          >
-            <div className="absolute inset-0 bg-gradient-to-tr from-[#051118] to-[#103743] opacity-50 transition-opacity duration-300"></div>
-            <Transition
-              in={hoveredCard === i}
-              timeout={300}
-              mountOnEnter
-              unmountOnExit
+        {servicesCard.map((card, i) => {
+          const isLastEl = servicesCard.length - 1 === i;
+          const isRTL = direction === "rtl";
+          console.log(isLastEl);
+          console.log(isRTL);
+          return (
+            <div
+              key={i}
+              className={`relative rounded-lg group h-36 md:h-64 flex items-center justify-center overflow-hidden`}
+              onMouseEnter={() => setHoveredCard(i)}
+              onMouseLeave={() => setHoveredCard(null)}
             >
-              {(state) => (
-                <div
-                  className={`absolute inset-0 flex items-center justify-center text-white transition-opacity duration-500 ${
-                    state === "entered" ? "opacity-100" : "opacity-0"
-                  }`}
-                >
-                  <p
-                    className={`absolute left-4 ${
-                      direction === "ltr" ? "left-4" : "right-4"
-                    } w-[90%] md:w-[60%] text-sm md:text-lg`}
-                    data-aos="fade-right"
+              <div className="absolute inset-0 bg-gradient-to-tr from-[#051118] to-[#103743] opacity-50 transition-opacity duration-300"></div>
+              <Transition
+                in={hoveredCard === i}
+                timeout={300}
+                mountOnEnter
+                unmountOnExit
+              >
+                {(state) => (
+                  <div
+                    className={`absolute inset-0 flex items-center justify-center text-white transition-opacity duration-500 ${
+                      state === "entered" ? "opacity-100" : "opacity-0"
+                    }`}
                   >
-                    {card.description}
-                  </p>
-                </div>
-              )}
-            </Transition>
-            <Transition
-              in={hoveredCard !== i}
-              timeout={300}
-              mountOnEnter
-              unmountOnExit
-            >
-              {(state) => (
-                <h3
-                  className={`absolute transition-opacity duration-500 w-[50%] ${
-                    state === "entered" ? "opacity-100" : "opacity-0"
-                  } text-xl md:text-3xl text-white`}
-                  data-aos="fade-left"
-                  style={{
-                    right: direction === "rtl" && "1rem",
-                    left: direction === "ltr" && "1rem",
-                  }}
-                >
-                  {card.name}
-                </h3>
-              )}
-            </Transition>
-            <img
-              src={card.img}
-              alt={card.name}
-              className="absolute z-[-1] inset-0 object-cover w-full h-full transition-transform duration-300 transform scale-x-100"
-              style={{
-                transform:
-                  i !== servicesCard.length - 1 && direction === "rtl"
+                    <p
+                      className={`absolute left-4 ${
+                        direction === "ltr" ? "left-4" : "right-4"
+                      } w-[90%] md:w-[60%] text-sm md:text-lg`}
+                      data-aos="fade-right"
+                    >
+                      {card.description}
+                    </p>
+                  </div>
+                )}
+              </Transition>
+              <Transition
+                in={hoveredCard !== i}
+                timeout={300}
+                mountOnEnter
+                unmountOnExit
+              >
+                {(state) => (
+                  <h3
+                    className={`absolute transition-opacity duration-500 w-[50%] ${
+                      state === "entered" ? "opacity-100" : "opacity-0"
+                    } text-xl md:text-3xl text-white`}
+                    data-aos="fade-left"
+                    style={{
+                      right: direction === "rtl" && "1rem",
+                      left: direction === "ltr" && "1rem",
+                    }}
+                  >
+                    {card.name}
+                  </h3>
+                )}
+              </Transition>
+              <img
+                src={card.img}
+                alt={card.name}
+                className="absolute z-[-1] inset-0 object-cover w-full h-full transition-transform duration-300 transform scale-x-100"
+                style={{
+                  transform: isLastEl
+                    ? isRTL
+                      ? "scaleX(-1)"
+                      : "scaleX(1)"
+                    : isRTL
                     ? "scaleX(1)"
                     : "scaleX(-1)",
-              }}
-            />
-          </div>
-        ))}
+                }}
+              />
+            </div>
+          );
+        })}
       </div>
       <Footer />
     </div>
