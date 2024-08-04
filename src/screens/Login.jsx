@@ -11,8 +11,8 @@ const Login = ({ onLogin }) => { // Receive onLogin function as a prop
     e.preventDefault();
 
     // Hard-coded admin credentials
-    const adminEmail = "admin@example.com";
-    const adminPassword = "admin123";
+    const adminEmail = "motolba2852002@gmail.com";
+    const adminPassword = "Mm950876muo";
 
     if (email === adminEmail && password === adminPassword) {
       // Redirect to the form upon successful login
