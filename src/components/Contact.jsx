@@ -336,20 +336,7 @@ export default function Contact() {
           >
             {t("contactUs.getInTouch")}
           </h3>
-          <div
-            className="mb-3 flex items-start"
-            data-aos={direction === "ltr" ? "fade-left" : "fade-right"}
-            data-aos-duration="1100"
-          >
-            <div className="">
-              <FaMapMarkerAlt
-                className={`${direction === "ltr" ? "mr-2.5" : "ml-2.5"}`}
-              />
-            </div>
-            <div className="max-w-xs">
-              <span className="text-[#b7e4ea]">{t("contactUs.address")}</span>
-            </div>
-          </div>
+
           <div
             className="mb-3 flex items-start"
             data-aos={direction === "ltr" ? "fade-left" : "fade-right"}
@@ -366,23 +353,12 @@ export default function Contact() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <span className="text-[#b7e4ea]">
-                  {t("contactUs.address2")}
-                </span>
+                <span className="text-[#b7e4ea]">Alexandria, Egypt.</span>
               </a>
             </div>
           </div>
-          <div
-            className="flex items-center mb-3"
-            data-aos={direction === "ltr" ? "fade-left" : "fade-right"}
-            data-aos-duration="1200"
-          >
-            <IoMdTime
-              className={`${direction === "ltr" ? "mr-2.5" : "ml-2.5"}`}
-            />
-            <div className="text-[#b7e4ea]">{t("contactUs.workingHours")}</div>
-          </div>
-          <div
+
+          {/* <div
             className="flex items-center mb-2"
             data-aos={direction === "ltr" ? "fade-left" : "fade-right"}
             data-aos-duration="1300"
@@ -390,10 +366,10 @@ export default function Contact() {
             <LiaPhoneVolumeSolid
               className={`${direction === "ltr" ? "mr-2.5" : "ml-2.5"}`}
             />
-            <a href={`tel:966500685333`} className="text-[#b7e4ea]">
+             <a href={`tel:966500685333`} className="text-[#b7e4ea]">
               <span className="block">{t("contactUs.phone")}</span>
             </a>
-          </div>
+          </div> */}
           <div
             className="flex items-center mb-5"
             data-aos={direction === "ltr" ? "fade-left" : "fade-right"}
@@ -413,7 +389,7 @@ export default function Contact() {
             data-aos={direction === "ltr" ? "fade-left" : "fade-right"}
             data-aos-duration="1400"
           >
-            <li className={`${direction === "ltr" ? "mr-3.5" : "ml-3.5"}`}>
+            {/* <li className={`${direction === "ltr" ? "mr-3.5" : "ml-3.5"}`}>
               <a
                 href="https://www.facebook.com/profile.php?id=61559359181626"
                 target="_blank"
@@ -422,8 +398,8 @@ export default function Contact() {
               >
                 <FaFacebookF />
               </a>
-            </li>
-            <li className={`${direction === "ltr" ? "mr-3.5" : "ml-3.5"}`}>
+            </li> */}
+            {/* <li className={`${direction === "ltr" ? "mr-3.5" : "ml-3.5"}`}>
               <a
                 href="https://x.com/home?lang=ar"
                 target="_blank"
@@ -432,8 +408,8 @@ export default function Contact() {
               >
                 <FaTwitter />
               </a>
-            </li>
-            <li className={`${direction === "ltr" ? "mr-3.5" : "ml-3.5"}`}>
+            </li> */}
+            {/* <li className={`${direction === "ltr" ? "mr-3.5" : "ml-3.5"}`}>
               <a
                 href="https://www.instagram.com/adsmaster.sa?igsh=dnJnNmp0a2tvYzBy"
                 target="_blank"
@@ -442,18 +418,18 @@ export default function Contact() {
               >
                 <FaInstagram />
               </a>
-            </li>
+            </li> */}
             <li className={`${direction === "ltr" ? "mr-3.5" : "ml-3.5"}`}>
               <a
-                href="https://www.linkedin.com/company/99885115/admin/feed/posts/"
+                href="https://www.linkedin.com/in/abdelrahman-wagdy-966996238/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-[#307f95] duration-300 cursor-pointer"
               >
-                <FaLinkedin />
+                <FaLinkedin size={30} />
               </a>
             </li>
-            <li>
+            {/* <li>
               <a
                 href="https://www.tiktok.com/ar/"
                 target="_blank"
@@ -462,12 +438,12 @@ export default function Contact() {
               >
                 <AiOutlineTikTok />
               </a>
-            </li>
+            </li> */}
           </ul>
           <a
             data-aos={direction === "ltr" ? "fade-left" : "fade-right"}
             data-aos-duration="1500"
-            href={`https://wa.me/966500685333`}
+            href={`https://wa.me/201550845459`}
             target="_blank"
             className="flex items-center text-xs rounded-3xl text-white bg-[#1c3f49] w-fit py-2 px-5 hover:bg-[#214a55] duration-300 cursor-pointer"
           >

@@ -24,26 +24,30 @@ export default function UnderCover() {
   }, []);
   const marketingConceptsData = [
     {
-      title: t("insights.socialMedia"),
-      description: t("insights.socialMediaDescription"),
+      title: "Marketing Specialist",
+      description: `Passionate about blending creativity and data-driven strategies to deliver impactful results. Experienced in managing diverse campaigns, enhancing brand visibility, driving engagement, and executing effective paid ads and content across multiple industries and markets.`,
       learnMore: t("insights.learnMore"),
       img: undercover1,
     },
     {
-      title: t("insights.seo"),
-      description: t("insights.seoDescription"),
+      title: "We Set the Mindset",
+      description:
+        "Success starts with the right mindset. A growth-driven, strategic approach ensures adaptability, innovation, and precision in every project. I turn challenges into opportunities by focusing on big-picture thinking, attention to detail, and delivering lasting results through both organic and paid marketing.",
       learnMore: t("insights.learnMore"),
       img: undercover2,
     },
     {
-      title: t("insights.emailCampaign"),
-      description: t("insights.emailCampaignDescription"),
+      title:
+        "Delivering Professional Solutions to Achieve Your Marketing Goals",
+      description:
+        "I provide well-researched, data-driven strategies, creative content, and impactful paid ads that empower your brand, build confidence in every step, and set you apart from the competition.",
       learnMore: t("insights.learnMore"),
       img: undercover3,
     },
     {
-      title: t("insights.dataDriven"),
-      description: t("insights.dataDrivenDescription"),
+      title: "Your Partner in Success",
+      description:
+        "Driven by creativity and data, I craft tailored strategies and content to help brands achieve their goals. With experience across diverse industries, I approach every project with dedication, adaptability, and a focus on delivering meaningful results through both organic and paid channels.",
       learnMore: t("insights.learnMore"),
       img: undercover4,
     },
@@ -105,12 +109,14 @@ export default function UnderCover() {
               backgroundAttachment: "fixed",
               backgroundPosition: "center",
               backgroundRepeat: "no-repeat",
-              
-
             }}
           >
             <div className="absolute inset-0 bg-gradient-to-r from-black to-transparent opacity-70"></div>
-            <div className={`relative z-10 p-6 text-white ${direction === "ltr" ? "mr-auto" : "ml-auto"}`}>
+            <div
+              className={`relative z-10 p-6 text-white ${
+                direction === "ltr" ? "mr-auto" : "ml-auto"
+              }`}
+            >
               <h2 className="text-3xl font-bold">{data.title}</h2>
               <p className="mt-2 w=full w-[90%]">{data.description}</p>
             </div>

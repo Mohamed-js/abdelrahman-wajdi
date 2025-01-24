@@ -1,6 +1,6 @@
 import React from "react";
 import { useSpring, animated } from "react-spring";
-import Logo from "../assets/imgs/adslogo.png"
+
 const AnimatedHeart = () => {
   const heartProps = useSpring({
     from: { scale: 0, opacity: 0 },

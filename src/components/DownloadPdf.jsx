@@ -2,10 +2,11 @@ import React from "react";
 import bgImg from "../assets/imgs/bg-img.jpg";
 import { useTranslation } from "react-i18next";
 import download from "../assets/imgs/download1.jpg";
-import profile from "../assets/imgs/profile.jpg"
+import profile from "../assets/abdo-logo.png";
 
 export default function DownloadPdf() {
-  const direction = localStorage.getItem("selectedLanguage") === "ar" ? "rtl" : "ltr";
+  const direction =
+    localStorage.getItem("selectedLanguage") === "ar" ? "rtl" : "ltr";
   const { t } = useTranslation();
 
   return (
@@ -21,7 +22,7 @@ export default function DownloadPdf() {
       <div
         className="relative h-48 md:h-96 flex items-center justify-center mx-auto w-[90%] max-w-5xl rounded-lg shadow-lg overflow-hidden"
         style={{
-          backgroundImage: `url(${profile})`,
+          // backgroundImage: `url(${profile})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
@@ -35,17 +36,15 @@ export default function DownloadPdf() {
           <h2
             className="text-2xl md:text-4xl font-bold mb-4"
             data-aos={`${direction === "ltr" ? "fade-right" : "fade-left"}`}
-          >
-            {t("donwloadPdf.downloadProfile")}
-          </h2>
+          ></h2>
           <div className="text-center">
             <a
-              className="relative inline-block px-8 py-3 bg-[#e6953e] text-black font-semibold text-sm md:text-base rounded-full transition transform-positive duration-300 ease-in-out shadow-lg hover:bg-[#d58435] hover:shadow-2xl hover:-translate-y-1 before:absolute before:inset-0 before:bg-white before:opacity-20 before:blur-lg before:rounded-full before:transform before:scale-105 before:transition before:duration-300 before:ease-in-out hover:before:opacity-10 hover:before:scale-125"
-              href="/path/to/your/file.pdf"
-              download="filename.pdf"
+              className="relative inline-block px-8 py-3 bg-[#00d6f3] text-black font-semibold text-sm md:text-base rounded-full transition transform-positive duration-300 ease-in-out shadow-lg hover:bg-[#d58435] hover:shadow-2xl hover:-translate-y-1 before:absolute before:inset-0 before:bg-white before:opacity-20 before:blur-lg before:rounded-full before:transform before:scale-105 before:transition before:duration-300 before:ease-in-out hover:before:opacity-10 hover:before:scale-125"
+              href="https://docs.google.com/document/d/1KK5kAl83SJZHjoIJqLREPW2CtFKlnQi22DWMDuK0bjw/edit?usp=sharing"
               data-aos="fade-bottom"
+              target="_blank"
             >
-              {t("donwloadPdf.download")}
+              View Resume
             </a>
           </div>
         </div>

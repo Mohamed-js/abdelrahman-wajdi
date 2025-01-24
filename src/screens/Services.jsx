@@ -105,9 +105,7 @@ export default function Services() {
         className="absolute inset-0 bg-cover bg-center opacity-5"
         style={{ backgroundImage: `url(${bgImg})` }}
       ></div>
-      <div className="mt-10 mb-20">
-        <SliderComponent />
-      </div>
+      <div className="mt-10 mb-20">{/* <SliderComponent /> */}</div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mx-auto px-[15px] mb-16 md:max-w-[90%] lg:max-w-[70%] cursor-pointer">
         {servicesCard.map((card, i) => {

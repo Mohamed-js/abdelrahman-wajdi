@@ -57,7 +57,7 @@ export default function Home() {
 
   return (
     <>
-    <CustomWhatsApp />
+      <CustomWhatsApp />
       <div className="container " id="cover">
         <div className="h-screen p-4 w-screen overflow-hidden relative">
           <div className="absolute inset-0 w-full h-full z-40">
@@ -68,44 +68,41 @@ export default function Home() {
           <Header />
         </div>
       </div>
-      
-     <div className="block md:hidden">
 
-      <UnderCoverMobile />
-      </div> 
-      <div className="hidden md:block" >
-        <UnderCover />
-        
+      <div className="block md:hidden">
+        <UnderCoverMobile />
       </div>
-      
+      <div className="hidden md:block">
+        <UnderCover />
+      </div>
+
       <ClientSlider rtl={true} mt={true} images={firstSliderImages} />
       <div
-      className="h-2  relative"
+        className="h-2  relative"
         style={{
           backgroundImage: `url(${bgImg})`,
         }}
       >
-           <div className="absolute inset-0 w-full h-full z-40">
-            <div className="absolute inset-0 bg-gradient-to-t from-[#000000] via-[#103743] to-[#000000] opacity-75 md:opacity-75"></div>
-            <div className="absolute inset-0 bg-black opacity-50"></div>
-          </div>
+        <div className="absolute inset-0 w-full h-full z-40">
+          <div className="absolute inset-0 bg-gradient-to-t from-[#000000] via-[#103743] to-[#000000] opacity-75 md:opacity-75"></div>
+          <div className="absolute inset-0 bg-black opacity-50"></div>
+        </div>
       </div>
       <ClientSlider rtl={false} mt={false} images={secondSliderImages} />
       <div
-      className="h-2  relative"
+        className="h-2  relative"
         style={{
           backgroundImage: `url(${bgImg})`,
         }}
       >
-           <div className="absolute inset-0 w-full h-full z-40">
-            <div className="absolute inset-0 bg-gradient-to-t from-[#000000] via-[#103743] to-[#000000] opacity-75 md:opacity-75"></div>
-            <div className="absolute inset-0 bg-black opacity-50"></div>
-          </div>
+        <div className="absolute inset-0 w-full h-full z-40">
+          <div className="absolute inset-0 bg-gradient-to-t from-[#000000] via-[#103743] to-[#000000] opacity-75 md:opacity-75"></div>
+          <div className="absolute inset-0 bg-black opacity-50"></div>
+        </div>
       </div>
       <DownloadPdf />
       <Contact />
       <Footer />
-      
     </>
   );
 }

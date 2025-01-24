@@ -1,4 +1,4 @@
-import React from "react";
+/* eslint-disable react/prop-types */
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -43,7 +43,6 @@ const Slide = ({ img, title, description }) => {
         style={{
           backgroundImage: `url(${img})`,
           transform: direction === "rtl" ? "scaleX(1)" : "scaleX(-1)",
-          
         }}
       ></div>
       <div className="absolute inset-0 flex flex-col justify-center items-start text-white px-12 md:px-32">

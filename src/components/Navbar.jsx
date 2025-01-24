@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { CiMenuBurger } from "react-icons/ci";
 import { FaShoppingBag } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import logo from "../assets/imgs/adslogo.png";
+import logo from "../assets/abdo-logo.png";
 import LanguageSwitcher from "./LanguageSwitcher";
 import { useTranslation } from "react-i18next";
 
@@ -29,18 +29,18 @@ export default function Navbar({ setHandleSidebar }) {
   return (
     <div
       className={`fixed top-0 left-0 w-full  z-[200] transition-all duration-700 ${
-        isScrolled ? "bg-[#050e16] bg-opacity-30" : "bg-transparent"
-      } hover:bg-[#050e16] hover:bg-opacity-30`}
+        isScrolled ? "bg-[#050e16] bg-opacity-40" : "bg-transparent"
+      } hover:bg-[#050e16] hover:bg-opacity-40`}
     >
       <div className="container mx-auto p-4">
         <div className="flex justify-between items-center">
           <div className="flex items-center gap-4 w-[35%] md:w-[40%] ">
-            <div className="main-color cursor-pointer">
+            {/* <div className="main-color cursor-pointer">
               <LanguageSwitcher />
-            </div>
+            </div> */}
             {/* <FaShoppingBag size={20} className="main-color cursor-pointer" /> */}
             <Link to="our-works">
-              <div className="main-color text-sm md:text-base cursor-pointer hidden md:block">
+              <div className="main-color text-sm md:text-base font-bold cursor-pointer hidden md:block">
                 {t("navbar.ourWorks")}
               </div>
             </Link>
@@ -48,7 +48,7 @@ export default function Navbar({ setHandleSidebar }) {
           <div className="flex items-center justify-center w-[30%] md:w-[10%] text-center">
             <Link to="/">
               <div className="text-center w-full text-3xl cursor-pointer text-[#78b6db] ">
-                <img src={logo} alt="Logo" className="w-[70px] rounded-lg" />
+                <img src={logo} alt="Logo" className="w-[90px] rounded-lg" />
               </div>
             </Link>
           </div>

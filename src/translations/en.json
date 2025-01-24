@@ -1,34 +1,31 @@
 {
   "navbar": {
     "language": "English",
-    "ourWorks": "Our Works"
+    "ourWorks": "My Projects"
   },
   "sidebar": {
     "home": "Home",
     "insights": "Insights",
     "aboutUs": "About Us",
-    "ourWorks": "Our Works",
+    "ourWorks": "My Projects",
     "services": "Services",
     "contactUs": "Contact Us"
   },
   "header": {
-    "heading1": "Your Ads, Our Mastery",
-    "heading2": "Shift to master!"
+    "heading1": "Data and creativity, driving success with strategy and productivity.",
+    "heading2": "Abdelrahman Wajdi"
   },
   "insights": {
-    "title1": "Get to know ADS Master",
+    "title1": "Get to know Abdelrahman Wajdi",
     "title2": "We take you to a world of professionalism!",
     "socialMedia": "Why should we be your first choice?",
     "socialMediaDescription": "To excel professionally and achieve success and creativity in your business. To accomplish your goals and increase your profits with our professional ideas and services.",
     "learnMore": "Learn More",
-
     "seo": "Welcome to the world of professionalism",
     "seoDescription": "We believe that goals are achieved only through a sound, professional, and different approach that distinguishes you from your competitors and helps you achieve all your marketing objectives.",
-
     "emailCampaign": "The best professional solutions to achieve your marketing goals",
     "emailCampaignDescription": "We provide you with well-studied professional services that give you confidence in every practical step and distinguish you from your competitors.",
-
-    "dataDriven": "With ADS Master",
+    "dataDriven": "With Abdelrahman Wajdi",
     "dataDrivenDescription": "Your success is our success. Your professionalism is our mission. You are our success partner, not just a client."
   },
   "services": {
@@ -36,23 +33,18 @@
     "title2": "Your First Destination",
     "description2": "The pinnacle of professional marketing. Innovative solutions to elevate your brand and drive sales to new heights.",
     "description": "Your ultimate choice for professional marketing. Cutting-edge services to elevate your brand and boost sales.",
-
     "marketingPlan": "Creating the marketing plan",
     "marketingPlanDescription": "We will help you create your own marketing plan through which you will be able to compete and dominate the market.",
-
     "digitalMarketing": "Digital marketing and marketing campaigns",
     "digitalMarketingDescription": "We will enable you to achieve your profits and goals through well-planned and strategic advertising campaigns.",
     "socialMedia": "Managing social media accounts",
     "socialMediaDescription": "Social media platforms are the link between you and your target audience. To create interactive content that attracts the audience.",
-
     "creativeDesign": "Creative design",
     "creativeDesignDescription": "Your visual identity is the first thing that catches the eye. Let us make you the hero of your story.",
     "seo": "Search engine optimization",
     "seoDescription": "If it's difficult to find your website, don't expect customers to come to you. Let us help you with that.",
-
     "contentWriting": "Content writing of all types",
     "contentWritingDescription": "Your content is what sets you apart. Let us create content for you that fits your brand and brings you loyal customers.",
-
     "developeSites": "Creating and developing websites",
     "developeSitesDescriptiion": "Your website is your gateway to profits. Therefore, building that gateway requires a high level of professionalism to achieve maximum profits. And that's what sets us apart.",
     "emailMarketing": "Email marketing",
@@ -71,10 +63,9 @@
     "sendMessage": "Send Message",
     "address": "Office Number 4, 2253 Mohammed bin Abdullah bin Abdul Latif, 7913, First Floor, Riyadh 12463, Kingdom of Saudi Arabia",
     "address2": "6 Dr Rashwan Hasan, As Soyouf Bahri, Montaza 1, Alexandria Governorate 5517073",
-
     "workingHours": "Business Hours: 9:00 AM - 5:00 PM",
     "phone": "966500685333",
-    "phone2": "01097788133",
+    "phone2": "+201550845459 ",
     "whatsApp": "Contact via WhatsApp",
     "yourName": "Your Name",
     "yourPhone": "Your Phone",
@@ -87,31 +78,28 @@
     "title1": "Digital Marketing & Web Design",
     "title2": "Increase Your Online Presence",
     "contact": "Contact",
-    "number": "01097788133",
-    "email": "info@adsmaster.me",
+    "number": "+201550845459 ",
+    "email": "abdelrahman.wagdy203@gmail.com",
     "address": "6 Dr Rashwan Hasan, As Soyouf Bahri, Montaza 1, Alexandria Governorate 5517073",
-
     "mainPages": " Main Pages",
     "home": "Home",
     "about": "About",
-    "ourWorks": "Our Works"
+    "ourWorks": "My Projects"
   },
   "aboutUs": {
     "about": "About",
     "title1": "The dream team of digital marketing.",
     "title2": "We grow businesses online.",
-    "masterAdds": "ADS Master",
-    "cardOneTitle": " ADS Master - Your Marketing Partner",
+    "masterAdds": "Abdelrahman Wajdi",
+    "cardOneTitle": " Abdelrahman Wajdi - Your Marketing Partner",
     "cardOneDescription": "We specialize in software development, website design, digital marketing, and web services. Our mission is to help our clients enhance their visibility and achieve success through innovative solutions.",
-    "cardTwoTitle": " Why ADS Master?",
-    "cardTwoDescription": "   Choose ADS Master for your marketing needs. With over 300 successful projects launched, we're dedicated to your success in the Middle East and beyond.",
-    "cardThreeTitle": "ADS Master - Your First Choice",
-
-    "cardThreeDescription": " At ADS Master, we aim to be your top choice for digital marketing solutions in the Arab world. Let us help you achieve your goals today and beyond.",
+    "cardTwoTitle": " Why Abdelrahman Wajdi?",
+    "cardTwoDescription": "   Choose Abdelrahman Wajdi for your marketing needs. With over 300 successful projects launched, we're dedicated to your success in the Middle East and beyond.",
+    "cardThreeTitle": "Abdelrahman Wajdi - Your First Choice",
+    "cardThreeDescription": " At Abdelrahman Wajdi, we aim to be your top choice for digital marketing solutions in the Arab world. Let us help you achieve your goals today and beyond.",
     "ourGoalsTitle": "Our Objectives",
     "ourGoals": "Our goal is to provide our clients with our expertise, enabling them to present a professional image, achieve their goals, and grow in the market faster. We believe our services will make a significant difference in our clients' professional lives and elevate their market position.",
     "ourVisionTitle": "Our Vision",
-
     "ourVision": "To lead in the marketing field and expand beyond the borders of the different countries where we have achieved success. We strive to spread innovative and modern professional services designed to achieve your goals and meet our clients' needs.",
     "ourMessageTitle": "Our Message",
     "ourMessage": "Our company's mission is to create and develop brands with innovative ideas and make them always appear professional, enabling them to achieve their goals and increase their profits. We believe our expertise in this field allows us to elevate your brand to the top with ease.",

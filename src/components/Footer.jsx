@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../assets/imgs/adslogo.png";
+import logo from "../assets/abdo-logo.png";
 import bgImg from "../assets/imgs/bg-img.jpg";
 import { Link } from "react-router-dom";
 import {
@@ -52,8 +52,7 @@ export default function Footer() {
             </svg>
             <img src={logo} alt="Logo" className="w-[90px] rounded-lg" />
           </h2>
-          <p className="leading-3	text-[#62a0a8] mb-1">{t("footer.title1")}</p>
-          <p className="text-[#62a0a8]">{t("footer.title2")}</p>
+          <p className="leading-3	text-[#62a0a8] mb-1">Marketing Specialist</p>
         </div>
         <div className="mb-5 md:mb-0 pb-5 border-b border-[#b7e4ea2e]">
           <h3 className="mb-4 text-xl">{t("footer.contact")}</h3>
@@ -63,7 +62,7 @@ export default function Footer() {
                 direction === "ltr" ? "mr-2.5" : "ml-2.5"
               } w-4 h-4 `}
             />
-            <a href={`tel:01097788133`} className="text-[#62a0a8]">
+            <a href={`tel:+201550845459 `} className="text-[#62a0a8]">
               {t("footer.number")}
             </a>
           </div>
@@ -73,7 +72,10 @@ export default function Footer() {
                 direction === "ltr" ? "mr-2.5" : "ml-2.5"
               } w-4 h-4 `}
             />
-            <a href={`mailto:info@adsmaster.me`} className="text-[#62a0a8]">
+            <a
+              href={`mailto:abdelrahman.wagdy203@gmail.com`}
+              className="text-[#62a0a8]"
+            >
               {t("footer.email")}
             </a>
           </div>
@@ -87,13 +89,7 @@ export default function Footer() {
                 />
               </div>
               <div className="max-w-xs relative">
-                <a
-                  href="https://maps.app.goo.gl/H8Umv47eedqqMagY7"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <span className="text-[#62a0a8]">{t("footer.address")}</span>
-                </a>
+                <span className="text-[#62a0a8]">Alexandria, Egypt</span>
               </div>
             </div>
 
@@ -118,19 +114,7 @@ export default function Footer() {
               ></span>
               <span className="text-sm cursor-pointer">{t("footer.home")}</span>
             </Link>
-            <Link
-              to="/about-us"
-              className={`link-item flex items-center ${
-                direction === "ltr" ? "mr-3.5" : "ml-3.5"
-              } cursor-pointer hover:text-[#e6953e] duration-300`}
-            >
-              <span
-                className={`w-2 h-2 bg-[#b7e4ea] rounded-full ${
-                  direction === "ltr" ? "mr-2" : "ml-2"
-                }`}
-              ></span>
-              <span className="text-sm">{t("footer.about")}</span>
-            </Link>
+
             <Link
               to="/our-works"
               className={`link-item flex items-center ${
