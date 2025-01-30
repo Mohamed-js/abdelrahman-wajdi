@@ -63,7 +63,7 @@ export default function OurWorks() {
         style={{ backgroundImage: `url(${bgImg})` }}
       ></div>
 
-      <h2 className="relative w-fit mx-auto text-3xl font-semibold leading-10 drop-shadow-md mb-12 capitalize text-[#b7e4ea] text-center animate__animated animate__fadeInDown">
+      {/* <h2 className="relative w-fit mx-auto text-3xl font-semibold leading-10 drop-shadow-md mb-12 capitalize text-[#b7e4ea] text-center animate__animated animate__fadeInDown">
         <svg
           className="absolute w-[200px] h-[200px] top-[-82px] left-[-35px] opacity-50 z-[-1]"
           xmlns="http://www.w3.org/2000/svg"
@@ -79,44 +79,14 @@ export default function OurWorks() {
             </g>
           </g>
         </svg>
-        Our Works
-      </h2>
-
-      <div className="flex justify-center flex-wrap gap-4 mb-8 relative mt-16">
-        <Link
-          to="Web Design"
-          spy={true}
-          smooth={true}
-          duration={500}
-          className="mx-2 px-4 py-2 rounded-full font-semibold cursor-pointer transition shadow-lg hover:[] text-[#fffffc] hover:bg-[#e6953e] hover:text-white"
-        >
-          Web Design
-        </Link>
-        <Link
-          to="Social Media Management"
-          spy={true}
-          smooth={true}
-          duration={500}
-          className="mx-2 px-4 py-2 rounded-full font-semibold cursor-pointer transition shadow-lg text-[#fffffc] hover:bg-[#e6953e] hover:text-white"
-        >
-          Social Media Management
-        </Link>
-        <Link
-          to="Logo & Branding"
-          spy={true}
-          smooth={true}
-          duration={500}
-          className="mx-2 px-4 py-2 rounded-full font-semibold cursor-pointer transition shadow-lg text-[#fffffc] hover:bg-[#e6953e] hover:text-white"
-        >
-          Logo & Branding
-        </Link>
-      </div>
+        My Projects
+      </h2> */}
 
       {Object.entries(groupedWorks).map(([option, works]) => (
         <Element name={option} key={option} id={option}>
-          <div className="animate__animated animate__fadeIn animate__slow mb-16 p-8 max-w-5xl mx-auto mt-32 relative">
-            <h2 className="component-heading text-gray-600">{option}</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-10">
+          <div className="animate__animated animate__fadeIn animate__slow mb-16 p-8 pt-0 max-w-5xl mx-auto  relative">
+            <h2 className="component-heading text-gray-600">My Projects</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
               {works.map((work, index) => (
                 <RouterLink to={`/our-works/${work.id}`} key={index}>
                   <div className=" rounded-lg overflow-hidden shadow-lg  transform hover:scale-105 transition duration-300">
