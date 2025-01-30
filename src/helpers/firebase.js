@@ -2,28 +2,24 @@ import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDPgfgobxvUDLk0t3lkBTSMgNcvNIQumwg",
-  authDomain: "ads-master-aa303.firebaseapp.com",
-  projectId: "ads-master-aa303",
-  storageBucket: "ads-master-aa303.appspot.com",
-  messagingSenderId: "237914002630",
-  appId: "1:237914002630:web:0072b2547dd9fa516533c7",
-  measurementId: "G-9GDJBTVQKR"
+  apiKey: "AIzaSyADW2oJtwV2Lh5XnwkzHgmRi7JEMWflFuQ",
+  authDomain: "abdo-portfolio-88e3f.firebaseapp.com",
+  projectId: "abdo-portfolio-88e3f",
+  storageBucket: "abdo-portfolio-88e3f.firebasestorage.app",
+  messagingSenderId: "938613129893",
+  appId: "1:938613129893:web:764bf27907462eff5e834c",
+  measurementId: "G-67D9HVW9Y2",
 };
-
-
-
-
-  //  sign in .. => go to console
-  // web 
-  // settings of the web you added 
-
-  // build => fire base data base
-
-
-  // allow read and write => data base  => rules => allow read, write, delete: if true;
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 export { app, db };
+
+//  sign in .. => go to console
+// web
+// settings of the web you added
+
+// build => fire base data base
+
+// allow read and write => data base  => rules => allow read, write, delete: if true;

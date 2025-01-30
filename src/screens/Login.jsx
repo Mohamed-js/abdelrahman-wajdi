@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const Login = ({ onLogin }) => { // Receive onLogin function as a prop
+const Login = ({ onLogin }) => {
+  // Receive onLogin function as a prop
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -11,8 +12,8 @@ const Login = ({ onLogin }) => { // Receive onLogin function as a prop
     e.preventDefault();
 
     // Hard-coded admin credentials
-    const adminEmail = "motolba2852002@gmail.com";
-    const adminPassword = "Mm950876muo";
+    const adminEmail = "abdelrahman.wagdy203@gmail.com";
+    const adminPassword = "12345679";
 
     if (email === adminEmail && password === adminPassword) {
       // Redirect to the form upon successful login

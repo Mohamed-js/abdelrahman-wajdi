@@ -1,5 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { Link, Element, Events, animateScroll as scroll, scrollSpy } from "react-scroll";
+import {
+  Link,
+  Element,
+  Events,
+  animateScroll as scroll,
+  scrollSpy,
+} from "react-scroll";
 import bgImg from "../assets/imgs/bg-img.jpg";
 import { useTranslation } from "react-i18next";
 import { getFirestore, collection, getDocs } from "firebase/firestore";
@@ -10,20 +16,23 @@ import Footer from "../components/Footer";
 
 export default function OurWorks() {
   const { t } = useTranslation();
-  const direction = localStorage.getItem("selectedLanguage") === "ar" ? "rtl" : "ltr";
+  const direction =
+    localStorage.getItem("selectedLanguage") === "ar" ? "rtl" : "ltr";
   const [workData, setWorkData] = useState([]);
-  const [loading, setLoading] = useState(true); 
-
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
       const worksCollectionRef = collection(db, "formSubmissions");
+
       const snapshot = await getDocs(worksCollectionRef);
+
+      console.log("snapshot", snapshot);
       const worksData = snapshot.docs.map((doc) => ({
         id: doc.id,
         ...doc.data(),
       }));
-      console.log(worksData)
+
       setWorkData(worksData);
       setLoading(false); // Set loading to false after data fetching is complete
     };
@@ -49,7 +58,10 @@ export default function OurWorks() {
 
   return (
     <div className="bg-[#051118] min-h-screen pt-32 w-screen overflow-hidden relative">
-      <div className="absolute inset-0 bg-cover bg-center opacity-5" style={{ backgroundImage: `url(${bgImg})` }}></div>
+      <div
+        className="absolute inset-0 bg-cover bg-center opacity-5"
+        style={{ backgroundImage: `url(${bgImg})` }}
+      ></div>
 
       <h2 className="relative w-fit mx-auto text-3xl font-semibold leading-10 drop-shadow-md mb-12 capitalize text-[#b7e4ea] text-center animate__animated animate__fadeInDown">
         <svg
@@ -100,18 +112,23 @@ export default function OurWorks() {
         </Link>
       </div>
 
-
       {Object.entries(groupedWorks).map(([option, works]) => (
         <Element name={option} key={option} id={option}>
           <div className="animate__animated animate__fadeIn animate__slow mb-16 p-8 max-w-5xl mx-auto mt-32 relative">
-          <h2 className="component-heading text-gray-600">{option}</h2>
+            <h2 className="component-heading text-gray-600">{option}</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-10">
               {works.map((work, index) => (
                 <RouterLink to={`/our-works/${work.id}`} key={index}>
                   <div className=" rounded-lg overflow-hidden shadow-lg  transform hover:scale-105 transition duration-300">
-                    <img src={work.firstImage} alt={`Image ${index}`} className="w-full h-64 object-cover" />
+                    <img
+                      src={work.firstImage}
+                      alt={`Image ${index}`}
+                      className="w-full h-64 object-cover"
+                    />
                     <div className="px-4 py-8">
-                      <p className="text-[#fffffc] text-base md:text-lg text-center  line-clamp-3">{work.firstTitle}</p>
+                      <p className="text-[#fffffc] text-base md:text-lg text-center  line-clamp-3">
+                        {work.firstTitle}
+                      </p>
                     </div>
                   </div>
                 </RouterLink>
