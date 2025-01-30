@@ -123,7 +123,7 @@ export default function WorkDetails() {
           ...parallaxStyle,
         }}
       ></animated.div>
-      {console.log(workDetails)}
+
       {workDetails && (
         <div className="max-w-5xl mx-auto p-8  text-white my-8">
           {/* <h2 className="component-heading text-gray-600">{workDetails.selectedOption}</h2> */}
