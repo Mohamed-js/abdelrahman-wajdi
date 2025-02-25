@@ -3,7 +3,7 @@ import { BeatLoader } from 'react-spinners'
 
 const Loading = () => {
   return (
-    <div className="flex items-center justify-center absolute inset-0 bg-gray-900 bg-opacity-50 z-50">
+    <div className="fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50 z-[1000]">
       <BeatLoader color="#ffffff" size={50} />
     </div>
   )

@@ -134,7 +134,7 @@ export default function WorkDetails() {
                 <h1 className="text-3xl font-semibold">Case Study</h1>
               </div>
               <h2 className="text-xl font-semibold mb-2">
-                {workDetails.firstTitle}
+                {workDetails.caseStudy}
               </h2>
               <p className="text-lg mb-4 overflow-auto max-h-[300px] relative py-2">
                 {workDetails.firstDescription}

@@ -28,6 +28,7 @@ const WorksData = () => {
   }, []);
 
   const handleDelete = async (id) => {
+    setLoading(true)
     try {
       await deleteDoc(doc(db, "formSubmissions", id));
       setFormSubmissions((prevSubmissions) =>
@@ -35,6 +36,8 @@ const WorksData = () => {
       );
     } catch (error) {
       console.error("Error deleting form submission: ", error);
+    }finally{
+      setLoading(false)
     }
   };
 
