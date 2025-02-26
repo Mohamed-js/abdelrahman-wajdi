@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { collection, addDoc } from "firebase/firestore";
+import { collection, addDoc, getDocs } from "firebase/firestore";
 import { db } from "../helpers/firebase";
 import WorksData from "../components/WorksData";
 import Loading from "../components/Loading";
+import { FiTrash2 } from "react-icons/fi";
 
 const Form = ({ isLoggedIn }) => {
   // Change initial states of descriptions, titles, and images to empty arrays
@@ -21,6 +22,7 @@ const Form = ({ isLoggedIn }) => {
   const [problem, setProblem] = useState(""); // New state for Problem
   const [solution, setSolution] = useState(""); // New state for Solution
   const [projectBrief, setProjectBrief] = useState(""); // New state for Project Brief
+  const [formSubmissions, setFormSubmissions] = useState([]);
   const [loading, setLoading] = useState(false); // State to manage loading
 
   useEffect(() => {
@@ -49,7 +51,28 @@ const Form = ({ isLoggedIn }) => {
       return () => clearTimeout(timer);
     }
   }, [submitMessage]);
-  
+
+  const fetchFormSubmissions = async () => {
+    try {
+      setLoading(true);
+      const querySnapshot = await getDocs(collection(db, "formSubmissions"));
+      const submissions = [];
+      querySnapshot.forEach((doc) => {
+        submissions.push({ id: doc.id, ...doc.data() });
+      });
+      setFormSubmissions(submissions);
+    } catch (error) {
+      console.error("Error fetching form submissions: ", error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleDeleteDetail = (index) => {
+    setTitles((prev) => prev.filter((_, i) => i !== index));
+    setDescriptions((prev) => prev.filter((_, i) => i !== index));
+    setImages((prev) => prev.filter((_, i) => i !== index));
+  };
 
   const handleDescriptionChange = (index, value) => {
     const newDescriptions = [...descriptions];
@@ -60,11 +83,11 @@ const Form = ({ isLoggedIn }) => {
   const handleFirstImageUpload = async (file) => {
     const formData = new FormData();
     formData.append("file", file);
-    formData.append("upload_preset", "ca0qjdpw");
+    formData.append("upload_preset", "profile");
 
     try {
       const response = await fetch(
-        `https://api.cloudinary.com/v1_1/dwawhl9j4/image/upload`,
+        `https://api.cloudinary.com/v1_1/dax1l4hqj/image/upload`,
         {
           method: "POST",
           body: formData,
@@ -122,7 +145,7 @@ const Form = ({ isLoggedIn }) => {
     const formData = new FormData();
     formData.append("file", file);
     // upload preset name  ca0qjdpw       => sign in settings (left down )  then upload then add upload preset down its the name of the preset
-    formData.append("upload_preset", "shplumnr");
+    formData.append("upload_preset", "profile");
     // old name preset  ca0qjdpw
 
     // new dicaytdci
@@ -131,7 +154,7 @@ const Form = ({ isLoggedIn }) => {
     try {
       // cloud name from dashboard : dwawhl9j4
       const response = await fetch(
-        `https://api.cloudinary.com/v1_1/dicaytdci/image/upload`,
+        `https://api.cloudinary.com/v1_1/dax1l4hqj/image/upload`,
         {
           method: "POST",
           body: formData,
@@ -186,6 +209,7 @@ const Form = ({ isLoggedIn }) => {
         console.log(newProduct);
         await addDoc(collection(db, "formSubmissions"), newProduct);
         setSubmitMessage("Form submitted successfully!");
+        fetchFormSubmissions();
         resetForm();
         setFirstImage("");
         setImages([]);
@@ -257,55 +281,67 @@ const Form = ({ isLoggedIn }) => {
               </div>
               {descriptions.map((desc, index) => (
                 <div key={index} className="mb-4">
-                  <label
-                    htmlFor={`title-${index}`}
-                    className="block text-gray-300 font-medium my-4"
-                  >
-                    Title {index + 1}
-                  </label>
-                  <input
-                    id={`title-${index}`}
-                    value={titles[index]} // Bind title
-                    onChange={(e) => {
-                      const newTitles = [...titles];
-                      newTitles[index] = e.target.value;
-                      setTitles(newTitles);
-                    }}
-                    className="w-full px-3 py-2 border rounded-md bg-gray-700 focus:outline-none focus:ring focus:ring-blue-400 text-white"
-                    required
-                  />
-                  <label
-                    htmlFor={`description-${index}`}
-                    className="block text-gray-300 font-medium my-4"
-                  >
-                    Description {index + 1}
-                  </label>
-                  <textarea
-                    id={`description-${index}`}
-                    value={descriptions[index]}
-                    onChange={(e) =>
-                      handleDescriptionChange(index, e.target.value)
-                    }
-                    rows="
+                  <div className="flex-grow">
+                    <label
+                      htmlFor={`title-${index}`}
+                      className="block text-gray-300 font-medium my-4"
+                    >
+                      Title {index + 1}
+                    </label>
+                    <input
+                      id={`title-${index}`}
+                      value={titles[index]} // Bind title
+                      onChange={(e) => {
+                        const newTitles = [...titles];
+                        newTitles[index] = e.target.value;
+                        setTitles(newTitles);
+                      }}
+                      className="w-full px-3 py-2 border rounded-md bg-gray-700 focus:outline-none focus:ring focus:ring-blue-400 text-white"
+                      required
+                    />
+                    <label
+                      htmlFor={`description-${index}`}
+                      className="block text-gray-300 font-medium my-4"
+                    >
+                      Description {index + 1}
+                    </label>
+                    <textarea
+                      id={`description-${index}`}
+                      value={descriptions[index]}
+                      onChange={(e) =>
+                        handleDescriptionChange(index, e.target.value)
+                      }
+                      rows="
                   3"
-                    className="w-full px-3 py-2 border rounded-md bg-gray-700 focus:outline-none focus:ring focus:ring-blue-400 text-white"
-                    required
-                  />
-                  <label
-                    htmlFor={`image-${index}`}
-                    className="block text-gray-300 font-medium mb-2 mt-4"
+                      className="w-full px-3 py-2 border rounded-md bg-gray-700 focus:outline-none focus:ring focus:ring-blue-400 text-white"
+                      required
+                    />
+                    <label
+                      htmlFor={`image-${index}`}
+                      className="block text-gray-300 font-medium mb-2 mt-4"
+                    >
+                      Image {index + 1}
+                    </label>
+                    <input
+                      type="file"
+                      id={`image-${index}`}
+                      onChange={(e) =>
+                        handleImageUpload(index, e.target.files[0])
+                      }
+                      className="w-full px-3 py-2 border rounded-md bg-gray-700 focus:outline-none focus:ring focus:ring-blue-400 text-white"
+                      required
+                    />
+                  </div>
+
+                  <button
+                    type="button"
+                    onClick={() => handleDeleteDetail(index)}
+                    className="ml-2 mt-6 flex items-center text-red-500 hover:text-red-700 transition duration-200"
                   >
-                    Image {index + 1}
-                  </label>
-                  <input
-                    type="file"
-                    id={`image-${index}`}
-                    onChange={(e) =>
-                      handleImageUpload(index, e.target.files[0])
-                    }
-                    className="w-full px-3 py-2 border rounded-md bg-gray-700 focus:outline-none focus:ring focus:ring-blue-400 text-white"
-                    required
-                  />
+                    <FiTrash2 className="w-5 h-5 mr-1" />
+                    <span>Remove Detail {index + 1}</span>
+                  </button>
+                  <hr className="mt-4"/>
                 </div>
               ))}
             </div>
@@ -422,7 +458,11 @@ const Form = ({ isLoggedIn }) => {
       {loading && ( // Conditional rendering for loading spinner
         <Loading />
       )}
-      <WorksData />
+      <WorksData
+        formSubmissions={formSubmissions}
+        setFormSubmissions={setFormSubmissions}
+        fetchFormSubmissions={fetchFormSubmissions}
+      />
     </>
   );
 };
