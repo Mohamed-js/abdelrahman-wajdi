@@ -424,16 +424,16 @@ const WorksData = ({
                     </div>
                   ))}
                   {/* Button to add a new combined data object */}
+                </div>
+              )}
                   <button
                     onClick={handleAddCombinedData}
-                    className="bg-green-500 text-white px-3 py-1 rounded-md"
+                    className="bg-green-500 text-white px-3 py-1 rounded-md my-4"
                   >
                     Add New Detail
                   </button>
-                </div>
-              )}
 
-            <div className="flex justify-end space-x-4">
+            <div className="flex justify-end space-x-4 mt-4">
               <button
                 onClick={() => {
                   setIsEditModalOpen(false);
