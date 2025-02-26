@@ -161,7 +161,15 @@ export default function WorkDetails() {
               <h2 className="text-xl font-semibold mb-2 text-[#e6953e]">
                 Problem
               </h2>
-              <p className="text-lg text-gray-300">{workDetails.problem}</p>
+              <p className="text-lg text-gray-300">
+                {workDetails.problem.split("-").map((part, index) => (
+                  <span key={index}>
+                    {index > 0 && <br />}
+                    {index > 0 && "- "}
+                    {part.trim()}
+                  </span>
+                ))}
+              </p>
             </div>
             <div
               className="bg-[#0e1114] rounded-lg shadow-xl p-6"
@@ -170,7 +178,15 @@ export default function WorkDetails() {
               <h2 className="text-xl font-semibold mb-2 text-[#e6953e]">
                 Solution
               </h2>
-              <p className="text-lg text-gray-300">{workDetails.solution}</p>
+              <p className="text-lg text-gray-300">
+                {workDetails.solution.split("-").map((part, index) => (
+                  <span key={index}>
+                    {index > 0 && <br />}
+                    {index > 0 && "- "}
+                    {part.trim()}
+                  </span>
+                ))}
+              </p>
             </div>
           </div>
 
@@ -189,7 +205,13 @@ export default function WorkDetails() {
                       {item.title}
                     </h2>
                     <p className="text-lg text-gray-300 mb-4">
-                      {item.description}
+                      {item.description.split("-").map((part, index) => (
+                        <span key={index}>
+                          {index > 0 && <br />}
+                          {index > 0 && "- "}
+                          {part.trim()}
+                        </span>
+                      ))}
                     </p>
                   </div>
                   <img
