@@ -266,6 +266,16 @@ const WorksData = ({
               Edit Submission
             </h2>
             <div className="mb-4">
+              <label className="block text-gray-300 mb-2">Order</label>
+              <input
+                type="number"
+                name="order"
+                value={editingSubmission.order}
+                onChange={handleModalChange}
+                className="w-full px-3 py-2 border rounded-md bg-gray-700 text-white"
+              />
+            </div>
+            <div className="mb-4">
               <label className="block text-gray-300 mb-2">First Title</label>
               <input
                 type="text"
