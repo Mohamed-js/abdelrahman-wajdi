@@ -87,9 +87,9 @@ export default function OurWorks() {
           <div className="animate__animated animate__fadeIn animate__slow mb-16 p-8 pt-0 max-w-5xl mx-auto  relative">
             <h2 className="component-heading text-gray-600">My Projects</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-              {console.log(works.sort((a, b) => Number(b.order || 0) - Number(a.order || 0)))}
+            
               {works
-  .sort((a, b) => Number(b.order || 0) - Number(a.order || 0)) // Ensure it's a number
+  .sort((a, b) => Number(a.order || 0) - Number(b.order || 0)) // Ensure it's a number
   .map((work, index) => (
     <RouterLink to={`/our-works/${work.id}`} key={index}>
       <div className="rounded-lg overflow-hidden shadow-lg transform hover:scale-105 transition duration-300">
