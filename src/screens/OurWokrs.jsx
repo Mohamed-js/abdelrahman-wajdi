@@ -87,6 +87,7 @@ export default function OurWorks() {
           <div className="animate__animated animate__fadeIn animate__slow mb-16 p-8 pt-0 max-w-5xl mx-auto  relative">
             <h2 className="component-heading text-gray-600">My Projects</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+              {console.log(works)}
               {works.map((work, index) => (
                 <RouterLink to={`/our-works/${work.id}`} key={index}>
                   <div className=" rounded-lg overflow-hidden shadow-lg  transform hover:scale-105 transition duration-300">
