@@ -9,6 +9,7 @@ import { FiTrash2 } from "react-icons/fi";
 const Form = ({ isLoggedIn }) => {
   // Change initial states of descriptions, titles, and images to empty arrays
   const [descriptions, setDescriptions] = useState([]);
+  const [order, setOrder] = useState(0);
   const [titles, setTitles] = useState([]);
   const [images, setImages] = useState([]);
   const [selectedOption, setSelectedOption] = useState("");
@@ -197,6 +198,7 @@ const Form = ({ isLoggedIn }) => {
         }));
 
         const newProduct = {
+          order,
           firstTitle,
           caseStudy,
           firstImage,
@@ -236,6 +238,14 @@ const Form = ({ isLoggedIn }) => {
       <div className="flex justify-center py-32 items-center min-h-screen bg-gray-900 text-white">
         <div className="max-w-3xl w-full p-6 bg-gray-800 rounded-md shadow-md">
           <h2 className="text-2xl font-semibold mb-4">Form</h2>
+          <input
+                  id={`order`}
+                  onChange={(e) => setOrder(e.target.value)}
+                  rows="3"
+                  className="w-full px-3 py-2 border rounded-md bg-gray-700 focus:outline-none focus:ring focus:ring-blue-400 text-white"
+                  type="number"
+                  required
+                />
           <form action="">
             <div className="h-[300px] overflow-y-auto p-4">
               <div className="mb-4">
