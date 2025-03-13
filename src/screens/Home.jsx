@@ -60,36 +60,36 @@ export default function Home() {
     };
   }, []);
   const firstSliderImages = [
+    ClientLogo24,
+    ClientLogo25,
+    ClientLogo26,
     ClientLogo01,
     ClientLogo02,
+    ClientLogo27,
+    ClientLogo28,
     ClientLogo03,
     ClientLogo04,
     ClientLogo05,
     ClientLogo21,
     ClientLogo22,
     ClientLogo23,
-    ClientLogo24,
-    ClientLogo25,
-    ClientLogo26,
-    ClientLogo27,
-    ClientLogo28,
   ];
 
   const secondSliderImages = [
+    ClientLogo018,
+    ClientLogo019,
     ClientLogo06,
     ClientLogo07,
     ClientLogo08,
+    ClientLogo014,
+    ClientLogo015,
+    ClientLogo016,
     ClientLogo09,
     ClientLogo010,
     ClientLogo210,
     ClientLogo011,
     ClientLogo012,
-    ClientLogo014,
-    ClientLogo015,
-    ClientLogo016,
     ClientLogo017,
-    ClientLogo018,
-    ClientLogo019,
     ClientLogo020,
   ];
 
