@@ -24,6 +24,26 @@ import ClientLogo07 from "../assets/imgs/company7-removebg-preview.png";
 import ClientLogo08 from "../assets/imgs/company8-removebg-preview.png";
 import ClientLogo09 from "../assets/imgs/company9-removebg-preview.png";
 import ClientLogo010 from "../assets/imgs/company10-removebg-preview.png";
+import ClientLogo21 from "../assets/imgs/1.webp";
+import ClientLogo22 from "../assets/imgs/2.webp";
+import ClientLogo23 from "../assets/imgs/3.webp";
+import ClientLogo24 from "../assets/imgs/4.webp";
+import ClientLogo25 from "../assets/imgs/5.webp";
+import ClientLogo26 from "../assets/imgs/6.webp";
+import ClientLogo27 from "../assets/imgs/7.webp";
+import ClientLogo28 from "../assets/imgs/8.webp";
+
+// st
+import ClientLogo210 from "../assets/imgs/10.webp";
+import ClientLogo011 from "../assets/imgs/11.webp";
+import ClientLogo012 from "../assets/imgs/12.webp";
+import ClientLogo014 from "../assets/imgs/14.webp";
+import ClientLogo015 from "../assets/imgs/15.webp";
+import ClientLogo016 from "../assets/imgs/16.webp";
+import ClientLogo017 from "../assets/imgs/17.webp";
+import ClientLogo018 from "../assets/imgs/18.webp";
+import ClientLogo019 from "../assets/imgs/19.webp";
+import ClientLogo020 from "../assets/imgs/20.webp";
 
 export default function Home() {
   useEffect(() => {
@@ -45,6 +65,14 @@ export default function Home() {
     ClientLogo03,
     ClientLogo04,
     ClientLogo05,
+    ClientLogo21,
+    ClientLogo22,
+    ClientLogo23,
+    ClientLogo24,
+    ClientLogo25,
+    ClientLogo26,
+    ClientLogo27,
+    ClientLogo28,
   ];
 
   const secondSliderImages = [
@@ -53,6 +81,16 @@ export default function Home() {
     ClientLogo08,
     ClientLogo09,
     ClientLogo010,
+    ClientLogo210,
+    ClientLogo011,
+    ClientLogo012,
+    ClientLogo014,
+    ClientLogo015,
+    ClientLogo016,
+    ClientLogo017,
+    ClientLogo018,
+    ClientLogo019,
+    ClientLogo020,
   ];
 
   return (
@@ -68,7 +106,6 @@ export default function Home() {
           <Header />
         </div>
       </div>
-
       <div className="block md:hidden">
         <UnderCoverMobile />
       </div>

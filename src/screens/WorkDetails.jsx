@@ -131,7 +131,7 @@ export default function WorkDetails() {
             <animated.div className="text-center md:text-left">
               <div className="flex items-center mb-8 gap-2">
                 <FaClipboardList className="text-3xl text-[#e6953e]" />
-                <h1 className="text-3xl font-semibold">Case Study</h1>
+                <h1 className="text-3xl font-semibold">Brand Overview</h1>
               </div>
               <h2 className="text-xl font-semibold mb-2">
                 {workDetails.caseStudy}

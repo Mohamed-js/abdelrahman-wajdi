@@ -1,8 +1,6 @@
 import React from "react";
-import bgImg from "../assets/imgs/bg-img.jpg";
+import bgImg from "../assets/imgs/bgbg.webp";
 import { useTranslation } from "react-i18next";
-import download from "../assets/imgs/download1.jpg";
-import profile from "../assets/abdo-logo.png";
 
 export default function DownloadPdf() {
   const direction =
@@ -22,7 +20,7 @@ export default function DownloadPdf() {
       <div
         className="relative h-48 md:h-96 flex items-center justify-center mx-auto w-[90%] max-w-5xl rounded-lg shadow-lg overflow-hidden"
         style={{
-          // backgroundImage: `url(${profile})`,
+          backgroundImage: `url(${bgImg})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}

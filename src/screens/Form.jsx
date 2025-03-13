@@ -239,13 +239,13 @@ const Form = ({ isLoggedIn }) => {
         <div className="max-w-3xl w-full p-6 bg-gray-800 rounded-md shadow-md">
           <h2 className="text-2xl font-semibold mb-4">Form</h2>
           <input
-                  id={`order`}
-                  onChange={(e) => setOrder(e.target.value)}
-                  rows="3"
-                  className="w-full px-3 py-2 border rounded-md bg-gray-700 focus:outline-none focus:ring focus:ring-blue-400 text-white"
-                  type="number"
-                  required
-                />
+            id={`order`}
+            onChange={(e) => setOrder(e.target.value)}
+            rows="3"
+            className="w-full px-3 py-2 border rounded-md bg-gray-700 focus:outline-none focus:ring focus:ring-blue-400 text-white"
+            type="number"
+            required
+          />
           <form action="">
             <div className="h-[300px] overflow-y-auto p-4">
               <div className="mb-4">
@@ -266,7 +266,7 @@ const Form = ({ isLoggedIn }) => {
                   htmlFor={`case-study`}
                   className="block text-gray-300 font-medium mb-2 mt-3"
                 >
-                  Case Study
+                  Brand Overview
                 </label>
                 <input
                   id={`case-study`}
@@ -351,7 +351,7 @@ const Form = ({ isLoggedIn }) => {
                     <FiTrash2 className="w-5 h-5 mr-1" />
                     <span>Remove Detail {index + 1}</span>
                   </button>
-                  <hr className="mt-4"/>
+                  <hr className="mt-4" />
                 </div>
               ))}
             </div>

@@ -286,7 +286,7 @@ const WorksData = ({
               />
             </div>
             <div className="mb-4">
-              <label className="block text-gray-300 mb-2">Case Study</label>
+              <label className="block text-gray-300 mb-2">Brand Overview</label>
               <input
                 type="text"
                 name="caseStudy"
@@ -436,12 +436,12 @@ const WorksData = ({
                   {/* Button to add a new combined data object */}
                 </div>
               )}
-                  <button
-                    onClick={handleAddCombinedData}
-                    className="bg-green-500 text-white px-3 py-1 rounded-md my-4"
-                  >
-                    Add New Detail
-                  </button>
+            <button
+              onClick={handleAddCombinedData}
+              className="bg-green-500 text-white px-3 py-1 rounded-md my-4"
+            >
+              Add New Detail
+            </button>
 
             <div className="flex justify-end space-x-4 mt-4">
               <button
